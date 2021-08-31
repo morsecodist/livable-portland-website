@@ -5,7 +5,7 @@
         if (res.ok) {
             return {
                 props: {
-                    posts: (await res.json()),
+                    posts: (await res.json()).sort((a, b) => a.rank > b.rank),
                 },
             };
         }

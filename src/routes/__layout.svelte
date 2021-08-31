@@ -1,18 +1,8 @@
-<script lang="ts" context="module">
-    export async function load({ page, fetch }) {
-        return {
-            props: {
-                path: page.path,
-            },
-        }
-    }
-</script>
-
 <script lang="ts">
     import "../app.scss";
-    export let path: string = "/";
+    import { page } from '$app/stores';
 
-    const pages = [{
+    $: pages = [{
         title: "Home",
         path: "/",
     }, {
@@ -23,7 +13,7 @@
         path: "/contact",
     }].map(obj => ({
         ...obj,
-        classNames: `nav-link ${path === obj.path ? 'active' : ''}`,
+        classNames: `nav-link ${$page.path === obj.path ? 'active' : ''}`,
     }));
 </script>
 
@@ -50,6 +40,6 @@
         <a class="btn btn-secondary">Get Involved</a></div>
     </div>
     <div class="container text-center px-4 py-4">
-        <slot></slot>
+        <slot/>
     </div>
 </div>
