@@ -132,6 +132,7 @@
                 zoom: 12,
                 maxBounds: [[43.74257661763999, -70.05871583707632], [43.61843080183568, -70.38830568082632]],
                 minZoom: 12,
+                attributionControl: false,
             }).addLayer(new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"));
 
             const svg = d3.select(map.getPanes().overlayPane).append("svg");
@@ -165,6 +166,32 @@
                 const transform = d3.geoTransform({ point: projectPoint });
                 const path = d3.geoPath().projection(transform);
 
+                var div = d3.select("body").append("div")	
+                    .style("background-color", "white")
+                    .style("padding", "5px")
+                    .attr("class", "tooltip")				
+                    .style("user-select", "none")
+                    .style("opacity", 0);
+
+                let moving = false;
+
+                function handleMouseover(event, { properties }) {
+                    selectedZone = properties.name;
+                    if (!moving) {
+                        div.transition()		
+                            .duration(200)		
+                            .style("opacity", .9);		
+                        div.html(properties.name + "<br/>")	
+                            .style("left", (event.pageX) + "px")		
+                            .style("top", (event.pageY - 36) + "px");	
+                    }
+                }
+
+                function handleMouseout(event, { properties }) {
+                    selectedZone = null;
+                    div.style("opacity", 0);
+                }
+
                 const feature = g.selectAll("path")
                     .data(collection.features)
                     .enter()
@@ -173,8 +200,8 @@
                     .attr("fill-opacity", "0.4")
                     .attr("fill", feature => colors[feature.properties.name] || "#fff")
                     .attr("style", "pointer-events: auto;")
-                    .on("mouseover", (_, { properties }) => { selectedZone = properties.name; })
-                    .on("mouseout", (_, { properties }) => { selectedZone = null; });
+                    .on("mouseover", handleMouseover)
+                    .on("mouseout", handleMouseout);
 
                 updateZone = (zone: string | null) => {
                     feature
@@ -216,6 +243,8 @@
 
                 map.on("moveend", reset);
                 map.on("zoom", reset);
+                map.on("movestart", () => { div.style("opacity", 0); moving = true });
+                map.on("moveend", () => { moving = false });
 
                 reset();
             }
@@ -224,14 +253,9 @@
     }
 </script>
 
-<style>
+<style lang="scss">
     :global(a) {
         color: inherit;
-    }
-
-    #map {
-        width: 960px;
-        height: 500px;
     }
 </style>
 
@@ -246,6 +270,8 @@
 <div class="text-center">
 <p id="map" class="d-inline-block"/>
 </div>
+
+<p>Zoning is a big deal. You might not hear about it as much as some more exciting issues but zoning has a massive impact on your life. Zoning controls what you are allowed to do with your property, it controls what sorts of businesse can open and where as well as what housing gets built. It influences the environment, economic opportunities, discrimination, and just about everything else you can think of. So what exactly is zoning?</p>
 
 <p>Zoning is a set of policies that govern how land can be used. Some common zoning policies are: the creation of residential zones (areas where businesses are't allowed), minimum parking requirements (certain types of buildings must have a minimum amount of off-street parking), and minimum lot size requirements (it is illegal for you to cut your property in half and sell half of it). Zoning policy can actually get pretty confusing, not just because the zoning codes are hundreds of pages long, but because what is and isn't zoning is actually pretty arbitrary. Houston Texas has "no zoning code" but they have a lot of the same kinds of laws that would be in a zoning code they just call them something else. Building height is usually considered zoning but in New York City they use a system of Air Rights for that.</p>
 
