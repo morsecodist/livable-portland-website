@@ -45,6 +45,14 @@
         "ROS": "#a0fe9d",
     };
 
+    const zoomLabelSize = {
+        14: "8px",
+        15: "10px",
+        16: "12px",
+        17: "14px",
+        18: "16px",
+    };
+
     if (browser) {
         onMount(() => {
             // Plotly
@@ -77,12 +85,12 @@
 
             // Map
 
-            var map = new L.Map("map", {center: [43.6566950880206, -70.2643918991089], zoom: 12})
-                .addLayer(new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"));
-
-            // TODO tune me!
-            // map.setMaxBounds([[43.6566950880206 - 0.1, -70.2643918991089 - 0.1], [43.6566950880206 + 0.1, -70.2643918991089 + 0.1]]);
-            // map.setMinZoom(12);
+            var map = new L.Map("map", {
+                center: [43.680535819832734, -70.2235107589513],
+                zoom: 12,
+                maxBounds: [[43.74257661763999, -70.05871583707632], [43.61843080183568, -70.38830568082632]],
+                minZoom: 12,
+            }).addLayer(new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"));
 
             const svg = d3.select(map.getPanes().overlayPane).append("svg");
             const g = svg.append("g").attr("class", "leaflet-zoom-hide");
@@ -112,7 +120,7 @@
                     this.stream.point(px, py);
                 }
 
-                const transform = d3.geoTransform({point: projectPoint});
+                const transform = d3.geoTransform({ point: projectPoint });
                 const path = d3.geoPath().projection(transform);
 
                 const feature = g.selectAll("path")
@@ -123,15 +131,7 @@
                     .attr("fill-opacity", "0.4")
                     .attr("fill", feature => colors[feature.properties.name] || "#fff");
 
-                const labels = g.selectAll("text")
-                    .data(collection.features)
-                    .enter()
-                    .append("text")
-                    .text(feature => feature.properties.name)
-                    .attr("class", "place-label")
-                    .attr("x", feature => feature.geometry.coordinates[0][0])
-                    .attr("y", feature => feature.geometry.coordinates[0][1]);
-
+                let labels;
 
                 // Reposition the SVG to cover the features.
                 function reset() {
@@ -145,11 +145,25 @@
                     g.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
 
                     feature.attr("d", path);
-                    labels.attr("d", path);
+
+                    if (labels) labels.remove();
+                    const zoom = map.getZoom();
+                    if (zoom > 13) {
+                        labels = g.selectAll("text")
+                            .data(collection.features)
+                            .enter()
+                            .append("text")
+                            .text(feature => feature.properties.name)
+                            .attr("class", "place-label")
+                            .attr("text-anchor","middle")
+                            .attr("x", feature => path.centroid(feature)[0])
+                            .attr("y", feature => path.centroid(feature)[1])
+                            .style("font-size", zoomLabelSize[zoom])
+                            .style("font-weight", "bold");
+                    }
                 }
 
-                map.on("move", reset);
-                map.on("zoom", reset);
+                map.on("moveend", reset);
 
                 reset();
             }
