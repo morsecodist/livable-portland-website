@@ -53,6 +53,48 @@
         18: "16px",
     };
 
+    let updateZone = () => {};
+    let selectedZone: string | null = null;
+    $: { updateZone(selectedZone); }
+
+    const tableValues = [{
+        code: "R1",
+        friendlyName: "Single Family",
+        purposeStatement: "To provide for lower density residential development characterized by single-family homes on individual lots in outlying areas of the city and along traffic corridors with limited additional traffic capacity.",
+    }, {
+        code: "R2",
+        friendlyName: "Single Family",
+        purposeStatement: "To provide for lower density residential development characterized by single-family homes on individual lots in outlying areas of the city and along traffic corridors with limited additional traffic capacity.",
+    }, {
+        code: "R3",
+        friendlyName: "Mostly Single Family",
+        purposeStatement: "To provide for medium-density residential development characterized by single-family homes on individual lots and also to provide for planned residential unit developments on substantially sized parcels.",
+    }, {
+        code: "R4",
+        friendlyName: "Western Promenade",
+        purposeStatement: "To preserve the unique character of the Western Promenade area of the city by controlling residential conversions and by allowing the continued mix of single-family, two-family, and low-rise multi-family dwellings and other compatible development at medium densities.",
+    }, {
+        code: "R5",
+        friendlyName: "Single + Multifamily",
+        purposeStatement: "To provide appropriate areas of the city for medium-density residential development characterized by single- family, two-family and low-intensity multifamily dwellings on individual lots; to ensure the stability of established medium-density neighborhoods by controlling residential conversions; and to provide for planned residential unit development on substantially-sized parcels.",
+    }, {
+        code: "R-5A",
+        friendlyName: `<a href="https://g.page/HSL-AshtonGardens?share" target="_blank">Ashton Gardens Gracious Retirement Living</a> and <a href="https://goo.gl/maps/quAxiwDviTSfPtd28" target="_blank">St. Joseph's Convent</a>`,
+        purposeStatement: "To provide for moderate-density residential development in off-peninsula locations that can provide a unique residential living experience with a high degree of natural site amenities; and to provide areas of the city in the general proximity of the peninsula that have the capability for adequate municipal services, including traffic corridors with adequate traffic capacity, that can appropriately accommodate a more intensive use of land than other lower-density zoned land and be compatible with surrounding neighborhoods; and to increase affordable housing opportunities in off-peninsula locations by providing a moderate-density zone.",
+    }, {
+        code: "R6",
+        friendlyName: "Multifamily + Low Rise Apartments",
+        purposeStatement: "To set aside areas on the peninsula for housing characterized primarily by multi-family dwellings at a high density providing a wide range of housing for differing types of households; to conserve the existing housing stock and residential character of neighborhoods by controlling the scale and external impacts of professional offices and other nonresidential uses; and to encourage new housing development consistent with the compact lot development pattern typically found on the peninsula.",
+    }, {
+        code: "R-6A",
+        friendlyName: `<a href="https://goo.gl/maps/cn6SA3jbEAL7r4Md6" target="_blank">Deering Pavilion</a> and <a href="https://g.page/ParkDanforth?share" target="_blank">The Park Danforth</a>`,
+        purposeStatement: "To encourage neighborhood livability with higher density multi-family housing on large parcels located off the peninsula along major public transportation routes, near service areas, and in redevelopment (underutilized) or infill areas.",
+    }, {
+        code: "R7",
+        friendlyName: "Apartment Buildings",
+        purposeStatement: "To encourage and accommodate compact residential development on appropriate locations on the Portland peninsula, pursuant to the New Vision for Bayside and housing plans of the City of Portland.",
+    }];
+
     if (browser) {
         onMount(() => {
             // Plotly
@@ -129,7 +171,17 @@
                     .append("path")
                     .attr("stroke", "black")
                     .attr("fill-opacity", "0.4")
-                    .attr("fill", feature => colors[feature.properties.name] || "#fff");
+                    .attr("fill", feature => colors[feature.properties.name] || "#fff")
+                    .attr("style", "pointer-events: auto;")
+                    .on("mouseover", (_, { properties }) => { selectedZone = properties.name; })
+                    .on("mouseout", (_, { properties }) => { selectedZone = null; });
+
+                updateZone = (zone: string | null) => {
+                    feature
+                        .attr("fill-opacity", ({ properties }) => properties.name === zone ? "0.8" : "0.4")
+                        .attr("stroke-width", ({ properties }) => properties.name === zone ? "2px" : "1px");
+
+                }
 
                 let labels;
 
@@ -143,7 +195,6 @@
                         .style("top", topLeft[1] + "px");
 
                     g.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
-
                     feature.attr("d", path);
 
                     if (labels) labels.remove();
@@ -164,6 +215,7 @@
                 }
 
                 map.on("moveend", reset);
+                map.on("zoom", reset);
 
                 reset();
             }
@@ -173,7 +225,7 @@
 </script>
 
 <style>
-    a {
+    :global(a) {
         color: inherit;
     }
 
@@ -194,11 +246,10 @@
 <div class="text-center">
 <p id="map" class="d-inline-block"/>
 </div>
-<!-- <img src="zoning-map.png" alt="Zoning Map" style="width: 100%"/> -->
 
 <p>Zoning is a set of policies that govern how land can be used. Some common zoning policies are: the creation of residential zones (areas where businesses are't allowed), minimum parking requirements (certain types of buildings must have a minimum amount of off-street parking), and minimum lot size requirements (it is illegal for you to cut your property in half and sell half of it). Zoning policy can actually get pretty confusing, not just because the zoning codes are hundreds of pages long, but because what is and isn't zoning is actually pretty arbitrary. Houston Texas has "no zoning code" but they have a lot of the same kinds of laws that would be in a zoning code they just call them something else. Building height is usually considered zoning but in New York City they use a system of Air Rights for that.</p>
 
-<p>Even though there are lots of weird exceptions the zoning codes of American Cities mostly look pretty similar. They usually draw a bunch of lines on a map to divide their cities into zones and then give each zone a use like single-family residential, light industrial, business, ect... This is called <strong>Euclidean Zoning</strong>, Euclid was a famous geometry guy and Euclidean zoning involves drawing lots of shapes but sadly this is a coincidence, it is actually named after Euclid, Ohio. When I say that I don't like zoning I am really talking about the idea of creating zones for specific uses, and not all the other stuff that is sometimes called zoning. This is (mostly) the type of zoning that Portland uses. I say mostly because like many cities, Portland is making small moves away from this model within their zoning code. One reason that the definition of zoning gets kind of fuzzy is that when cities try out new ideas (or bring back some really good old ideas) they usually add them to their existing zoning codes because that is where the laws go. For example, in Portland we have the India Street Form Based Zone. <strong>Form Based Zoning</strong> is a different kind of regulation than Euclidean Zoning but in Portland it is considered a Euclidean zone like any other.</p>
+<p>Even though there are lots of weird exceptions the zoning codes of American Cities mostly look pretty similar. They usually draw a bunch of lines on a map to divide their cities into zones and then give each zone a use like single-family residential, light industrial, business, ect... This is called <strong>Euclidean Zoning</strong>, Euclid was a famous geometry guy and Euclidean zoning involves drawing lots of shapes but sadly this is a coincidence, it is actually named after Euclid, Ohio. When I say that I don't like zoning I am really talking about the idea of creating zones for specific uses, and not all the other stuff that is sometimes called zoning. This is (mostly) the type of zoning that Portland uses. I say mostly because like many cities, Portland is making small moves away from this model within their zoning code. One reason that the definition of zoning gets kind of fuzzy is that when cities try out new ideas (or bring back some really good old ideas) they usually add them to their existing zoning codes because that is where the laws go. For example, in Portland we have the <strong style="cursor: pointer" class="text-secondary" on:mouseover="{() => selectedZone = "IS-FBC"}" on:mouseout="{() => selectedZone = null}" on:focus="{() => selectedZone = "IS-FBC"}" on:blur="{() => selectedZone = null}">India Street Form Based Zone</strong>. <strong>Form Based Zoning</strong> is a different kind of regulation than Euclidean Zoning but in Portland it is considered just another Euclidean zone.</p>
 
 <table class="table text-start">
   <thead>
@@ -212,73 +263,19 @@
     <tr>
       <td colspan=3>Residential</td>
     </tr>
-    <tr style="background-color: #fefac2">
-      <td>R-1</td>
-      <td>Single Family</td>
-      <td>To provide for lower density residential development characterized by single-family homes on individual lots in
-outlying areas of the city and along traffic corridors with limited additional traffic capacity.</td>
-    </tr>
-    <tr style="background-color: #fef595">
-      <td>R-2</td>
-      <td>Single Family</td>
-      <td>To provide for lower density residential development characterized by single-family homes on individual lots in
-outlying areas of the city and along traffic corridors with limited additional traffic capacity.</td>
-    </tr>
-    <tr style="background-color: #fde267">
-      <td>R-3</td>
-      <td>Mostly Single Family</td>
-      <td>To provide for medium-density residential development characterized by single-family homes on individual lots
-and also to provide for planned residential unit developments on substantially sized parcels.</td>
-    </tr>
-    <tr style="background-color: #feca00">
-      <td>R-4</td>
-      <td>Western Promenade</td>
-      <td>To preserve the unique character of the Western Promenade area of the city by controlling residential
-conversions and by allowing the continued mix of single-family, two-family, and low-rise multi-family dwellings
-and other compatible development at medium densities.</td>
-    </tr>
-    <tr style="background-color: #f7b512">
-      <td>R-5</td>
-      <td>Single + Multifamily</td>
-      <td>To provide appropriate areas of the city for medium-density residential development characterized by single-
-family, two-family and low-intensity multifamily dwellings on individual lots; to ensure the stability of established
-medium-density neighborhoods by controlling residential conversions; and to provide for planned residential unit
-development on substantially-sized parcels.</td>
-    </tr>
-    <tr style="background-color: #e99d19">
-      <td>R-5a</td>
-      <td><a href="https://g.page/HSL-AshtonGardens?share">Ashton Gardens Gracious Retirement Living</a> and <a href="https://goo.gl/maps/quAxiwDviTSfPtd28">St. Joseph's Convent</a></td>
-      <td>To provide for moderate-density residential development in off-peninsula locations that can provide a unique
-residential living experience with a high degree of natural site amenities; and to provide areas of the city in the
-general proximity of the peninsula that have the capability for adequate municipal services, including traffic
-corridors with adequate traffic capacity, that can appropriately accommodate a more intensive use of land than
-other lower-density zoned land and be compatible with surrounding neighborhoods; and to increase affordable
-housing opportunities in off-peninsula locations by providing a moderate-density zone.</td>
-    </tr>
-    <tr style="background-color: #dd8519">
-      <td>R-6</td>
-      <td>Multifamily + Low Rise Apartments</td>
-      <td>To set aside areas on the peninsula for housing characterized primarily by multi-family dwellings at a high density
-providing a wide range of housing for differing types of households; to conserve the existing housing stock and
-residential character of neighborhoods by controlling the scale and external impacts of professional offices and
-other nonresidential uses; and to encourage new housing development consistent with the compact lot
-development pattern typically found on the peninsula.</td>
-    </tr>
-    <tr style="background-color: #a86f00">
-      <td>R-6a</td>
-      <td><a href="https://goo.gl/maps/cn6SA3jbEAL7r4Md6">Deering Pavilion</a> and <a href="https://g.page/ParkDanforth?share">The Park Danforth</a></td>
-      <td>To encourage neighborhood livability with higher density multi-family housing on large parcels located off the
-peninsula along major public transportation routes, near service areas, and in redevelopment (underutilized) or
-infill areas.</td>
-    </tr>
-    <tr style="box-shadow: inset 0px 0px 0px 3px #740000;">
-      <td>R-7* (Overlay Zone)</td>
-      <td>Apartment Buildings</td>
-      <td>To encourage and accommodate compact residential development on appropriate locations on the Portland peninsula, pursuant to the <span>New Vision for Bayside</span> and housing plans of the City of Portland.</td>
-    </tr>
-    <tr>
-      <td colspan=3>Mixed Use</td>
-    </tr>
+    {#each tableValues as tableRow}
+        <tr 
+          on:mouseover="{() => selectedZone = tableRow.code}"
+          on:mouseout="{() => selectedZone = null}"
+          on:focus="{() => selectedZone = tableRow.code}"
+          on:blur="{() => selectedZone = null}"
+          style="background-color: {colors[tableRow.code]}; cursor: pointer"
+        >
+            <td>{tableRow.code}</td>
+            <td>{@html tableRow.friendlyName}</td>
+            <td>{tableRow.purposeStatement}</td>
+        </tr>
+    {/each}
   </tbody>
 </table>
 
