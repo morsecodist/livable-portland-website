@@ -26,17 +26,15 @@
     <title>Livable Portland</title>
 </svelte:head>
 
-<div class="container">
-    <div class="row g-4">
-            {#each posts as post}
-                <div class="col">
-                <ArticleCard 
-                     src="{post.image}"
-                     href="/ideas/{post.slug}"
-                     title="{post.title}"
-                     description="{post.description}"
-                />
-            </div>
-        {/each}
-    </div>
+<div class="row g-4">
+        {#each posts as post}
+            <div class="col">
+            <ArticleCard 
+                 src="{post.image}"
+                 href="/ideas/{post.slug}"
+                 title="{post.title}"
+                 description="{post.description}"
+            />
+        </div>
+    {/each}
 </div>

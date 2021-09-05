@@ -34,6 +34,8 @@
 		"gray-matter": "^4.0.3",
 		"jsdom": "^17.0.0",
 		"marked": "^3.0.2",
+		"plotly.js-dist": "^2.4.2",
+		"plotly.js-dist-min": "^2.4.2",
 		"polka": "^0.5.2"
 	}
 }

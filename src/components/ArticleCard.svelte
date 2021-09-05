@@ -5,7 +5,7 @@
     export let href: string;
 </script>
 
-<div class="card d-inline-flex" style="width: 24rem; height: 100%;">
+<div class="card d-inline-flex" style="width: 20rem; height: 100%;">
     <img src="{src}" class="card-img-top" alt="{title}">
     <div class="card-body">
         <h5 class="card-title text-secondary">{title}</h5>
