@@ -42,6 +42,16 @@
         "WCZ": "#a4f9fe", // TODO: line
         "EWPZ": "#bfe2f8",
         "R-OS": "#a0fe9d",
+        "Residential": "#fefac2",
+        "Island": "#bfe2f8", // TODO original color
+        "Mixed Use": "#fae3e3",
+        "Office": "#dcdcdc",
+        "Industrial and Airport": "#edecfd",
+        "Open Space": "#a0fe9d",
+        "Waterfront": "#a4f9fe",
+        "Form Based": "#740000",
+        "Conditional or Contract": "#fff",
+        "Resource Protection": "#c2fec2",
     };
 
     const zoomLabelSize = {
@@ -90,10 +100,6 @@
             code: "R-6a",
             friendlyName: `<a href="https://goo.gl/maps/cn6sa3jbeal7r4md6" target="_blank">Deering Pavilion</a> and <a href="https://g.page/parkdanforth?share" target="_blank">The Park Danforth</a>`,
             purposeStatement: "To encourage neighborhood livability with higher density multi-family housing on large parcels located off the peninsula along major public transportation routes, near service areas, and in redevelopment (underutilized) or infill areas.",
-        }, {
-            code: "R-7",
-            friendlyName: "Apartment Buildings",
-            purposeStatement: "To encourage and accommodate compact residential development on appropriate locations on the Portland peninsula, pursuant to the New Vision for Bayside and housing plans of the City of Portland.",
         }],
     }, {
         header: "Island",
@@ -236,6 +242,41 @@
             friendlyName: "Eastern Waterfront Port",
             purposeStatement: "The Eastern Waterfront Port Zone is created to nurture deepwater-dependent activity within the context of the established waterfront.",
         }],
+    }, {
+        header: "Overlay Zone",
+        rows: [{
+            code: "R-7",
+            friendlyName: "Apartment Buildings",
+            purposeStatement: "To encourage and accommodate compact residential development on appropriate locations on the Portland peninsula, pursuant to the New Vision for Bayside and housing plans of the City of Portland.",
+        }, {
+            code: "DEOZ",
+            friendlyName: "Downtown Entertainment Overlay",
+            purposeStatement: "",
+        }, {
+            code: "FH",
+            friendlyName: "Fort Sumner Park Height Overlay",
+            purposeStatement: "",
+        }, {
+            code: "Helistop Overla",
+            friendlyName: "Helistop Overlay",
+            purposeStatement: "",
+        }, {
+            code: "MunjoyHill NCOD",
+            friendlyName: "Munjoy Hill Neighborhood Conservation",
+            purposeStatement: "",
+        }, {
+            code: "Waynflete Core",
+            friendlyName: "Waynflete School Overlay",
+            purposeStatement: "",
+        }, {
+            code: "Waynflete Edge",
+            friendlyName: "Waynflete School Overlay",
+            purposeStatement: "",
+        }, {
+            code: "USM",
+            friendlyName: "University of Southern Maine Overlay",
+            purposeStatement: "",
+        }],
     }];
 
     if (browser) {
@@ -267,6 +308,110 @@
             };
 
             Plotly.newPlot('gd', data, layout);
+
+            async function loadAreas() {
+                const areas = await (await fetch("/areas.json")).json();
+                const total = Object.values(areas).reduce((a, b) => a + b);
+                const percents = Object.entries(areas).reduce((acc, [name, value]) => ({
+                    ...acc,
+                    [name]: Math.round(100 * 100 * value / total) / 100,
+                }), {});
+
+                const width = 800;
+                const height = 450;
+                const margin = 40;
+
+                // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
+                const radius = Math.min(width, height) / 2 - margin
+
+                // append the svg object to the div called 'my_dataviz'
+                const svg = d3.select("#pie-chart")
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .append("g")
+                    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+                // Compute the position of each group on the pie:
+                const pie = d3.pie()
+                    .sort(null) // Do not sort group by size
+                    .value(([_, value]) => value)
+                const data_ready = pie(Object.entries(areas))
+
+                // The arc generator
+                const arc = d3.arc()
+                    .innerRadius(radius * 0.5)         // This is the size of the donut hole
+                    .outerRadius(radius * 0.8)
+
+                // Another arc that won't be drawn. Just for labels positioning
+                const outerArc = d3.arc()
+                    .innerRadius(radius * 0.9)
+                    .outerRadius(radius * 0.9)
+
+                // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+                svg
+                    .selectAll('allSlices')
+                    .data(data_ready)
+                    .enter()
+                    .append('path')
+                    .attr('d', arc)
+                    .attr('fill', ({ data }) => colors[data[0]])
+                    .attr("stroke", "white")
+                    .style("stroke-width", "2px")
+                    .style("opacity", 0.7)
+
+                // Add the polylines between chart and labels:
+                svg
+                    .selectAll('allPolylines')
+                    .data(data_ready)
+                    .enter()
+                    .append('polyline')
+                        .attr("stroke", "black")
+                        .style("fill", "none")
+                        .attr("stroke-width", 1)
+                        .attr('points', (d) => {
+                            let posA = arc.centroid(d) // line insertion in the slice
+                            let posB = outerArc.centroid(d) // line break: we use the other arc generator that has been built only for that
+                            let posC = outerArc.centroid(d); // Label position = almost the same as posB
+                            const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
+                            posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
+                            // HACK: lower Resource Protection
+                            if (d.data[0] === "Resource Protection") {
+                                posB[1] += 15;
+                                posC[1] += 15;
+                            } else if (d.data[0] === "Island") {
+                                posB[1] += 5;
+                                posC[1] += 5;
+                            }
+                            return [posA, posB, posC]
+                        })
+
+                // Add the polylines between chart and labels:
+                svg
+                    .selectAll('allLabels')
+                    .data(data_ready)
+                    .enter()
+                    .append('text')
+                        .text(({ data }) => `${percents[data[0]]}% ${data[0]}`)
+                        .attr('transform', (d) => {
+                            const pos = outerArc.centroid(d);
+                            const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+                            pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
+                            // HACK: lower Resource Protection
+                            if (d.data[0] === "Resource Protection") {
+                                pos[1] += 15;
+                            } else if (d.data[0] === "Island") {
+                                pos[1] += 5;
+                            }
+                            pos[1] += 5;
+                            return 'translate(' + pos + ')';
+                        })
+                        .style('text-anchor', (d) => {
+                            const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+                            return (midangle < Math.PI ? 'start' : 'end')
+                        })
+            }
+            loadAreas();
 
             // Map
 
@@ -396,6 +541,7 @@
 
 <div class="text-center">
 <p id="map" class="d-inline-block"/>
+<p id="pie-chart" class="d-inline-block"/>
 </div>
 
 <p>Zoning is a big deal. You might not hear about it as much as some more exciting issues but zoning has a massive impact on your life. Zoning controls what you are allowed to do with your property, it controls what sorts of businesse can open and where as well as what housing gets built. It influences the environment, economic opportunities, discrimination, and just about everything else you can think of. So what exactly is zoning?</p>
