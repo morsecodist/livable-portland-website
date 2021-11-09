@@ -14,7 +14,7 @@
 
         return {
             status: res.status,
-            error: new Error(`Could not load ${path}`),
+            error: new Error(`Could not load ${page.path}`),
         };
     }
 </script>

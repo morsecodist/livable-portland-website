@@ -7,8 +7,8 @@ $theme-colors: (
 @import 'bootstrap/scss/bootstrap.scss';
 
 #map {
-    width: 960px;
-    height: 500px;
+    width: 100%;
+    height: 600px;
 }
 
 @include media-breakpoint-down(lg) {
@@ -27,6 +27,6 @@ $theme-colors: (
 @include media-breakpoint-down(sm) {
     #map {
         height: 560px;
-        width: 300px;
+        width: 100%;
     }
 }

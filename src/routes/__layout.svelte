@@ -34,7 +34,7 @@
                     </li>
                 {/each}
             </ul>
-        <a class="d-inline-form btn btn-secondary">Get Involved</a>
+        <a class="d-inline-form btn btn-secondary" href="/get-involved">Get Involved</a>
         </div>
     </nav>
     <div id="under-nav" class="container text-center">

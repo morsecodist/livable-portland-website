@@ -1,11 +1,12 @@
 <script lang="ts" context="module">
-    export async function load({ page, fetch }) {
+    import type { Post } from "../types/post";
+    export async function load({ fetch }) {
         const res = await fetch("/ideas.json");
 
         if (res.ok) {
             return {
                 props: {
-                    posts: (await res.json()).sort((a, b) => a.rank > b.rank),
+                    posts: (await res.json()).sort((a: Post, b: Post) => a.rank > b.rank),
                 },
             };
         }
@@ -19,7 +20,7 @@
 
 <script lang="ts">
     import ArticleCard from '../components/ArticleCard.svelte';
-    export let posts: obj[];
+    export let posts: Post[];
 </script>
 
 <svelte:head>
