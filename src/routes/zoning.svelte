@@ -23,6 +23,8 @@
     import { onMount } from "svelte";
 
     export let tableValues: any;
+    let overlayZones = false;
+    let areas;
 
     const colors = {
         "IR-1": "#fffac2",
@@ -88,40 +90,28 @@
         18: "16px",
     };
 
+    function hexToRgb(hex: string) {
+        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? [
+            parseInt(result[1], 16),
+            parseInt(result[2], 16),
+            parseInt(result[3], 16),
+        ] : null;
+    }
+
+    function isDark(hex: string) {
+        const [r, g, b] = hexToRgb(hex);
+        const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+        return luma < 40;
+    }
+
+
     let updateZone = (_: string | null) => {};
     let selectedZone: string | null = null;
     $: { updateZone(selectedZone); }
 
     if (browser) {
         onMount(() => {
-            // Plotly
-
-            const trace1 = {
-                x: ["R1", "R2", "R3", "R4", "R5", "R-5A", "R6", "R-6A"],
-                y: [ 1.5, 13.7, 49.7,  1.3, 24.7,  0.3,  8.5,  0.2],
-                name: "% of Residential",
-                type: "bar",
-            };
-
-            const trace2 = {
-                x: ["R1", "R2", "R3", "R4", "R5", "R-5A", "R6", "R-6A"],
-                y: [ 0.7,  6.1, 22.1,  0.6, 11. ,  0.1,  3.8,  0.1],
-                name: "% of Total",
-                type: "bar",
-            };
-
-            const data = [trace1, trace2];
-
-            const layout = {
-                title: "Land Use by Residential Zone",
-                font:{
-                  family: "Raleway, sans-serif"
-                },
-                barmode: "group",
-            };
-
-            Plotly.newPlot('gd', data, layout);
-
             async function loadAreas() {
                 const areas = await (await fetch("/areas.json")).json();
                 const total = Object.values(areas).reduce((a, b) => a + b);
@@ -265,19 +255,28 @@
 
                 let moving = false;
 
-                function handleMouseover(event, { properties }) {
+                function handleMouseEnter(_, { properties }) {
+                    if (properties.zoneType === "overlay") return;
                     selectedZone = properties.name;
-                    if (!moving) {
-                        div.transition()		
-                            .duration(200)		
-                            .style("opacity", .9);		
-                        div.html(properties.name + "<br/>")	
-                            .style("left", (event.pageX) + "px")		
-                            .style("top", (event.pageY - 36) + "px");	
-                    }
+                    div.transition()		
+                        .duration(200)		
+                        .style("opacity", .9)
+                        .style("background-color", colors[selectedZone] || "white")
+                        .style("color", colors[selectedZone] && isDark(colors[selectedZone]) ? "white" : "black");
+                    
                 }
 
-                function handleMouseout(event, { properties }) {
+                function handleMouseover(event, { properties }) {	
+                    div.html(properties.name + "<br/>")	
+                        .style("left", (event.pageX) + "px")		
+                        .style("top", (event.pageY - 36) + "px");	
+                }
+
+                document.addEventListener("mousemove", () => {
+                    if (!selectedZone) div.style("opacity", 0);
+                });
+
+                function handleMouseout() {
                     selectedZone = null;
                     div.style("opacity", 0);
                 }
@@ -286,17 +285,19 @@
                     .data(collection.features)
                     .enter()
                     .append("path")
-                    .attr("stroke", "black")
-                    .attr("fill-opacity", "0.4")
-                    .attr("fill", feature => colors[feature.properties.name] || "#fff")
+                    .attr("stroke", ({ properties }) => colors[properties.name] ? "black" : "#77c")
+                    .attr("fill-opacity", ({ properties }) => properties.zoneType === "normal" ? 0.4 : 0)
+                    .attr("fill", ({ properties }) => colors[properties.name])
                     .attr("style", "pointer-events: auto;")
-                    .on("mouseover", handleMouseover)
+                    .style("stroke-dasharray", ({ properties }) => properties.zoneType === "normal" || ("3, 3"))
+                    .on("mouseenter", handleMouseEnter)
+                    .on("mousemove", handleMouseover)
                     .on("mouseout", handleMouseout);
 
                 updateZone = (zone: string | null) => {
                     feature
-                        .attr("fill-opacity", ({ properties }) => properties.name === zone ? "0.8" : "0.4")
-                        .attr("stroke-width", ({ properties }) => properties.name === zone ? "2px" : "1px");
+                        .attr("fill-opacity", ({ properties }) => colors[properties.name] ? (properties.name === zone ? "0.8" : "0.4") : 0)
+                        .attr("stroke-width", ({ properties }) => properties.zoneType === "overlay" ? (properties.name === zone ? "4px" : "2px") : (properties.name === zone ? "2px" : "1px"));
 
                 }
 
@@ -321,7 +322,7 @@
                             .data(collection.features)
                             .enter()
                             .append("text")
-                            .text(feature => feature.properties.name)
+                            .text(({ properties }) => properties.zoneType === "overlay" ? properties.name : "")
                             .attr("class", "place-label")
                             .attr("text-anchor","middle")
                             .attr("x", feature => path.centroid(feature)[0])
@@ -356,8 +357,37 @@
 
 <article class="text-start">
 <h1 class="text-primary text-center">Zoning 101</h1>
-<div class="text-center">
+<div class="text-start d-flex">
     <p id="map" class="d-inline-block"/>
+    <table class="table text-start d-inline-block" style="height: 600px; overflow: scroll;">
+      <tbody>
+        {#each tableValues as tableSection}
+            <tr>
+                <th colspan=2>{tableSection.header}</th>
+            </tr>
+            <tr>
+                <th scope="col">Code</th>
+                <th scope="col">Friendly Name</th>
+              </tr>
+            {#each tableSection.rows as tableRow}
+                <tr 
+                    on:mouseover="{() => selectedZone = tableRow.code}"
+                    on:mouseout="{() => selectedZone = null}"
+                    on:focus="{() => selectedZone = tableRow.code}"
+                    on:blur="{() => selectedZone = null}"
+                    style="background-color: {colors[tableRow.code]}; cursor: pointer;{whiteText[tableRow.code] && "color: white"}"
+                >
+                    <td>{tableRow.code}</td>
+                    <td>{@html tableRow.friendlyName}</td>
+                </tr>
+            {/each}
+        {/each}
+      </tbody>
+    </table>
+</div>
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" bind:checked={overlayZones}>
+    <label class="form-check-label" for="flexSwitchCheckDefault">Overlay Zones</label>
 </div>
 
 <p>Zoning is a big deal. You might not hear about it as much as some more flashy issues but zoning has a massive impact on your life. Zoning controls what you are allowed to do with your property, how much your rent will be, how your home value changes over time, where you are able to move, what sorts of businesses you can open and where, and how you get around. Local issues may seem small but they have a big influence on your immediate surroundings and together, a lot of local policies have big national effects. It influences the environment, economic equality, prosperity, and even how much of a sense of community your neighborhood has. After nearly a century, zoning has faded into the backgrounds of our minds and seems like it is just the way things are. But zoning should not be in the background, changing zoning policies can change lives.</p>
@@ -369,36 +399,4 @@
 <div class="text-center">
 <p id="pie-chart" class="d-inline-block"/>
 </div>
-
-<table class="table text-start">
-  <thead>
-    <tr>
-      <th scope="col">Code</th>
-      <th scope="col">Friendly Name</th>
-      <th scope="col">Purpose Statement</th>
-    </tr>
-  </thead>
-  <tbody>
-    {#each tableValues as tableSection}
-        <tr>
-            <th colspan=3>{tableSection.header}</th>
-        </tr>
-        {#each tableSection.rows as tableRow}
-            <tr 
-                on:mouseover="{() => selectedZone = tableRow.code}"
-                on:mouseout="{() => selectedZone = null}"
-                on:focus="{() => selectedZone = tableRow.code}"
-                on:blur="{() => selectedZone = null}"
-                style="background-color: {colors[tableRow.code]}; cursor: pointer;{whiteText[tableRow.code] && "color: white"}"
-            >
-                <td>{tableRow.code}</td>
-                <td>{@html tableRow.friendlyName}</td>
-                <td>{@html tableRow.purposeStatement}</td>
-            </tr>
-        {/each}
-    {/each}
-  </tbody>
-</table>
-
-<div id="gd"/>
 </article>
