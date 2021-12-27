@@ -2,17 +2,25 @@
     import YAML from "yaml";
 
     export async function load({ fetch }) {
-        const res = await fetch("/table.yaml");
-        if (res.ok) {
+        const responses = await Promise.all([
+            fetch("/table.yaml"),
+            fetch("/areas.json"),
+            fetch("/zones.json"),
+        ]);
+
+        if (responses.every(r => r.ok)) {
+            const parsed = await Promise.all(responses.map((elem, i) => i == 0 ? elem.text() : elem.json()));
             return {
                 props: {
-                    tableValues: YAML.parse(await res.text()),
+                    tableValues: YAML.parse(parsed[0]),
+                    areas: parsed[1],
+                    zones: parsed[2],
                 },
             };
         }
 
         return {
-            status: res.status,
+            status: 404,
             error: new Error("Could not load /table.json}"),
         };
     }
@@ -23,8 +31,154 @@
     import { onMount } from "svelte";
 
     export let tableValues: any;
+    export let areas: any;
+    export let zones: any;
     let overlayZones = false;
-    let areas;
+
+    $: filteredZones = !overlayZones 
+        ? {
+            ...zones,
+            features: zones.features.filter(({ properties }) => properties.zoneType !== "overlay"),
+        }
+        : zones;
+
+    class Map {
+        private map: any;
+        private g: any;
+        private labels: any;
+        private div: any;
+        private svg: any;
+        private path: any;
+        private feature: any;
+        private zones: any;
+
+        public initialized: boolean;
+
+        initialize(zones: any) {
+            this.map = new L.Map("map", {
+                center: [43.680535819832734, -70.2235107589513],
+                zoom: 12,
+                maxBounds: [[43.74257661763999, -70.05871583707632], [43.61843080183568, -70.38830568082632]],
+                minZoom: 12,
+                attributionControl: false,
+            }).addLayer(new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"));
+
+            this.svg = d3.select(this.map.getPanes().overlayPane).append("svg");
+            this.g = this.svg.append("g").attr("class", "leaflet-zoom-hide");
+
+            let map = this.map;
+            // Use Leaflet to implement a D3 geometric transformation.
+            function projectPoint(x, y) {
+                const {x: px, y: py} = map.latLngToLayerPoint(new L.LatLng(y, x));
+                this.stream.point(px, py);
+            }
+
+            const transform = d3.geoTransform({ point: projectPoint });
+            this.path = d3.geoPath().projection(transform);
+
+            this.div = d3.select("body").append("div")	
+                .style("background-color", "white")
+                .style("padding", "5px")
+                .attr("class", "tooltip")				
+                .style("user-select", "none")
+                .style("opacity", 0);
+
+            let moving = false;
+
+            document.addEventListener("mousemove", () => {
+                if (!selectedZone) this.div.style("opacity", 0);
+            });
+
+            this.updateZones(zones);
+
+            this.map.on("moveend", this.reset.bind(this));
+            this.map.on("zoom", this.reset.bind(this));
+            this.map.on("movestart", () => { this.div.style("opacity", 0); moving = true });
+            this.map.on("moveend", () => { moving = false });
+
+            this.reset();
+            this.initialized = true;
+        }
+
+        handleMouseEnter(_, { properties }) {
+            if (properties.zoneType === "overlay") return;
+            selectedZone = properties.name;
+            this.div.transition()		
+                .duration(200)		
+                .style("opacity", .9)
+                .style("background-color", colors[selectedZone] || "white")
+                .style("color", colors[selectedZone] && isDark(colors[selectedZone]) ? "white" : "black");
+            
+        }
+
+        handleMouseover(event, { properties }) {	
+            this.div.html(properties.name + "<br/>")	
+                .style("left", (event.pageX) + "px")		
+                .style("top", (event.pageY - 36) + "px");	
+        }
+
+        handleMouseout() {
+            selectedZone = null;
+            this.div.style("opacity", 0);
+        }
+
+        // Reposition the SVG to cover the features.
+        reset() {
+            const [topLeft, bottomRight] = this.path.bounds(this.zones);
+
+            this.svg.attr("width", bottomRight[0] - topLeft[0])
+                .attr("height", bottomRight[1] - topLeft[1])
+                .style("left", topLeft[0] + "px")
+                .style("top", topLeft[1] + "px");
+
+            this.g.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
+            this.feature.attr("d", this.path);
+
+            if (this.labels) this.labels.remove();
+            const zoom = this.map.getZoom();
+            if (zoom > 13) {
+                this.labels = this.g.selectAll("text")
+                    .data(this.zones.features)
+                    .enter()
+                    .append("text")
+                    .text(({ properties }) => properties.zoneType === "overlay" ? properties.name : "")
+                    .attr("class", "place-label")
+                    .attr("text-anchor","middle")
+                    .attr("x", feature => this.path.centroid(feature)[0])
+                    .attr("y", feature => this.path.centroid(feature)[1])
+                    .style("font-size", zoomLabelSize[zoom])
+                    .style("font-weight", "bold");
+            }
+        }
+
+        updateZones(zones: any) {
+            this.zones = zones;
+            if (this.feature) {
+                this.feature.remove();
+            }
+            this.feature = this.g.selectAll("path")
+                .data(zones.features)
+                .enter()
+                .append("path")
+                .attr("stroke", ({ properties }) => colors[properties.name] ? "black" : "#77c")
+                .attr("fill-opacity", ({ properties }) => properties.zoneType === "normal" ? 0.4 : 0)
+                .attr("fill", ({ properties }) => colors[properties.name] || "#fff")
+                .attr("style", "pointer-events: auto;")
+                .attr("stroke-width", ({ properties }) => properties.zoneType === "overlay" ? "4px" : "1px")
+                .on("mouseenter", this.handleMouseEnter.bind(this))
+                .on("mousemove", this.handleMouseover.bind(this))
+                .on("mouseout", this.handleMouseout.bind(this));
+            this.reset();
+        }
+
+        selectZone(zone: string | null) {
+            this.feature
+                .attr("fill-opacity", ({ properties }) => colors[properties.name] ? (properties.name === zone ? "0.8" : "0.4") : 0)
+                .attr("stroke-width", ({ properties }) => properties.zoneType === "overlay" ? (properties.name === zone ? "4px" : "1px") : (properties.name === zone ? "2px" : "1px"));
+        }
+    }
+
+    let map = new Map();
 
     const colors = {
         "IR-1": "#fffac2",
@@ -108,12 +262,22 @@
 
     let updateZone = (_: string | null) => {};
     let selectedZone: string | null = null;
-    $: { updateZone(selectedZone); }
+
+    $: {
+        if (browser && map.initialized) {
+            map.updateZones(filteredZones);
+        }
+    }
+
+    $: {
+        if (browser && map.initialized) {
+            map.selectZone(selectedZone);
+        }
+    }
 
     if (browser) {
         onMount(() => {
             async function loadAreas() {
-                const areas = await (await fetch("/areas.json")).json();
                 const total = Object.values(areas).reduce((a, b) => a + b);
                 const percents = Object.entries(areas).reduce((acc, [name, value]) => ({
                     ...acc,
@@ -223,123 +387,7 @@
 
             // Map
 
-            var map = new L.Map("map", {
-                center: [43.680535819832734, -70.2235107589513],
-                zoom: 12,
-                maxBounds: [[43.74257661763999, -70.05871583707632], [43.61843080183568, -70.38830568082632]],
-                minZoom: 12,
-                attributionControl: false,
-            }).addLayer(new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"));
-
-            const svg = d3.select(map.getPanes().overlayPane).append("svg");
-            const g = svg.append("g").attr("class", "leaflet-zoom-hide");
-
-            async function loadZones() {
-                const collection = await (await fetch("/zones.json")).json();
-
-                // Use Leaflet to implement a D3 geometric transformation.
-                function projectPoint(x, y) {
-                    const {x: px, y: py} = map.latLngToLayerPoint(new L.LatLng(y, x));
-                    this.stream.point(px, py);
-                }
-
-                const transform = d3.geoTransform({ point: projectPoint });
-                const path = d3.geoPath().projection(transform);
-
-                var div = d3.select("body").append("div")	
-                    .style("background-color", "white")
-                    .style("padding", "5px")
-                    .attr("class", "tooltip")				
-                    .style("user-select", "none")
-                    .style("opacity", 0);
-
-                let moving = false;
-
-                function handleMouseEnter(_, { properties }) {
-                    if (properties.zoneType === "overlay") return;
-                    selectedZone = properties.name;
-                    div.transition()		
-                        .duration(200)		
-                        .style("opacity", .9)
-                        .style("background-color", colors[selectedZone] || "white")
-                        .style("color", colors[selectedZone] && isDark(colors[selectedZone]) ? "white" : "black");
-                    
-                }
-
-                function handleMouseover(event, { properties }) {	
-                    div.html(properties.name + "<br/>")	
-                        .style("left", (event.pageX) + "px")		
-                        .style("top", (event.pageY - 36) + "px");	
-                }
-
-                document.addEventListener("mousemove", () => {
-                    if (!selectedZone) div.style("opacity", 0);
-                });
-
-                function handleMouseout() {
-                    selectedZone = null;
-                    div.style("opacity", 0);
-                }
-
-                const feature = g.selectAll("path")
-                    .data(collection.features)
-                    .enter()
-                    .append("path")
-                    .attr("stroke", ({ properties }) => colors[properties.name] ? "black" : "#77c")
-                    .attr("fill-opacity", ({ properties }) => properties.zoneType === "normal" ? 0.4 : 0)
-                    .attr("fill", ({ properties }) => colors[properties.name])
-                    .attr("style", "pointer-events: auto;")
-                    .style("stroke-dasharray", ({ properties }) => properties.zoneType === "normal" || ("3, 3"))
-                    .on("mouseenter", handleMouseEnter)
-                    .on("mousemove", handleMouseover)
-                    .on("mouseout", handleMouseout);
-
-                updateZone = (zone: string | null) => {
-                    feature
-                        .attr("fill-opacity", ({ properties }) => colors[properties.name] ? (properties.name === zone ? "0.8" : "0.4") : 0)
-                        .attr("stroke-width", ({ properties }) => properties.zoneType === "overlay" ? (properties.name === zone ? "4px" : "2px") : (properties.name === zone ? "2px" : "1px"));
-
-                }
-
-                let labels;
-
-                // Reposition the SVG to cover the features.
-                function reset() {
-                    const [topLeft, bottomRight] = path.bounds(collection);
-
-                    svg.attr("width", bottomRight[0] - topLeft[0])
-                        .attr("height", bottomRight[1] - topLeft[1])
-                        .style("left", topLeft[0] + "px")
-                        .style("top", topLeft[1] + "px");
-
-                    g.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
-                    feature.attr("d", path);
-
-                    if (labels) labels.remove();
-                    const zoom = map.getZoom();
-                    if (zoom > 13) {
-                        labels = g.selectAll("text")
-                            .data(collection.features)
-                            .enter()
-                            .append("text")
-                            .text(({ properties }) => properties.zoneType === "overlay" ? properties.name : "")
-                            .attr("class", "place-label")
-                            .attr("text-anchor","middle")
-                            .attr("x", feature => path.centroid(feature)[0])
-                            .attr("y", feature => path.centroid(feature)[1])
-                            .style("font-size", zoomLabelSize[zoom])
-                            .style("font-weight", "bold");
-                    }
-                }
-
-                map.on("moveend", reset);
-                map.on("zoom", reset);
-                map.on("movestart", () => { div.style("opacity", 0); moving = true });
-                map.on("moveend", () => { moving = false });
-
-                reset();
-            }
-            loadZones();
+            map.initialize(filteredZones);
         });
     }
 </script>
