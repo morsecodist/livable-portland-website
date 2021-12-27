@@ -29,6 +29,7 @@
 <script lang="ts">
     import { browser } from "$app/env";
     import { onMount } from "svelte";
+    import * as d3 from "d3";
 
     export let tableValues: any;
     export let areas: any;
@@ -51,17 +52,21 @@
         private path: any;
         private feature: any;
         private zones: any;
+        private L: typeof import("leaflet");
 
         public initialized: boolean;
 
-        initialize(zones: any) {
-            this.map = new L.Map("map", {
+        constructor() {}
+
+        initialize(L: typeof import("leaflet"), zones: any) {
+            this.L = L;
+            this.map = new this.L.Map("map", {
                 center: [43.680535819832734, -70.2235107589513],
                 zoom: 12,
                 maxBounds: [[43.74257661763999, -70.05871583707632], [43.61843080183568, -70.38830568082632]],
                 minZoom: 12,
                 attributionControl: false,
-            }).addLayer(new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"));
+            }).addLayer(new this.L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"));
 
             this.svg = d3.select(this.map.getPanes().overlayPane).append("svg");
             this.g = this.svg.append("g").attr("class", "leaflet-zoom-hide");
@@ -276,7 +281,7 @@
     }
 
     if (browser) {
-        onMount(() => {
+        onMount(async () => {
             async function loadAreas() {
                 const total = Object.values(areas).reduce((a, b) => a + b);
                 const percents = Object.entries(areas).reduce((acc, [name, value]) => ({
@@ -386,8 +391,9 @@
             loadAreas();
 
             // Map
+            const L = (await import('leaflet')).default;
 
-            map.initialize(filteredZones);
+            map.initialize(L, filteredZones);
         });
     }
 </script>
