@@ -12,7 +12,7 @@ function readFile(path: fs.PathLike): Promise<Buffer> {
 
 export async function get({ params }) {
     const { slug } = params;
-    const file = `content/ideas/${slug}.md`;
+    const file = `${__dirname}/content/ideas/${slug}.md`;
     const obj = matter(await readFile(file));
 
     return {
