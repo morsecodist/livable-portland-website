@@ -1,0 +1,8 @@
+{
+    "functions": {
+      "*": {
+        "includeFiles": "content/**"
+      }
+    }
+  }
+  
