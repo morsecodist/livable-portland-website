@@ -42,5 +42,8 @@
 		"plotly.js-dist-min": "^2.4.2",
 		"polka": "^0.5.2",
 		"yaml": "^1.10.2"
+	},
+	"engines" : { 
+		"node" : "16.13.2" 
 	}
 }
