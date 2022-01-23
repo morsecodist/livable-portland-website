@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
-    export async function load({ page, fetch }) {
-        const res = await fetch(`${page.path}.json`);
+    export async function load({ url, fetch }) {
+        const res = await fetch(`${url.pathname}.json`);
 
         if (res.ok) {
             const obj = await res.json();
@@ -14,7 +14,7 @@
 
         return {
             status: res.status,
-            error: new Error(`Could not load ${page.path}`),
+            error: new Error(`Could not load ${url.pathname}`),
         };
     }
 </script>

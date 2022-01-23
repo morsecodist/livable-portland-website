@@ -16,7 +16,7 @@
         path: "/contact",
     }].map(obj => ({
         ...obj,
-        classNames: `${$page.path === obj.path ? 'active' : ''}`,
+        classNames: `${$page.url.pathname === obj.path ? 'active' : ''}`,
     }));
 </script>
 
