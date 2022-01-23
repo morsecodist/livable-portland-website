@@ -3,6 +3,6 @@
     export let content: string = "";
 </script>
 
-<div>
+<div class="text-start">
     { @html marked(content) }
 </div>

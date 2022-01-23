@@ -43,6 +43,18 @@
         }
         : zones;
 
+    function getOpacity({ properties }) {
+        if (properties.zoneType === "overlay") return 0;
+        if (properties.zoneType === "normal" && overlayZones) return "0.2";
+        return properties.name === selectedZone ? "0.8" : "0.4";
+    }
+
+    function getStrokeWidth({ properties }) {
+        if (properties.zoneType === "normal" && overlayZones) return "0px";
+        if (properties.zoneType === "normal") return properties.name === selectedZone ? "2px" : "1px";
+        return properties.name === selectedZone ? "4px" : "2px";
+    }
+
     class Map {
         private map: any;
         private g: any;
@@ -106,8 +118,9 @@
         }
 
         handleMouseEnter(_, { properties }) {
-            if (properties.zoneType === "overlay") return;
             selectedZone = properties.name;
+            if (properties.zoneType === "overlay" && !overlayZones) return;
+            if (properties.zoneType === "normal" && overlayZones) return;
             this.div.transition()		
                 .duration(200)		
                 .style("opacity", .9)
@@ -138,22 +151,6 @@
 
             this.g.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
             this.feature.attr("d", this.path);
-
-            if (this.labels) this.labels.remove();
-            const zoom = this.map.getZoom();
-            if (zoom > 13) {
-                this.labels = this.g.selectAll("text")
-                    .data(this.zones.features)
-                    .enter()
-                    .append("text")
-                    .text(({ properties }) => properties.zoneType === "overlay" ? properties.name : "")
-                    .attr("class", "place-label")
-                    .attr("text-anchor","middle")
-                    .attr("x", feature => this.path.centroid(feature)[0])
-                    .attr("y", feature => this.path.centroid(feature)[1])
-                    .style("font-size", zoomLabelSize[zoom])
-                    .style("font-weight", "bold");
-            }
         }
 
         updateZones(zones: any) {
@@ -166,10 +163,10 @@
                 .enter()
                 .append("path")
                 .attr("stroke", ({ properties }) => colors[properties.name] ? "black" : "#77c")
-                .attr("fill-opacity", ({ properties }) => properties.zoneType === "normal" ? 0.4 : 0)
+                .attr("fill-opacity", getOpacity)
                 .attr("fill", ({ properties }) => colors[properties.name] || "#fff")
                 .attr("style", "pointer-events: auto;")
-                .attr("stroke-width", ({ properties }) => properties.zoneType === "overlay" ? "4px" : "1px")
+                .attr("stroke-width", getStrokeWidth)
                 .on("mouseenter", this.handleMouseEnter.bind(this))
                 .on("mousemove", this.handleMouseover.bind(this))
                 .on("mouseout", this.handleMouseout.bind(this));
@@ -178,8 +175,8 @@
 
         selectZone(zone: string | null) {
             this.feature
-                .attr("fill-opacity", ({ properties }) => colors[properties.name] ? (properties.name === zone ? "0.8" : "0.4") : 0)
-                .attr("stroke-width", ({ properties }) => properties.zoneType === "overlay" ? (properties.name === zone ? "4px" : "1px") : (properties.name === zone ? "2px" : "1px"));
+                .attr("fill-opacity", getOpacity)
+                .attr("stroke-width", getStrokeWidth);
         }
     }
 
@@ -416,10 +413,10 @@
     <table class="table text-start d-inline-block" style="height: 600px; overflow: scroll;">
       <tbody>
         {#each tableValues as tableSection}
-            <tr>
+            <tr style="background-color: {colors[tableSection.rows[0].code]}">
                 <th colspan=2>{tableSection.header}</th>
             </tr>
-            <tr>
+            <tr style="background-color: {colors[tableSection.rows[0].code]}">
                 <th scope="col">Code</th>
                 <th scope="col">Friendly Name</th>
               </tr>
@@ -429,7 +426,7 @@
                     on:mouseout="{() => selectedZone = null}"
                     on:focus="{() => selectedZone = tableRow.code}"
                     on:blur="{() => selectedZone = null}"
-                    style="background-color: {colors[tableRow.code]}; cursor: pointer;{whiteText[tableRow.code] && "color: white"}"
+                    style="background-color: {colors[tableRow.code]}; cursor: pointer;{whiteText[tableRow.code] && "color: white"};{selectedZone === tableRow.code ? "outline: 2px solid black" : ""}"
                 >
                     <td>{tableRow.code}</td>
                     <td>{@html tableRow.friendlyName}</td>
