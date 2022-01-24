@@ -1,5 +1,6 @@
 import fs from "fs";
 import matter from "gray-matter";
+import { resolve, join } from "path";
 
 function listDir(path: fs.PathLike): Promise<string[]> {
   return new Promise<string[]>((resolve, reject) => {
@@ -21,11 +22,11 @@ function readFile(path: fs.PathLike): Promise<Buffer> {
 
 
 export async function get() {
-    const files = await listDir("content/ideas");
+    const files = await listDir(join(resolve(), "content/ideas"));
     const posts = await Promise.all(files.map(async filename => {
-        const fileData = await readFile(`content/ideas/${filename}`);
+        const fileData = await readFile(join(resolve(), `content/ideas/${filename}`));
         const obj = matter(fileData).data;
-        obj.slug = filename.substr(0, filename.length - 3);
+        obj.slug = filename.substring(0, filename.length - 3);
         return obj;
     }));
 

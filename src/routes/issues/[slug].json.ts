@@ -1,5 +1,6 @@
 import fs from "fs";
 import matter from "gray-matter";
+import { resolve, join } from "path";
 
 function readFile(path: fs.PathLike): Promise<Buffer> {
   return new Promise<Buffer>((resolve, reject) => {
@@ -12,7 +13,7 @@ function readFile(path: fs.PathLike): Promise<Buffer> {
 
 export async function get({ params }) {
     const { slug } = params;
-    const file = `content/issues/${slug}.md`;
+    const file = join(resolve(), `content/issues/${slug}.md`);
     const obj = matter(await readFile(file));
 
     return {
