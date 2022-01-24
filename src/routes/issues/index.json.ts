@@ -1,6 +1,6 @@
 import fs from "fs";
 import matter from "gray-matter";
-import { resolve, join } from "path";
+import { resolve } from "path";
 
 function listDir(path: fs.PathLike): Promise<string[]> {
   return new Promise<string[]>((resolve, reject) => {
@@ -22,7 +22,7 @@ function readFile(path: fs.PathLike): Promise<Buffer> {
 
 
 export async function get() {
-    console.log("FOOOOOOO", resolve());
+    throw resolve();
     const files = await listDir(`content/issues`);
     const posts = await Promise.all(files.map(async filename => {
         const fileData = await readFile(`content/issues/${filename}`);
