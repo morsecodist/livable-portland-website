@@ -407,9 +407,9 @@
 </svelte:head>
 
 <article class="text-start">
-<h1 class="text-primary text-center">Zoning 101</h1>
-<div class="text-start d-flex">
-    <p id="map" class="d-inline-block"/>
+<h1 class="text-primary text-center mb-4">Zoning 101</h1>
+<div id="map-container" class="text-start">
+    <p id="map"/>
     <table class="table text-start d-inline-block" style="height: 600px; overflow: scroll;">
       <tbody>
         {#each tableValues as tableSection}
@@ -448,6 +448,6 @@
 <p>Even though there are lots of weird exceptions the zoning codes of American Cities mostly look pretty similar. They usually draw a bunch of lines on a map to divide their cities into zones and then give each zone a use like single-family residential, light industrial, business, ect... This is called <strong>Euclidean Zoning</strong>. Euclid was a famous geometry guy and Euclidean zoning involves drawing lots of shapes but sadly this is a coincidence, it is actually named after Euclid, Ohio. This is (mostly) the type of zoning that Portland uses. I say mostly because like many cities, Portland is making small moves away from this model within their zoning code. One reason that the definition of zoning gets kind of fuzzy is that when cities try out new ideas (or bring back some really good old ideas) they usually add them to their existing zoning codes because that is where the laws go. For example, in Portland we have the <strong style="cursor: pointer" class="text-secondary" on:mouseover="{() => selectedZone = "IS-FBC"}" on:mouseout="{() => selectedZone = null}" on:focus="{() => selectedZone = "IS-FBC"}" on:blur="{() => selectedZone = null}">India Street Form Based Zone</strong>. <strong>Form Based Zoning</strong> is a different kind of regulation than Euclidean Zoning but in Portland it is considered just another zone among many Euclidean Zones.</p>
 
 <div class="text-center">
-<p id="pie-chart" class="d-inline-block"/>
+<p id="pie-chart" class="d-inline-block" style="max-width: 80vw; overflow-x: hidden"/>
 </div>
 </article>

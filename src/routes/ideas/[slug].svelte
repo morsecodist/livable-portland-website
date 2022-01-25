@@ -27,7 +27,7 @@
 
 <style>
     :global(img) {
-        width: 100%;
+        width: 80%;
     }
 </style>
 
@@ -35,6 +35,6 @@
     <title>Livable Portland - {title}</title>
 </svelte:head>
 
-<h1 class="text-primary">{title}</h1>
+<h1 class="text-primary mb-4">{title}</h1>
 <MarkdownArticle content={content}/>
 

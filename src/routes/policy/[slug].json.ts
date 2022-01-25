@@ -13,7 +13,7 @@ function readFile(path: fs.PathLike): Promise<Buffer> {
 
 export async function get({ params }) {
     const { slug } = params;
-    const file = join(resolve(), `content/issues/${slug}.md`);
+    const file = join(resolve(), `content/policy/${slug}.md`);
     const obj = matter(await readFile(file));
 
     return {

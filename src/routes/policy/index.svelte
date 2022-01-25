@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
     import type { Post } from "../../types/post";
     export async function load({ fetch }) {
-        const res = await fetch("/issues.json");
+        const res = await fetch("/policy.json");
 
         if (res.ok) {
             return {
@@ -13,7 +13,7 @@
 
         return {
             status: res.status,
-            error: new Error(`Could not load issues.json`),
+            error: new Error(`Could not load policy.json`),
         };
     }
 </script>
@@ -32,7 +32,7 @@
             <div class="col">
             <ArticleCard 
                  src="{post.image}"
-                 href="/issues/{post.slug}"
+                 href="/policy/{post.slug}"
                  title="{post.title}"
                  description="{post.description}"
             />

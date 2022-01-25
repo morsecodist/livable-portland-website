@@ -12,7 +12,8 @@ rank: 5
 
 ## The History
 
-![destruction](/MiddleFranklin1969_web.jpg)
+<p class="text-center"><img src="/MiddleFranklin1969_web.jpg" alt="Destruction"/></p>
+
 
 In the 1960s, hundreds people, most of whom low income earners, were forced from their homes and businesses. These homes and businesses were seized and demolished to make room for a new wide road to serve a new bridge from Portland to South Portland. That bridge was never built and today we have Franklin Street; a wide road to nowhere cutting across out city where there was once a thriving community.
 
@@ -26,7 +27,7 @@ But there is another way. All of the money we need to fund this project, and the
 
 We can improve this community, and pay for it too, by eliminating two of the lanes and the median of the road: selling some of this land for the development of market rate housing and using the rest for affordable housing and park space. Not only will this raise more than enough revenue to cover the cost of modifying the road, the increased tax base will increase overall city revenue permanently.
 
-![plan](/plan.png)
+<p class="text-center"><img src="/plan.png" alt="Plan"/></p>
 
 ## Benefits
 

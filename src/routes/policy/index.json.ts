@@ -22,9 +22,9 @@ function readFile(path: fs.PathLike): Promise<Buffer> {
 
 
 export async function get() {
-    const files = await listDir(join(resolve(), "content/issues"));
+    const files = await listDir(join(resolve(), "content/policy"));
     const posts = await Promise.all(files.map(async filename => {
-        const fileData = await readFile(join(resolve(), "content/issues/", filename));
+        const fileData = await readFile(join(resolve(), "content/policy/", filename));
         const obj = matter(fileData).data;
         obj.slug = filename.substring(0, filename.length - 3);
         return obj;

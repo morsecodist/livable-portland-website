@@ -2,6 +2,8 @@
 $theme-colors: (
   "primary": #065F46,
   "secondary": #1E40AF,
+  "success": #0f5132,
+  "danger": #842029,
 );
 
 @import 'bootstrap/scss/bootstrap.scss';
@@ -9,6 +11,10 @@ $theme-colors: (
 #map {
     min-width: calc(100% - 300px);
     height: 600px;
+}
+
+#map-container {
+    display: flex;
 }
 
 @include media-breakpoint-down(lg) {
@@ -26,7 +32,11 @@ $theme-colors: (
 
 @include media-breakpoint-down(sm) {
     #map {
-        height: 560px;
+        height: 360px;
         width: 100%;
+    }
+
+    #map-container {
+        display: block !important;
     }
 }
