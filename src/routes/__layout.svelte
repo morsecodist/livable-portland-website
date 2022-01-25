@@ -1,6 +1,8 @@
 <script lang="ts">
     import "../app.scss";
     import { page } from '$app/stores';
+import { element } from "svelte/internal";
+import { style } from "d3";
 
     $: pages = [{
         title: "Home",
@@ -33,7 +35,10 @@
                         <a
                             class="nav-link {page.classNames}"
                             href="{page.path}"
-                            on:click={() => {document.getElementById('collapse-button').click()}}
+                            on:click={() => {
+                                const elem = document.getElementById('collapse-button');
+                                if (window.getComputedStyle(elem).display !== "none") elem.click()
+                            }}
                         >
                             {page.title}
                         </a>
