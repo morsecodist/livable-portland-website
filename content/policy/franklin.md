@@ -1,8 +1,8 @@
 ---
 title: The Franklin Plan
-description: "Walking the best form of transport we have. It is cheap, environmentally friendly, safe, and doesn't require much infrastructure. Unfortunately, it is not always so easy to walk to where you want to go. Certain communities are more "
+description: "With just a small move away from car-centric infrastructure we can provide more affordable housing, get more usable green space, make our community more walkable, and make money doing it!"
 image: plan.png
-rank: 5
+rank: 1
 ---
 
 - More Affordable Housing: 238 new units
@@ -13,7 +13,6 @@ rank: 5
 ## The History
 
 <p class="text-center"><img src="/MiddleFranklin1969_web.jpg" alt="Destruction"/></p>
-
 
 In the 1960s, hundreds people, most of whom low income earners, were forced from their homes and businesses. These homes and businesses were seized and demolished to make room for a new wide road to serve a new bridge from Portland to South Portland. That bridge was never built and today we have Franklin Street; a wide road to nowhere cutting across out city where there was once a thriving community.
 
