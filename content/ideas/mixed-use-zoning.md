@@ -1,6 +1,6 @@
 ---
 title: Mixed Use Zoning
-description: "Mixed use zoning makes for walkable neighborhoods, favors local businesses over large chains, fosters a sense of community, and can even help provide more revenue for the city. Most zoning in North America separates residential from commercial uses. This virtually guarantees that most places you go  will be far away because it keeps businesses away from homes."
+description: "Mixed use zoning makes for walkable neighborhoods, favors local businesses over large chains, fosters a sense of community, and can even help provide more revenue for the city."
 image: mixed-use.jpg
 rank: 1
 ---

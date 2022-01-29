@@ -1,8 +1,6 @@
 <script lang="ts">
     import "../app.scss";
     import { page } from '$app/stores';
-import { element } from "svelte/internal";
-import { style } from "d3";
 
     $: pages = [{
         title: "Home",
@@ -20,6 +18,11 @@ import { style } from "d3";
         ...obj,
         classNames: `${$page.url.pathname === obj.path ? 'active' : ''}`,
     }));
+
+    function closeMenu() {
+        const elem = document.getElementById('collapse-button');
+        if (window.getComputedStyle(elem).display !== "none") elem.click();
+    }
 </script>
 
 <div>
@@ -35,17 +38,14 @@ import { style } from "d3";
                         <a
                             class="nav-link {page.classNames}"
                             href="{page.path}"
-                            on:click={() => {
-                                const elem = document.getElementById('collapse-button');
-                                if (window.getComputedStyle(elem).display !== "none") elem.click()
-                            }}
+                            on:click={closeMenu}
                         >
                             {page.title}
                         </a>
                     </li>
                 {/each}
             </ul>
-        <a class="d-inline-form btn btn-secondary" href="/get-involved">Get Involved</a>
+        <a class="d-inline-form btn btn-secondary" href="/get-involved" on:click={closeMenu}>Get Involved</a>
         </div>
     </nav>
     <div id="under-nav" class="container text-center">

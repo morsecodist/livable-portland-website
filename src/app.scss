@@ -13,6 +13,10 @@ $theme-colors: (
     height: 600px;
 }
 
+#map-table {
+    height: 600px;
+}
+
 #map-container {
     display: flex;
 }
@@ -32,11 +36,15 @@ $theme-colors: (
 
 @include media-breakpoint-down(sm) {
     #map {
-        height: 360px;
+        height: 300px;
         width: 100%;
     }
 
     #map-container {
         display: block !important;
+    }
+
+    #map-table {
+        height: 300px;
     }
 }

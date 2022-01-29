@@ -35,6 +35,7 @@
     export let areas: any;
     export let zones: any;
     let overlayZones = false;
+    let tableValuesFiltered = [];
 
     $: filteredZones = !overlayZones 
         ? {
@@ -42,6 +43,10 @@
             features: zones.features.filter(({ properties }) => properties.zoneType !== "overlay"),
         }
         : zones;
+
+    $: {
+        tableValuesFiltered = tableValues.filter(({ header }) => overlayZones === (header === "Overlay Zone"))
+    }
 
     function getOpacity({ properties }) {
         if (properties.zoneType === "overlay") return 0;
@@ -408,37 +413,41 @@
 
 <article class="text-start">
 <h1 class="text-primary text-center mb-4">Zoning 101</h1>
-<div id="map-container" class="text-start">
-    <p id="map"/>
-    <table class="table text-start d-inline-block" style="height: 600px; overflow: scroll;">
-      <tbody>
-        {#each tableValues as tableSection}
-            <tr style="background-color: {colors[tableSection.rows[0].code]}">
-                <th colspan=2>{tableSection.header}</th>
-            </tr>
-            <tr style="background-color: {colors[tableSection.rows[0].code]}">
-                <th scope="col">Code</th>
-                <th scope="col">Friendly Name</th>
-              </tr>
-            {#each tableSection.rows as tableRow}
-                <tr 
-                    on:mouseover="{() => selectedZone = tableRow.code}"
-                    on:mouseout="{() => selectedZone = null}"
-                    on:focus="{() => selectedZone = tableRow.code}"
-                    on:blur="{() => selectedZone = null}"
-                    style="background-color: {colors[tableRow.code]}; cursor: pointer;{whiteText[tableRow.code] && "color: white"};{selectedZone === tableRow.code ? "outline: 2px solid black" : ""}"
-                >
-                    <td>{tableRow.code}</td>
-                    <td>{@html tableRow.friendlyName}</td>
+<div id="map-container" class="text-start mb-2">
+    <p id="map" class="m-0"/>
+    <div id="map-table" class="d-inline-flex flex-column">
+        <div class="p-2">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" bind:checked={overlayZones}>
+                <label class="form-check-label" for="flexSwitchCheckDefault">Overlay Zones</label>
+            </div>
+        </div>
+        <table class="table text-start d-inline-block m-0" style="overflow-y: scroll;">
+        <tbody>
+            {#each tableValuesFiltered as tableSection}
+                <tr style="background-color: {colors[tableSection.rows[0].code] || 'white'}">
+                    <th colspan=2>{tableSection.header}</th>
                 </tr>
+                <tr style="background-color: {colors[tableSection.rows[0].code] || 'white'}">
+                    <th scope="col">Code</th>
+                    <th scope="col">Friendly Name</th>
+                </tr>
+                {#each tableSection.rows as tableRow}
+                    <tr 
+                        on:mouseover="{() => selectedZone = tableRow.code}"
+                        on:mouseout="{() => selectedZone = null}"
+                        on:focus="{() => selectedZone = tableRow.code}"
+                        on:blur="{() => selectedZone = null}"
+                        style="background-color: {colors[tableRow.code]}; cursor: pointer;{whiteText[tableRow.code] && "color: white"};{selectedZone === tableRow.code ? "outline: 2px solid black" : ""}"
+                    >
+                        <td>{tableRow.code}</td>
+                        <td>{@html tableRow.friendlyName}</td>
+                    </tr>
+                {/each}
             {/each}
-        {/each}
-      </tbody>
-    </table>
-</div>
-<div class="form-check form-switch">
-    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" bind:checked={overlayZones}>
-    <label class="form-check-label" for="flexSwitchCheckDefault">Overlay Zones</label>
+        </tbody>
+        </table>
+    </div>
 </div>
 
 <p>Zoning is a big deal. You might not hear about it as much as some more flashy issues but zoning has a massive impact on your life. Zoning controls what you are allowed to do with your property, how much your rent will be, how your home value changes over time, where you are able to move, what sorts of businesses you can open and where, and how you get around. Local issues may seem small but they have a big influence on your immediate surroundings and together, a lot of local policies have big national effects. It influences the environment, economic equality, prosperity, and even how much of a sense of community your neighborhood has. After nearly a century, zoning has faded into the backgrounds of our minds and seems like it is just the way things are. But zoning should not be in the background, changing zoning policies can change lives.</p>
