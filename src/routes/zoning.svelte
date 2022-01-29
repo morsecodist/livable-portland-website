@@ -30,6 +30,7 @@
     import { browser } from "$app/env";
     import { onMount } from "svelte";
     import * as d3 from "d3";
+    import Plotly from "plotly.js-dist-min";
 
     export let tableValues: any;
     export let areas: any;
@@ -243,14 +244,6 @@
         "B-7": true,
     }
 
-    const zoomLabelSize = {
-        14: "8px",
-        15: "10px",
-        16: "12px",
-        17: "14px",
-        18: "16px",
-    };
-
     function hexToRgb(hex: string) {
         const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
         return result ? [
@@ -284,113 +277,30 @@
 
     if (browser) {
         onMount(async () => {
-            async function loadAreas() {
-                const total = Object.values(areas).reduce((a, b) => a + b);
-                const percents = Object.entries(areas).reduce((acc, [name, value]) => ({
-                    ...acc,
-                    [name]: Math.round(100 * 100 * value / total) / 100,
-                }), {});
+            console.log(areas);
+            const entries = Object.entries(areas);
+            const data = [{
+                values: entries.map(([_, area]) => area),
+                labels: entries.map(([label, _]) => label),
+                colors: entries.map(_ => "white"),
+                marker: {
+                    colors: entries.map(([label, _]) => colors[label]),
+                },
+                showlegend: false,
+                textinfo: "label+percent",
+                hole: .6,
+                textposition: "outside",
+                automargin: true,
+                type: 'pie',
+            }];
 
-                const width = 800;
-                const height = 350;
-                const margin = 0;
+            const layout = {
+                height: 400,
+                width: 500,
+                displaylogo: false,
+            };
 
-                // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
-                const radius = Math.min(width, height) / 2 - margin
-
-                // append the svg object to the div called 'my_dataviz'
-                const svg = d3.select("#pie-chart")
-                    .append("svg")
-                    .attr("width", width)
-                    .attr("height", height)
-                    .append("g")
-                    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-                // Compute the position of each group on the pie:
-                const pie = d3.pie()
-                    .sort(null) // Do not sort group by size
-                    .value(([_, value]) => value);
-                const data_ready = pie(Object.entries(areas))
-
-                // The arc generator
-                const arc = d3.arc()
-                    .innerRadius(radius * 0.5)         // This is the size of the donut hole
-                    .outerRadius(radius * 0.8)
-
-                // Another arc that won't be drawn. Just for labels positioning
-                const outerArc = d3.arc()
-                    .innerRadius(radius * 0.9)
-                    .outerRadius(radius * 0.9)
-
-                // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-                svg
-                    .selectAll('allSlices')
-                    .data(data_ready)
-                    .enter()
-                    .append('path')
-                    .attr('d', arc)
-                    .attr('fill', ({ data }) => colors[data[0]])
-                    .attr("stroke", "white")
-                    .style("stroke-width", "2px")
-                    .style("opacity", 0.7)
-
-                // Add the polylines between chart and labels:
-                svg
-                    .selectAll('allPolylines')
-                    .data(data_ready)
-                    .enter()
-                    .append('polyline')
-                        .attr("stroke", "black")
-                        .style("fill", "none")
-                        .attr("stroke-width", 1)
-                        .attr('points', (d) => {
-                            let posA = arc.centroid(d) // line insertion in the slice
-                            let posB = outerArc.centroid(d) // line break: we use the other arc generator that has been built only for that
-                            let posC = outerArc.centroid(d); // Label position = almost the same as posB
-                            const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
-                            posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
-                            // HACK: lower Resource Protection
-                            if (d.data[0] === "Resource Protection") {
-                                posB[1] += 20;
-                                posC[1] += 20;
-                            } else if (d.data[0] === "Island") {
-                                posB[1] += 5;
-                                posC[1] += 5;
-                            } else if (d.data[0] === "Open Space") {
-                                posB[1] += 15;
-                                posC[1] += 15;
-                            }
-                            return [posA, posB, posC]
-                        })
-
-                // Add the polylines between chart and labels:
-                svg
-                    .selectAll('allLabels')
-                    .data(data_ready)
-                    .enter()
-                    .append('text')
-                        .text(({ data }) => `${percents[data[0]]}% ${data[0]}`)
-                        .attr('transform', (d) => {
-                            const pos = outerArc.centroid(d);
-                            const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-                            pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
-                            // HACK: lower Resource Protection
-                            if (d.data[0] === "Resource Protection") {
-                                pos[1] += 20;
-                            } else if (d.data[0] === "Island") {
-                                pos[1] += 5;
-                            } else if (d.data[0] === "Open Space") {
-                                pos[1] += 15;
-                            }
-                            pos[1] += 5;
-                            return 'translate(' + pos + ')';
-                        })
-                        .style('text-anchor', (d) => {
-                            const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-                            return (midangle < Math.PI ? 'start' : 'end')
-                        })
-            }
-            loadAreas();
+            Plotly.newPlot("pie-chart", data, layout, {displaylogo: false});
 
             // Map
             const L = (await import('leaflet')).default;
@@ -457,6 +367,6 @@
 <p>Even though there are lots of weird exceptions the zoning codes of American Cities mostly look pretty similar. They usually draw a bunch of lines on a map to divide their cities into zones and then give each zone a use like single-family residential, light industrial, business, ect... This is called <strong>Euclidean Zoning</strong>. Euclid was a famous geometry guy and Euclidean zoning involves drawing lots of shapes but sadly this is a coincidence, it is actually named after Euclid, Ohio. This is (mostly) the type of zoning that Portland uses. I say mostly because like many cities, Portland is making small moves away from this model within their zoning code. One reason that the definition of zoning gets kind of fuzzy is that when cities try out new ideas (or bring back some really good old ideas) they usually add them to their existing zoning codes because that is where the laws go. For example, in Portland we have the <strong style="cursor: pointer" class="text-secondary" on:mouseover="{() => selectedZone = "IS-FBC"}" on:mouseout="{() => selectedZone = null}" on:focus="{() => selectedZone = "IS-FBC"}" on:blur="{() => selectedZone = null}">India Street Form Based Zone</strong>. <strong>Form Based Zoning</strong> is a different kind of regulation than Euclidean Zoning but in Portland it is considered just another zone among many Euclidean Zones.</p>
 
 <div class="text-center">
-<p id="pie-chart" class="d-inline-block" style="max-width: 80vw; overflow-x: hidden"/>
+<div id="pie-chart" style="overflow: hidden"/>
 </div>
 </article>
