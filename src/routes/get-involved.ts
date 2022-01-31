@@ -10,7 +10,7 @@ export async function post({ request }: RequestEvent) {
         endpoint: process.env.ENDPOINT,
         region: "nyc3"
     });
-    client.send(new PutObjectCommand({
+    await client.send(new PutObjectCommand({
         Bucket: "morsecodist-backups",
         Key: `form-submissions/${uuidv4()}.json`,
         Body: JSON.stringify(obj),
