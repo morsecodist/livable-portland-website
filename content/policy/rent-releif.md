@@ -5,6 +5,20 @@ image: "/missing-middle.png"
 rank: 2
 ---
 
+## Summary
+
+- Give the 10% lowest income earners who are not already in affordable housing money directly to spend on their rent
+- Raise this money via a 2% land value tax that will disproportionately effect parking lots, vacant lots, and seasonal properties
+- Repeal rent control
+- Return inclusionary zoning to 10% with a $100,000 per-unit fee
+- Drop the new construction special labor requirements
+
+This would result in at least $100 per person per month to spend on rent. The 25th percentile for market rent for a 1 bedroom is was $850 in 2018. Assuming the bottom 10% of earners live at least in the bottom 25% of units this would cut rent down by over 10%. Since it is per person the more bedrooms a unit has the lower cost it will be. For a family of 4 in a three bedroom (bottom 25% rent $1,220) it is a 33% reduction!
+
+The tax itself will encourage the development of more land into affordable housing because it will cost more not to develop your land, and more people can afford lower cost housing, increasing the demand, increasing the incentive to build it.
+
+## Rent Relief vs. Rent Control
+
 Rent relief can help protect renters from rising rents while avoiding many of the shortcomings of rent control. It is important to say upfront that we need a policy to protect tenants from rising housing costs because a lot of conversations about housing end with arguing that rent control is bad. Rent control is a disastrous policy but this should be the beginning of the conversation about what we can do to help people afford housing, not the end.
 
 What's so bad about rent control? Rent keeps going up; that sucks. Why can't we just put a stop to it? To answer that let's take a step back and look at the problem we are trying to solve. The problem is that there isn't enough housing; more people want housing in the city than there is housing to be had. We have a bunch of land, with a bunch of housing on it, and a bunch of people who want housing. The big question is how do we decide who gets it?
@@ -17,7 +31,7 @@ To get you and your special someone into a new apartment one of two things needs
 
 How about getting somebody to leave? Let's look at a couple of recent empty nesters in a rent-controlled three bedroom. They would be happy to live with less space but if they moved they'd be in the same position as you looking for a new rent-controlled unit. With rent control the last thing you want to do is move. When I was living in New York City my rent for a 600 square foot one bedroom apartment was a little over $4,000. My great aunt lived alone in the three bedroom rent-controlled apartment that she raised her family in for around $600 a month. If she downsized by a bedroom she could 10x her rent.
 
-With rent control fewer rental units are getting built and people are more hesitant to leave the ones that are already built. Meanwhile, lots of people want to move into rent-controlled units that are becoming cheaper and cheaper compared to buying, living in units exempt from rent control, or living outside the city. But all is not lost, at least some new rental units will be built (perhaps with some prodding from the government) and people will die eventually so we will get at least some available units. But how do we decide who gets them? Usually with rent control this is done with a wait list. My second cousin in New York was placed on a waitlist like this when she was born and she was able to get a rent controlled unit when she was a young adult so people do get off the waitlist eventually. We can add people who spend a long time on a waitlist to rent control's list of people who get housing.
+With rent control fewer rental units are getting built and people are more hesitant to leave the ones that are already built. Meanwhile, lots of people want to move into rent-controlled units that are becoming cheaper and cheaper compared to buying, living in units exempt from rent control, or living outside the city. But all is not lost, at least some new rental units will be built (perhaps with some prodding from the government) and people will die eventually so we will get at least some available units. But how do we decide who gets them? Usually with rent control this is done with a wait list. My second cousin in New York was placed on a wait list like this when she was born and she was able to get a rent controlled unit when she was a young adult so people do get off the wait list eventually. We can add people who spend a long time on a wait list to rent control's list of people who get housing.
 
 To make matters worse, short term rentals like AirBnB are not covered under rent control. This creates an even bigger incentive for property owners to use their property for short term rentals instead of renting it out to long term tenants. We can add vacationers to rent control's list of people who get housing.
 
@@ -46,3 +60,21 @@ With our current rent control model, smaller landlords are completely exempt fro
 Rent relief with a land value tax is flexible it can cover small buildings and large buildings, individuals and families, newcomers to our city and people who have lived here their whole lives. The rate can be dynamically adjusted in response to the housing market.
 
 We can help people and make economically informed policy at the same time. We can help the people in need while growing our economy at the same time. This city has it's problems, but it also has a tremendous amount of energy to pursue change.
+
+## Rent Relief vs Inclusionary Zoning
+
+Inclusionary zoning is the policy of requiring that developers build a certain portion of affordable units or pay a fine. Before 2020 the inclusionary zoning number was 10% and the fee was $100,000 per unit. After a 2020 referendum it is now 25% and $150,000 per unit. This only effects buildings with 10 units or more. So if you were building a 10 unit building in 2019 you would need to pay $100,000 to avoid building an affordable unit, in 2020 you would need to pay $450,000 a 4.5x increase. While it would be nice to get more affordable housing, in practice this change has resulted in a near complete halt of developments over 10 units.
+
+When making policy, we have to acknowledge an unfortunate fact. Developers tend not to build affordable units and will typically opt to pay the fees. I have heard explanations from developers and activists as to why this is but I don't think it is particularly productive getting bogged down in why this happens, we must acknowledge that it does happen and plan accordingly. Because of this fact, inclusionary zoning is really a tax on housing developments. A tax that we increased by 4.5x overnight. It is no wonder that development dropped precipitously once this was enacted.
+
+This policy is essentially a wealth transfer from the lower and middle class to current land owners. Without new units coming on the market the existing units become increasingly valuable causing housing prices to increase across the board. Owners of current properties will see their values increase. Normally, this cost would be paid by renters with landlords increasing rents but with rent control in effect landlords will opt to sell their buildings to homeowners over time. This will result in renters being forced out, first time home buyers buying previously rental units at inflated prices, and housing prices going up and up.
+
+Worse still, certain properties are exempt from these rules. Buildings with fewer than 10 units are exempt from inclusionary zoning. This encourages the construction of boutique high-priced small developments. With fewer units, they must be priced more to turn a profit. With more developments with less units the supply of housing for the same amount of land will be restricted across the city. The people who benefit the most from a lack of development are land owners so they need to pay their fair share. The land value tax spreads the cost of providing affordable housing across all property owners instead of placing it solely on developers who can and have just chosen to build somewhere else.
+
+The land value tax serves as both a carrot and a stick. It incentivizes people to develop their land because developments may make their land more profitable and won't be taxed as they would with a property tax. It also incentivizes development of affordable housing by adding money for people to spend on it.
+
+## Rent Relief and the Economy
+
+Aren't taxes bad for the economy? Sometimes, but some taxes can actually improve the economy. Taxes hurt the economy when they discourage some kind of economic activity that would otherwise happen. For example, a sales tax. Let's say you sell chocolate bars and it costs you 95 cents to make each chocolate bar and people are willing to pay $1 for them. If a 5% sales tax was passed, selling a chocolate bar for $1 would cost you $1 so it wouldn't make sense to sell it. This is an oversimplification of course, in practice people sell and buy a bit less stuff. The land value tax makes it harder to hold onto land and do nothing with it. Making this harder is actually a good thing because everyone is better off when land is put to good use.
+
+Better yet, this money will be given to low-income earners. Giving money to low-income earners stimulates the economy because low-income earners spend a greater portion of their money than high income earners. Transferring money from land owners, many may not even live in the city, and tend to be wealthier means money that would sit in a bank account is circulated through the local economy. We don't need to choose between economic growth and helping people who need it, sometimes we can have both.

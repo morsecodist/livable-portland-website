@@ -2,7 +2,7 @@
     export let title: string;
     export let description: string;
     export let src: string;
-    export let href: string;
+    export let href: string | undefined = undefined;
 </script>
 
 <div class="card d-inline-flex" style="width: 20rem; height: 100%;">
@@ -11,7 +11,9 @@
         <h5 class="card-title text-secondary">{title}</h5>
         <p class="card-text">{description}</p>
     </div>
-    <div class="card-footer text-muted text-end">
-        <a href="{href}" class="btn btn-primary">Learn More</a>
-    </div>
+    {#if href}
+        <div class="card-footer text-muted text-end">
+            <a href="{href}" class="btn btn-primary">Learn More</a>
+        </div>
+    {/if}
 </div>

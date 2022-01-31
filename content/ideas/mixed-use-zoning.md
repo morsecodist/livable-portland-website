@@ -2,7 +2,7 @@
 title: Mixed Use Zoning
 description: "Mixed use zoning makes for walkable neighborhoods, favors local businesses over large chains, fosters a sense of community, and can even help provide more revenue for the city."
 image: mixed-use.jpg
-rank: 1
+rank: 3
 ---
 Mixed use zoning means allowing different uses like housing, shops, offices, and restaurants to all be next to each other. It is the opposite of Single Use Zoning. Despite what it may seem in the United States, mixed use zoning has been and continues to be the norm for most of the world for most of history. Mixed use zoning doesn't mean people have to put different types of buildings near each other, it just means that they are not legally prevented from doing it if they want to.
 

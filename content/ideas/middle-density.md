@@ -1,6 +1,6 @@
 ---
 title: Middle Density Housing
-description: "Middle density housing can bring "
+description: "A little bit of density can go a long way. Middle density housing can help us build much more housing without changing the character of our city."
 image: middle-density.png
-rank: 4
+rank: 1
 ---

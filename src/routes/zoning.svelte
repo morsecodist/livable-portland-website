@@ -5,6 +5,7 @@
         const responses = await Promise.all([
             fetch("/table.yaml"),
             fetch("/areas.json"),
+            fetch("/residential.json"),
             fetch("/zones.json"),
         ]);
 
@@ -14,7 +15,8 @@
                 props: {
                     tableValues: YAML.parse(parsed[0]),
                     areas: parsed[1],
-                    zones: parsed[2],
+                    residential: parsed[2],
+                    zones: parsed[3],
                 },
             };
         }
@@ -30,10 +32,10 @@
     import { browser } from "$app/env";
     import { onMount } from "svelte";
     import * as d3 from "d3";
-    import Plotly from "plotly.js-dist-min";
 
     export let tableValues: any;
     export let areas: any;
+    export let residential: any;
     export let zones: any;
     let overlayZones = false;
     let tableValuesFiltered = [];
@@ -277,30 +279,62 @@
 
     if (browser) {
         onMount(async () => {
-            console.log(areas);
-            const entries = Object.entries(areas);
-            const data = [{
-                values: entries.map(([_, area]) => area),
-                labels: entries.map(([label, _]) => label),
-                colors: entries.map(_ => "white"),
-                marker: {
-                    colors: entries.map(([label, _]) => colors[label]),
-                },
-                showlegend: false,
-                textinfo: "label+percent",
-                hole: .6,
-                textposition: "outside",
-                automargin: true,
-                type: 'pie',
-            }];
+            const  Plotly = import("plotly.js-dist-min");
+            function zonePie() {
+                const entries = Object.entries(areas);
+                const data = [{
+                    values: entries.map(([_, area]) => area),
+                    labels: entries.map(([label, _]) => label),
+                    colors: entries.map(_ => "white"),
+                    marker: {
+                        colors: entries.map(([label, _]) => colors[label]),
+                    },
+                    showlegend: false,
+                    textinfo: "label+percent",
+                    hole: .6,
+                    textposition: "outside",
+                    automargin: true,
+                    type: 'pie',
+                }];
 
-            const layout = {
-                height: 400,
-                width: 500,
-                displaylogo: false,
-            };
+                const layout = {
+                    height: 400,
+                    width: 500,
+                    displaylogo: false,
+                };
 
-            Plotly.newPlot("pie-chart", data, layout, {displaylogo: false});
+                Plotly.newPlot("pie-chart", data, layout, {displaylogo: false});
+            }
+            zonePie();
+
+            function singleFamilyPie() {
+                const entries = Object.entries(residential);
+                entries.sort(([a, _], [b, __]) => a < b ? 1 : -1);
+                const data = [{
+                    values: entries.map(([_, area]) => area),
+                    labels: entries.map(([label, _]) => label),
+                    colors: entries.map(_ => "white"),
+                    marker: {
+                        colors: entries.map(([label, _]) => colors[label]),
+                    },
+                    showlegend: false,
+                    textinfo: "label+percent",
+                    hole: .6,
+                    textposition: "outside",
+                    automargin: true,
+                    type: 'pie',
+                    sort: false,
+                }];
+
+                const layout = {
+                    height: 400,
+                    width: 500,
+                    displaylogo: false,
+                };
+
+                Plotly.newPlot("pie-chart-residential", data, layout, {displaylogo: false});
+            }
+            singleFamilyPie();
 
             // Map
             const L = (await import('leaflet')).default;
@@ -362,11 +396,19 @@
 
 <p>Zoning is a big deal. You might not hear about it as much as some more flashy issues but zoning has a massive impact on your life. Zoning controls what you are allowed to do with your property, how much your rent will be, how your home value changes over time, where you are able to move, what sorts of businesses you can open and where, and how you get around. Local issues may seem small but they have a big influence on your immediate surroundings and together, a lot of local policies have big national effects. It influences the environment, economic equality, prosperity, and even how much of a sense of community your neighborhood has. After nearly a century, zoning has faded into the backgrounds of our minds and seems like it is just the way things are. But zoning should not be in the background, changing zoning policies can change lives.</p>
 
-<p>So I just waxed poetic about how powerful zoning can be, but what is it really? Zoning is a set of policies that govern how land can be used. Some common zoning policies are: the creation of residential zones (areas where businesses are't allowed), minimum parking requirements (certain types of buildings must have a minimum amount of off-street parking), and minimum lot size requirements (it is illegal for you to cut your property in half and sell one of the halves). Zoning policy can actually get pretty confusing, not just because the zoning codes are hundreds of pages long, but because what is and isn't zoning is actually pretty arbitrary. Houston Texas claims to have no zoning code but they have a lot of the same kinds of laws that would be in a zoning code they just call them something else. Building height laws are usually considered zoning but in New York City they use a system of Air Rights for that.</p>
+<p>But what is it really? Zoning is a set of policies that govern how land can be used. Some common zoning policies are: the creation of residential zones (areas where businesses are't allowed), minimum parking requirements (certain types of buildings must have a minimum amount of off-street parking), and minimum lot size requirements (it is illegal for you to cut your property in half and sell one of the halves). Zoning codes are hundreds of pages long and contain a lot of specific rules about what you can and can't do with certain pieces of land.</p>
 
-<p>Even though there are lots of weird exceptions the zoning codes of American Cities mostly look pretty similar. They usually draw a bunch of lines on a map to divide their cities into zones and then give each zone a use like single-family residential, light industrial, business, ect... This is called <strong>Euclidean Zoning</strong>. Euclid was a famous geometry guy and Euclidean zoning involves drawing lots of shapes but sadly this is a coincidence, it is actually named after Euclid, Ohio. This is (mostly) the type of zoning that Portland uses. I say mostly because like many cities, Portland is making small moves away from this model within their zoning code. One reason that the definition of zoning gets kind of fuzzy is that when cities try out new ideas (or bring back some really good old ideas) they usually add them to their existing zoning codes because that is where the laws go. For example, in Portland we have the <strong style="cursor: pointer" class="text-secondary" on:mouseover="{() => selectedZone = "IS-FBC"}" on:mouseout="{() => selectedZone = null}" on:focus="{() => selectedZone = "IS-FBC"}" on:blur="{() => selectedZone = null}">India Street Form Based Zone</strong>. <strong>Form Based Zoning</strong> is a different kind of regulation than Euclidean Zoning but in Portland it is considered just another zone among many Euclidean Zones.</p>
+<p>I built this map to get to know Portland's zones. This page is a work in progress and I hope to add more friendly summaries of some of the zoning law to this page as well. While I was researching zones on Portland's <a href="https://www.portlandmaine.gov/2543/GIS-Map-Online-Map-Viewer">generously provided zoning map</a> I found I strugled to find specific zones and move around quickly. This page gives each zone a friendly name all in one table and you can hover over each zone to locate it. Hopefully, this can help you get to know our city's zones and there is even more info to come. Here is a land area breakdown of Portland's zones as well.</p>
 
 <div class="text-center">
-<div id="pie-chart" style="overflow: hidden"/>
+    <div class="d-inline-block" id="pie-chart" style="overflow: hidden"/>
+</div>
+
+<p>Even though there's a lot of nitty-gritty detail the zoning codes of American Cities mostly look pretty similar. They usually draw a bunch of lines on a map to divide their cities into zones and then give each zone a use like single-family residential, light industrial, business, ect... This is called <strong>Euclidean Zoning</strong>. Euclid was a famous geometry guy and Euclidean zoning involves drawing lots of shapes but sadly this is a coincidence, it is actually named after Euclid, Ohio. This is (mostly) the type of zoning that Portland uses. I say mostly because like many cities, Portland is making small moves away from this model within their zoning code. One reason that the definition of zoning gets kind of fuzzy is that when cities try out new ideas (or bring back some really good old ideas) they usually add them to their existing zoning codes because that is where the laws go. For example, in Portland we have the <strong style="cursor: pointer" class="text-secondary" on:mouseover="{() => selectedZone = "IS-FBC"}" on:mouseout="{() => selectedZone = null}" on:focus="{() => selectedZone = "IS-FBC"}" on:blur="{() => selectedZone = null}">India Street Form Based Zone</strong>. <strong>Form Based Zoning</strong> is a different kind of regulation than Euclidean Zoning but in Portland it is considered just another zone among many Euclidean Zones.</p>
+
+<p>While some zoning can be helpful, you wouldn't want an oil refinery opening up nextdoor, zoning is also one of the primary drivers of car dependency and increasing housing costs in North America. In the above breakdown you can see that 44% of the city's land can't have a business of any kind, even a low-impact neighborhood business. This ensures people will need to drive farther to reach businesses. Over 60% of those residential zones are single-family only R-1, R-2, and R-3 zones. Even the R-5 zone contains laws that prevent many plots from being anything but single-family homes.</p>
+
+<div class="text-center">
+    <div class="d-inline-block" id="pie-chart-residential" style="overflow: hidden"/>
 </div>
 </article>

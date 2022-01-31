@@ -27,12 +27,15 @@
     <title>Livable Portland</title>
 </svelte:head>
 
+<h2>Welcome to Livable Portland!</h2>
+
+<p>Livable Portland is a political group that looks to make Portland, Maine more livable for everyone. We believe in making that happen through urban planning and data-informed policies. Livable Portland is non-partisian and we believe that our policies can appeal to conservatives and progressives alike. Our policies and approach are strongly inspired by the YIMBY movement, Strong Towns, and more. If you like building housing and think people shouldn't need to drive everywhere you will fit right in. Our big ideas are:</p>
+
 <div class="row g-4">
         {#each posts as post}
             <div class="col">
             <ArticleCard 
                  src="{post.image}"
-                 href="/ideas/{post.slug}"
                  title="{post.title}"
                  description="{post.description}"
             />

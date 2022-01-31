@@ -42,6 +42,20 @@
     Something went wrong
 </div>
 {/if}
+
+<div class="text-start">
+    <p>We are always looking for new people to get involved, no matter how small your involvment may be or what your skills are. If you want to:</p>
+    <ul>
+        <li>Help plan and provide feedback</li>
+        <li>Help with data analysis, or learn more about analyzing public datasets</li>
+        <li>Help manage our organization</li>
+        <li>Help communicate our message</li>
+        <li>Hear updates and our perspective on city issues</li>
+    </ul>
+</div>
+
+<p>Please add your name and email. We promise we won't spam you. Our organization is just starting out so we don't have much in the way of structure yet, but hopefully if there's interest we can schedule regular meetings.</p>
+
 <form class="text-start" on:submit|preventDefault={handleOnSubmit} id="get-involved">
     <div class="mb-3">
         <label for="inputName" class="form-label">Name</label>

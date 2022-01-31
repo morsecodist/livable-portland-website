@@ -27,6 +27,10 @@
     <title>Livable Portland</title>
 </svelte:head>
 
+<h2>Policy Goals</h2>
+
+<p>These policy goals are a work in progress but they communicate our major aims. If you have feedback or suggestions for improving these policies we'd love to hear it please <a href="/get-involved">get involved!</a></p>
+
 <div class="row g-4">
         {#each posts as post}
             <div class="col">

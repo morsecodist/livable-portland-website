@@ -5,6 +5,8 @@ image: plan.png
 rank: 1
 ---
 
+## Summary
+
 - More Affordable Housing: 238 new units
 - More Usable Green Space: 54,687 ft² of new park space
 - Walkability: 3 new walking paths and 6 improved intersections
