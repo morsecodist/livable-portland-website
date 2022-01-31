@@ -279,7 +279,7 @@
 
     if (browser) {
         onMount(async () => {
-            const  Plotly = import("plotly.js-dist-min");
+            const Plotly = await import("plotly.js-dist-min");
             function zonePie() {
                 const entries = Object.entries(areas);
                 const data = [{
