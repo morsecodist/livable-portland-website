@@ -8,7 +8,7 @@
 <div class="card d-inline-flex" style="width: 20rem; height: 100%;">
     <img src="{src}" class="card-img-top" alt="{title}">
     <div class="card-body">
-        <h5 class="card-title text-secondary">{title}</h5>
+        <h5 class="card-title">{title}</h5>
         <p class="card-text">{description}</p>
     </div>
     {#if href}

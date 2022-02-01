@@ -297,13 +297,12 @@
                     type: 'pie',
                 }];
 
-                const layout = {
-                    height: 400,
-                    width: 500,
+                var config = { 
+                    responsive: true,
                     displaylogo: false,
                 };
 
-                Plotly.newPlot("pie-chart", data, layout, {displaylogo: false});
+                Plotly.newPlot("pie-chart", data, {}, config);
             }
             zonePie();
 
@@ -326,13 +325,12 @@
                     sort: false,
                 }];
 
-                const layout = {
-                    height: 400,
-                    width: 500,
+                var config = { 
+                    responsive: true,
                     displaylogo: false,
                 };
 
-                Plotly.newPlot("pie-chart-residential", data, layout, {displaylogo: false});
+                Plotly.newPlot("pie-chart-residential", data, {}, config);
             }
             singleFamilyPie();
 
@@ -400,15 +398,11 @@
 
 <p>I built this map to get to know Portland's zones. This page is a work in progress and I hope to add more friendly summaries of some of the zoning law to this page as well. While I was researching zones on Portland's <a href="https://www.portlandmaine.gov/2543/GIS-Map-Online-Map-Viewer">generously provided zoning map</a> I found I strugled to find specific zones and move around quickly. This page gives each zone a friendly name all in one table and you can hover over each zone to locate it. Hopefully, this can help you get to know our city's zones and there is even more info to come. Here is a land area breakdown of Portland's zones as well.</p>
 
-<div class="text-center">
-    <div class="d-inline-block" id="pie-chart" style="overflow: hidden"/>
-</div>
+<div id="pie-chart"/>
 
 <p>Even though there's a lot of nitty-gritty detail the zoning codes of American Cities mostly look pretty similar. They usually draw a bunch of lines on a map to divide their cities into zones and then give each zone a use like single-family residential, light industrial, business, ect... This is called <strong>Euclidean Zoning</strong>. Euclid was a famous geometry guy and Euclidean zoning involves drawing lots of shapes but sadly this is a coincidence, it is actually named after Euclid, Ohio. This is (mostly) the type of zoning that Portland uses. I say mostly because like many cities, Portland is making small moves away from this model within their zoning code. One reason that the definition of zoning gets kind of fuzzy is that when cities try out new ideas (or bring back some really good old ideas) they usually add them to their existing zoning codes because that is where the laws go. For example, in Portland we have the <strong style="cursor: pointer" class="text-secondary" on:mouseover="{() => selectedZone = "IS-FBC"}" on:mouseout="{() => selectedZone = null}" on:focus="{() => selectedZone = "IS-FBC"}" on:blur="{() => selectedZone = null}">India Street Form Based Zone</strong>. <strong>Form Based Zoning</strong> is a different kind of regulation than Euclidean Zoning but in Portland it is considered just another zone among many Euclidean Zones.</p>
 
 <p>While some zoning can be helpful, you wouldn't want an oil refinery opening up nextdoor, zoning is also one of the primary drivers of car dependency and increasing housing costs in North America. In the above breakdown you can see that 44% of the city's land can't have a business of any kind, even a low-impact neighborhood business. This ensures people will need to drive farther to reach businesses. Over 60% of those residential zones are single-family only R-1, R-2, and R-3 zones. Even the R-5 zone contains laws that prevent many plots from being anything but single-family homes.</p>
 
-<div class="text-center">
-    <div class="d-inline-block" id="pie-chart-residential" style="overflow: hidden"/>
-</div>
+<div id="pie-chart-residential"/>
 </article>
