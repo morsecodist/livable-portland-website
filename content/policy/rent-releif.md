@@ -1,7 +1,7 @@
 ---
 title: Rent Relief
 description: "Help relieve the burden of high rent while encouraging the construction of more affordable housing"
-image: "/missing-middle.png"
+image: "/city.jpg"
 rank: 2
 ---
 

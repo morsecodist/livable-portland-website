@@ -27,7 +27,7 @@
 
 <style>
     :global(img) {
-        width: 100%;
+        width: 60%;
     }
 </style>
 

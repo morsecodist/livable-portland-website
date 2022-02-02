@@ -283,18 +283,18 @@
             function zonePie() {
                 const entries = Object.entries(areas);
                 const data = [{
-                    values: entries.map(([_, area]) => area),
+                    values: entries.map(([_, area]) => area) as number[],
                     labels: entries.map(([label, _]) => label),
                     colors: entries.map(_ => "white"),
                     marker: {
                         colors: entries.map(([label, _]) => colors[label]),
                     },
                     showlegend: false,
-                    textinfo: "label+percent",
+                    textinfo: "label+percent" as "label+percent",
                     hole: .6,
-                    textposition: "outside",
+                    textposition: "outside" as "outside",
                     automargin: true,
-                    type: 'pie',
+                    type: "pie" as "pie",
                 }];
 
                 var config = { 
@@ -310,18 +310,18 @@
                 const entries = Object.entries(residential);
                 entries.sort(([a, _], [b, __]) => a < b ? 1 : -1);
                 const data = [{
-                    values: entries.map(([_, area]) => area),
+                    values: entries.map(([_, area]) => area) as number[],
                     labels: entries.map(([label, _]) => label),
                     colors: entries.map(_ => "white"),
                     marker: {
                         colors: entries.map(([label, _]) => colors[label]),
                     },
                     showlegend: false,
-                    textinfo: "label+percent",
+                    textinfo: "label+percent" as "label+percent",
                     hole: .6,
-                    textposition: "outside",
+                    textposition: "outside" as "outside",
                     automargin: true,
-                    type: 'pie',
+                    type: "pie" as "pie",
                     sort: false,
                 }];
 
