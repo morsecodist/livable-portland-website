@@ -31,7 +31,7 @@
 
 <p>These policy goals are a work in progress but they communicate our major aims. If you have feedback or suggestions for improving these policies we'd love to hear it please <a href="/get-involved">get involved!</a></p>
 
-<div class="row g-4 p-4">
+<div class="row g-4 pb-4">
         {#each posts as post}
             <div class="col">
             <ArticleCard 
