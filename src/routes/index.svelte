@@ -21,6 +21,14 @@
 <script lang="ts">
     import ArticleCard from '../components/ArticleCard.svelte';
     export let posts: Post[];
+
+    import Card, {
+    Content,
+    PrimaryAction,
+    Media,
+    MediaContent,
+  } from '@smui/card';
+ 
 </script>
 
 <svelte:head>
@@ -42,3 +50,5 @@
         </div>
     {/each}
 </div>
+
+<Card padded>A simple padded card.</Card>

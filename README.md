@@ -36,3 +36,29 @@ npm run build
 ```
 
 > You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+
+
+## SMUI Specific
+
+Run: 
+```
+npx smui-theme template src/theme
+```
+
+Current SMUI components:
+```
+Card
+````
+
+To add new SMUI component:
+```
+npm install --save-dev @smui/XYZ
+npm run prepare
+```
+
+Then you should be able to use
+```
+npm run dev
+```
+
+Find other components here: https://sveltematerialui.com/
