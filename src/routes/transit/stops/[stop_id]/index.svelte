@@ -33,38 +33,59 @@
     export let predictions: any;
     export let serviceBulletins: any;
 
+    $: routes = Array.from((new Set(stopInfo.route_directions.map(([r, _]) => r))).values()).sort() as string[];
+
     const route_colors = {
         "1": "#0d6ea1",
         "2": "#f4b430",
         "3": "#2296c5",
         "4": "#5eb034",
-        "5": "#5eb034",
+        "5": "#0a817d",
         "7": "#bf262b",
         "8": "#d55ca1",
         "9A": "#f5562e",
         "9B": "#463698",
-        "B": "#9ddfef",
+        "BRZ": "#9ddfef",
         "21": "#9ddfef",
         "24A": "#a52227",
         "24B": "#df9f62",
-        "ZM": "#df9f62",
-        "IS": "#df9f62",
+        "ZM": "#422b85",
+        "IS": "#ce178d",
         "LRB": "#241e20",
+        "HSK": "#242c6b",
+    }
+
+    const route_text_colors = {
+        "1": "white",
+        "2": "black",
+        "3": "black",
+        "4": "black",
+        "5": "white",
+        "7": "black",
+        "8": "black",
+        "9A": "black",
+        "9B": "white",
+        "BRZ": "black",
+        "21": "white",
+        "24A": "white",
+        "24B": "black",
+        "ZM": "white",
+        "IS": "black",
+        "LRB": "white",
+        "HSK": "#eab420",
     }
 
     let poller: any;
 
     const setupPoller = () => {
-        if (poller) {
-            clearInterval(poller)
-        }
-        poller = setInterval(doPoll, 2000)
+        if (poller) clearInterval(poller)
+        poller = setInterval(doPoll, 10000)
     }
 
     const doPoll = async () => {
         if (typeof window !== "undefined") {
-            const predictionsP = fetch(`${window.location.protocol}://${window.location.host}/transit/stops/${stop_id}/predictions.json`);
-            const serviceBulletinsP = fetch(`${window.location.protocol}://${window.location.host}/transit/stops/${stop_id}/service-bulletins.json`);
+            const predictionsP = fetch(`/transit/stops/${stop_id}/predictions.json`);
+            const serviceBulletinsP = fetch(`/transit/stops/${stop_id}/service-bulletins.json`);
             const predictionsRes = await predictionsP;
             const serviceBulletinsRes = await serviceBulletinsP;
             predictions = await predictionsRes.json();
@@ -77,6 +98,17 @@
 
 <h3>{stopInfo.stpnm}</h3>
 
+<div class="pb-2 pt-2 text-start">
+    <p>Serving Lines: </p>
+    {#each routes as route}
+        <div class="card text-center d-inline-block me-2 mb-2" style="background-color: {route_colors[route]}; color: {route_text_colors[route]}; {route === 'HSK' ? 'border: dashed #eab420 2px' : ''}">
+            <div class="card-body p-0"  style="width: 5rem">
+                <p class="card-text">{route}</p>
+            </div>
+        </div>
+    {/each}
+</div>
+
 {#if serviceBulletins.error}
     <div class="alert alert-success">
         No service alerts 😎
@@ -88,16 +120,6 @@
         </div>
     {/each}
 {/if}
-<div class="pb-2 pt-2 text-start">
-    <p>Serving Lines: </p>
-    {#each stopInfo.route_directions as route}
-        <div class="card text-center d-inline-block me-2" style="background-color: {route_colors[route[0]]}">
-            <div class="card-body p-0"  style="width: 5rem">
-                <p class="card-text">{route[0]}</p>
-            </div>
-        </div>
-    {/each}
-</div>
 
 {#if predictions.error}
     <div class="alert alert-secondary">
@@ -105,7 +127,7 @@
     </div>
 {:else}
     {#each predictions.prd as prediction}
-        <div class="card text-start mb-2" style="background-color: {route_colors[prediction.rt]}">
+        <div class="card text-start mb-2" style="background-color: {route_colors[prediction.rt]}; color: {route_text_colors[prediction.rt]}">
             <div class="card-body">
                 <div class="d-flex">
                     <h5 class="card-title d-inline-block">{prediction.rt}</h5>
@@ -116,4 +138,4 @@
         </div>
     {/each}
 {/if}
-<p class="text-primary">Brought to you by Livable Portland <a href="/">Learn More</a></p>
+<p class="text-primary fst-italic fs-sm">Brought to you by Livable Portland <a href="/">Learn More</a></p>

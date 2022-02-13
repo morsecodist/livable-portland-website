@@ -19,6 +19,7 @@ class BusTime {
     }
 
     predictions(stopId: string) {
+        console.log(stopId);
         const cached = this.predictionsCache[stopId];
         if (cached && Date.now() - cached[0] < 60 * 1000) return cached[1];
         const predictions = this.request("getpredictions", { stpid: stopId });
