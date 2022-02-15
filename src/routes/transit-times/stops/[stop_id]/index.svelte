@@ -2,8 +2,8 @@
     export async function load({ fetch, params }) {
         const { stop_id } = params;
         const stopInfoP = fetch(`/stops/${stop_id}.json`);
-        const predictionsP = fetch(`/transit/stops/${stop_id}/predictions.json`);
-        const serviceBulletinsP = fetch(`/transit/stops/${stop_id}/service-bulletins.json`);
+        const predictionsP = fetch(`/transit-times/stops/${stop_id}/predictions.json`);
+        const serviceBulletinsP = fetch(`/transit-times/stops/${stop_id}/service-bulletins.json`);
         const stopInfoRes = await stopInfoP;
         const predictionsRes = await predictionsP;
         const serviceBulletinsRes = await serviceBulletinsP;
@@ -87,8 +87,8 @@
 
     const doPoll = async () => {
         if (typeof window !== "undefined") {
-            const predictionsP = fetch(`/transit/stops/${stop_id}/predictions.json`);
-            const serviceBulletinsP = fetch(`/transit/stops/${stop_id}/service-bulletins.json`);
+            const predictionsP = fetch(`/transit-times/stops/${stop_id}/predictions.json`);
+            const serviceBulletinsP = fetch(`/transit-times/stops/${stop_id}/service-bulletins.json`);
             const predictionsRes = await predictionsP;
             const serviceBulletinsRes = await serviceBulletinsP;
             predictions = await predictionsRes.json();

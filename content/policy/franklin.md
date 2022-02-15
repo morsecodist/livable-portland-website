@@ -65,19 +65,19 @@ This plan adds walking and biking paths across Franklin street at every intersec
 
 ### Revenue Positive
 
-- First Market Plot: 15,611 ft²
-- Second Market Plot: 30,693 ft²
-- Third Market Plot: 53,485 ft²
-- Total: 99,789 ft²
+- First Market Plot: 22,004 ft²
+- Second Market Plot: 36,142 ft²
+- Third Market Plot: 54,628 ft²
+- Total: 112,774 ft²
 - Land Sale Cost per ft²: $52.13
-- Land Sale Cost: $5,202,452.26
-- Existing Franklin Street Plan Cost: $30,976,985.77
-- Deficit: $25,774,533.50
+- Land Sale Cost: $5,878,908.62
+- Franklin Street Plan Cost: $11,998,038.67
+- Deficit: $6,119,130.05
 - Annual Property Tax Revenue per ft²: $18.63
-- Annual Property Tax Revenue: $18.63
-- Annual Property Tax Revenue: $1,859,121.24
-- Annual Payments on a 30 year Municipal Bond at 2.07% Interest: $1,162,000
-- **Net Gain in Tax Revenue First 30 Years: $697,121.24**
+- Annual Property Tax Revenue: $2,100,979.62
+- Annual Payments on a 10 year Municipal Bond at 1.6% Interest: $667,042.94
+- **Net Gain in Tax Revenue First 10 Years: $1,433,936.68**
+- **Net Gain in Tax Revenue After 10 Years: $2,100,979.62**
 - **Upfront Costs: $0**
 
 **Based on 99 Federal Street project. [Info from tax record property search](https://assessors.portlandmaine.gov/Search/commonsearch.aspx?mode=realprop). Search for 56 Hampshire St, the address before it was 99 Federal St. A private development adjacent to the proposed developments built within the last few years.*
