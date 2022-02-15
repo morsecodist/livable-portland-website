@@ -30,6 +30,7 @@
     import { page } from '$app/stores';
     import { fade } from 'svelte/transition';
     import { flip } from 'svelte/animate';
+    import { browser } from '$app/env';
 
     const { stop_id } = $page.params;
     export let stopInfo: any;
@@ -111,7 +112,7 @@
     }
 
     const doPoll = async () => {
-        if (typeof window !== "undefined") {
+        if (browser) {
             const predictionsP = fetch(`/transit-times/stops/${stop_id}/predictions.json`);
             const serviceBulletinsP = fetch(`/transit-times/stops/${stop_id}/service-bulletins.json`);
             const predictionsRes = await predictionsP;
@@ -131,9 +132,11 @@
     <p>Serving Lines: </p>
     <div class="d-flex flex-wrap">
         {#each routes as route}
-            <div class="card text-center me-2 mb-2 flex-grow-1" style="min-width: 5rem; max-width: 7rem; background-color: {route_colors[route]}; color: {route_text_colors[route]}; {route === 'HSK' ? 'border: dashed #eab420 2px' : ''}">
-                <div class="card-body p-0">
-                    <p class="card-text">{route}</p>
+            <div class="flex-grow-1" style="min-width: 5rem; max-width: 7rem">
+                <div class="card text-center me-2 mb-2 " style="min-width: 5rem; max-width: 7rem; background-color: {route_colors[route]}; color: {route_text_colors[route]}; {route === 'HSK' ? 'border: dashed #eab420 2px' : ''}">
+                    <div class="card-body p-0">
+                        <p class="card-text">{route}</p>
+                    </div>
                 </div>
             </div>
         {/each}
