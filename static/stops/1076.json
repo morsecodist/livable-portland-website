@@ -1,1 +1,1 @@
-{"stpid": "1076", "stpnm": "High St + Spring St", "lat": 43.653039000001, "lon": -70.261479000001, "route_directions": [["8", "OUTBOUND"]]}
+{"stpid": "1076", "stpnm": "High St + Spring St", "lat": 43.6530390000013, "lon": -70.26147900000147, "route_directions": [["8", "INBOUND"], ["8", "OUTBOUND"], ["21", "INBOUND"], ["24A", "INBOUND"], ["24B", "INBOUND"]]}

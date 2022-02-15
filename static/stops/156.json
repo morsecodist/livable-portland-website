@@ -1,1 +1,1 @@
-{"stpid": "156", "stpnm": "Congress St + Exchange St", "lat": 43.659024000001, "lon": -70.256626, "route_directions": [["1", "OUTBOUND"], ["7", "OUTBOUND"], ["9B", "OUTBOUND"]]}
+{"stpid": "156", "stpnm": "Congress St + Exchange St", "lat": 43.65902400000116, "lon": -70.25662600000044, "route_directions": [["1", "OUTBOUND"], ["7", "OUTBOUND"], ["9B", "INBOUND"], ["9B", "OUTBOUND"]]}

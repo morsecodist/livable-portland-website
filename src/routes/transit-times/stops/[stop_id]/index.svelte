@@ -26,7 +26,7 @@
 </script>
 
 <script lang="ts">
-    import { onMount } from 'svelte';
+    import { onMount, tick } from 'svelte';
     import { page } from '$app/stores';
     import { fade } from 'svelte/transition';
     import { flip } from 'svelte/animate';
@@ -36,7 +36,25 @@
     export let predictions: any;
     export let serviceBulletins: any;
 
+    function parseDate(d: string): Date {
+        const year = parseInt(d.substring(0, 4));
+        const month = parseInt(d.substring(4, 6)) - 1;
+        const day = parseInt(d.substring(6, 8));
+        const hour = parseInt(d.substring(9, 11));
+        const minute = parseInt(d.substring(12, 14));
+        return new Date(year, month, day, hour, minute);
+    }
+
+    let now = new Date();
     $: routes = Array.from((new Set(stopInfo.route_directions.map(([r, _]) => r))).values()).sort() as string[];
+    $: predictionsMapped = predictions.prd ? predictions.prd.map(p => {
+        const seconds = Math.floor((parseDate(p.prdtm).getTime() - now.getTime()) / 1000);
+        const secondsPlace = seconds % 60;
+        return {
+            ...p,
+            time: seconds <= 0 ? "DUE" : `${Math.floor(seconds / 60)}:${secondsPlace < 10 ? '0' : ''}${secondsPlace % 60}`,
+        }
+    }) : [];
 
     const route_colors = {
         "1": "#0d6ea1",
@@ -69,7 +87,7 @@
         "9A": "black",
         "9B": "white",
         "BRZ": "black",
-        "21": "white",
+        "21": "black",
         "24A": "white",
         "24B": "black",
         "ZM": "white",
@@ -79,10 +97,17 @@
     }
 
     let poller: any;
+    let ticker: any;
 
     const setupPoller = () => {
         if (poller) clearInterval(poller)
+        if (ticker) clearInterval(ticker)
         poller = setInterval(doPoll, 10000)
+        ticker = setInterval(tick, 1000);
+    }
+
+    const tick = () => {
+        now = new Date();
     }
 
     const doPoll = async () => {
@@ -132,12 +157,12 @@
         {predictions.error[0].msg}
     </div>
 {:else}
-    {#each predictions.prd as prediction (prediction.vid)}
+    {#each predictionsMapped as prediction (prediction.vid)}
         <div class="card text-start mb-2" transition:fade animate:flip style="background-color: {route_colors[prediction.rt]}; color: {route_text_colors[prediction.rt]}">
             <div class="card-body">
                 <div class="d-flex">
                     <h5 class="card-title d-inline-block">{prediction.rt}</h5>
-                    <h5 class="d-inline-block flex-grow-1 text-end">{prediction.prdctdn}{prediction.prdctdn !== "DUE" ? " min" : ""}</h5>
+                    <h5 class="d-inline-block flex-grow-1 text-end">{prediction.time}{prediction.time !== "DUE" ? " min" : ""}</h5>
                 </div>
                 <p class="card-text">{prediction.des}</p>
             </div>

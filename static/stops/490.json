@@ -1,1 +1,1 @@
-{"stpid": "490", "stpnm": "Spring St + State St", "lat": 43.651153, "lon": -70.264366000002, "route_directions": [["8", "OUTBOUND"]]}
+{"stpid": "490", "stpnm": "Spring St + State St", "lat": 43.651153000000015, "lon": -70.26436600000181, "route_directions": [["8", "INBOUND"], ["8", "OUTBOUND"]]}
