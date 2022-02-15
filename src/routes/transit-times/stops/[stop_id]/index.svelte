@@ -26,7 +26,10 @@
 </script>
 
 <script lang="ts">
+    import { onMount } from 'svelte';
     import { page } from '$app/stores';
+    import { fade } from 'svelte/transition';
+    import { flip } from 'svelte/animate';
 
     const { stop_id } = $page.params;
     export let stopInfo: any;
@@ -93,20 +96,23 @@
         }
     }
 
-    $: setupPoller()
+    $: setupPoller();
+    onMount(doPoll);
 </script>
 
 <h3>{stopInfo.stpnm}</h3>
 
 <div class="pb-2 pt-2 text-start">
     <p>Serving Lines: </p>
-    {#each routes as route}
-        <div class="card text-center d-inline-block me-2 mb-2" style="background-color: {route_colors[route]}; color: {route_text_colors[route]}; {route === 'HSK' ? 'border: dashed #eab420 2px' : ''}">
-            <div class="card-body p-0"  style="width: 5rem">
-                <p class="card-text">{route}</p>
+    <div class="d-flex flex-wrap">
+        {#each routes as route}
+            <div class="card text-center me-2 mb-2 flex-grow-1" style="min-width: 5rem; max-width: 7rem; background-color: {route_colors[route]}; color: {route_text_colors[route]}; {route === 'HSK' ? 'border: dashed #eab420 2px' : ''}">
+                <div class="card-body p-0">
+                    <p class="card-text">{route}</p>
+                </div>
             </div>
-        </div>
-    {/each}
+        {/each}
+    </div>
 </div>
 
 {#if serviceBulletins.error}
@@ -115,7 +121,7 @@
     </div>
 {:else}
     {#each serviceBulletins.sb as serviceBulletin}
-        <div class="text-start alert alert-danger">
+        <div class="text-start alert alert-danger" transition:fade>
             ⚠️ <strong>{serviceBulletin.sbj}</strong>: {serviceBulletin.brf}
         </div>
     {/each}
@@ -126,8 +132,8 @@
         {predictions.error[0].msg}
     </div>
 {:else}
-    {#each predictions.prd as prediction}
-        <div class="card text-start mb-2" style="background-color: {route_colors[prediction.rt]}; color: {route_text_colors[prediction.rt]}">
+    {#each predictions.prd as prediction (prediction.vid)}
+        <div class="card text-start mb-2" transition:fade animate:flip style="background-color: {route_colors[prediction.rt]}; color: {route_text_colors[prediction.rt]}">
             <div class="card-body">
                 <div class="d-flex">
                     <h5 class="card-title d-inline-block">{prediction.rt}</h5>

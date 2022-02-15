@@ -44,6 +44,7 @@
     "leaflet": "^1.7.1",
     "marked": "^4.0.10",
     "plotly.js-dist-min": "^2.8.3",
+    "redis": "^4.0.3",
     "uuid": "^8.3.2",
     "yaml": "^1.10.2"
   },
