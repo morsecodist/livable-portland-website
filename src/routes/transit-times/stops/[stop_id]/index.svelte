@@ -160,7 +160,7 @@
         {predictions.error[0].msg}
     </div>
 {:else}
-    {#each predictionsMapped as prediction (prediction.vid)}
+    {#each predictionsMapped as prediction (prediction.vid + prediction.prdtm)}
         <div class="card text-start mb-2" transition:fade animate:flip style="background-color: {route_colors[prediction.rt]}; color: {route_text_colors[prediction.rt]}">
             <div class="card-body">
                 <div class="d-flex">
