@@ -14,6 +14,9 @@
     }, {
         title: "Contact Us",
         path: "/contact",
+    }, {
+        title: "Calendar",
+        path: "/calendar",
     }].map(obj => ({
         ...obj,
         classNames: `${$page.url.pathname === obj.path ? 'active' : ''}`,
