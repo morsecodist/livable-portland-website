@@ -97,6 +97,25 @@
         "HSK": "#eab420",
     }
 
+    const route_links = {
+        "1": "https://gpmetro.org/DocumentCenter/View/1101/Rte-1-spread-1-22?bidId=",
+        "2": "https://gpmetro.org/DocumentCenter/View/1053/Rte-2?bidId=",
+        "3": "https://gpmetro.org/DocumentCenter/View/1054/Rte-3?bidId=",
+        "4": "https://gpmetro.org/DocumentCenter/View/898/Rte-4-REV?bidId=",
+        "5": "https://gpmetro.org/290/Route-5---Maine-Mall",
+        "7": "https://gpmetro.org/DocumentCenter/View/1057/Rte-7?bidId=",
+        "8": "https://gpmetro.org/DocumentCenter/View/976/Rte-8-8302020?bidId=",
+        "9A": "https://gpmetro.org/DocumentCenter/View/1056/Rte-9?bidId=",
+        "9B": "https://gpmetro.org/DocumentCenter/View/1056/Rte-9?bidId=",
+        "BRZ": "https://gpmetro.org/DocumentCenter/View/1098/BREEZ-spread-1-22?bidId=",
+        "21": "https://southportland.org/files/1416/2793/1524/Route_21_-_South_Portland_Bus_Services_-_July_2021.pdf",
+        "24A": "https://southportland.org/files/2016/2801/6101/Route_24A_-_South_Portland_Bus_Service_-_August_2021.pdf",
+        "24B": "https://southportland.org/files/8216/2793/1884/Route_24B_-_South_Portland_Bus_Services_-July_2021.pdf",
+        "ZM": "https://bsoobtransit.org/schedules-maps/purple/",
+        "LRB": "https://www.rtprides.org/wp-content/uploads/Lakes-Region-Explorer-Schedule-2020.pdf",
+        "HSK": "https://gpmetro.org/DocumentCenter/View/966/HuskyLine-spread-REV-82421?bidId=",
+    }
+
     let poller: any;
     let ticker: any;
 
@@ -126,18 +145,24 @@
     onMount(doPoll);
 </script>
 
+<svelte:head>
+    <title>Bus Times: {stopInfo.stpnm}</title>
+</svelte:head>
+
 <h3>{stopInfo.stpnm}</h3>
 
 <div class="pb-2 pt-2 text-start">
-    <p>Serving Lines: </p>
+    <p>Serving Lines (<a href="https://gpmetro.org/ImageRepository/Document?documentId=964">full map</a>): </p>
     <div class="d-flex flex-wrap">
         {#each routes as route}
             <div class="flex-grow-1" style="min-width: 5rem; max-width: 7rem">
-                <div class="card text-center me-2 mb-2 " style="min-width: 5rem; max-width: 7rem; background-color: {route_colors[route]}; color: {route_text_colors[route]}; {route === 'HSK' ? 'border: dashed #eab420 2px' : ''}">
-                    <div class="card-body p-0">
-                        <p class="card-text">{route}</p>
+                <a class="text-decoration-none" href={route_links[route]}>
+                    <div class="card text-center me-2 mb-2 " style="min-width: 5rem; max-width: 7rem; background-color: {route_colors[route]}; color: {route_text_colors[route]}; {route === 'HSK' ? 'border: dashed #eab420 2px' : ''}">
+                        <div class="card-body p-0">
+                            <p class="card-text">{route}</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         {/each}
     </div>
@@ -172,4 +197,4 @@
         </div>
     {/each}
 {/if}
-<p class="text-primary fst-italic fs-sm">Brought to you by Livable Portland <a href="/">Learn More</a></p>
+<p class="text-primary fst-italic fs-sm">Brought to you by Livable Portland <a href="/">Learn More</a> or <a href="/get-involved">Get Involved</a></p>

@@ -15,6 +15,9 @@
         title: "Contact Us",
         path: "/contact",
     }, {
+        title: "News",
+        path: "/news",
+    }, {
         title: "Calendar",
         path: "/calendar",
     }].map(obj => ({
@@ -51,7 +54,7 @@
         <a class="d-inline-form btn btn-secondary" href="/get-involved" on:click={closeMenu}>Get Involved</a>
         </div>
     </nav>
-    <div id="under-nav" class="container text-center">
+    <div id="under-nav" class="container text-center pb-2">
         <slot/>
     </div>
 </div>
