@@ -31,6 +31,7 @@
     import { fade } from 'svelte/transition';
     import { flip } from 'svelte/animate';
     import { browser } from '$app/env';
+    import { stringStore } from '../../../../strings';
 
     const { stop_id } = $page.params;
     export let stopInfo: any;
@@ -152,7 +153,7 @@
 <h3>{stopInfo.stpnm}</h3>
 
 <div class="pb-2 pt-2 text-start">
-    <p>Serving Lines (<a href="https://gpmetro.org/ImageRepository/Document?documentId=964">full map</a>): </p>
+    <p>{($stringStore)[1]["Serving lines"]}</p>
     <div class="d-flex flex-wrap">
         {#each routes as route}
             <div class="flex-grow-1" style="min-width: 5rem; max-width: 7rem">
@@ -170,7 +171,7 @@
 
 {#if serviceBulletins.error}
     <div class="alert alert-success">
-        No service alerts 😎
+        {($stringStore)[1]["No Service Alerts"]}
     </div>
 {:else}
     {#each serviceBulletins.sb as serviceBulletin}
@@ -197,4 +198,11 @@
         </div>
     {/each}
 {/if}
-<p class="text-primary fst-italic fs-sm">Brought to you by Livable Portland <a href="/">Learn More</a> or <a href="/get-involved">Get Involved</a></p>
+<div class="text-start">
+    <p class="text-primary text-bold">{$stringStore[1]["Resources"]}</p>
+    <p class="text-primary mb-0"><a href="https://gpmetro.org/ImageRepository/Document?documentId=964">{$stringStore[1]["Full System Map"]}</a></p>
+    <p class="text-primary mb-0"><a href="https://umomobility.com/transit-agencies/umo-app/">{$stringStore[1]["Download the UMO App"]}</a></p>
+    <p class="text-primary mb-0"><a href="http://adopt-a-stop.org/How_It_Works.html">{$stringStore[1]["Adopt this stop"]}</a></p>
+</div>
+<p class="text-primary fst-italic fs-sm">{$stringStore[1]["Brought to you by Livable Portland"]}</p>
+<p><a href="/">Learn More</a> or <a href="/get-involved">Get Involved</a></p>
