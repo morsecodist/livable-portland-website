@@ -21,6 +21,10 @@ $theme-colors: (
     display: flex;
 }
 
+#collapse-button {
+    visibility: hidden;
+}
+
 @include media-breakpoint-down(lg) {
     nav {
         position: fixed !important;
@@ -31,6 +35,10 @@ $theme-colors: (
 
     #under-nav {
         padding-top: 56.5px;
+    }
+
+    #collapse-button {
+        visibility: visible;
     }
 }
 
