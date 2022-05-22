@@ -32,6 +32,7 @@
     import { flip } from 'svelte/animate';
     import { browser } from '$app/env';
     import { stringStore } from '../../../../strings';
+    import { eastCoastNow } from '../../../../lib/date';
 
     const { stop_id } = $page.params;
     export let stopInfo: any;
@@ -47,7 +48,7 @@
         return new Date(year, month, day, hour, minute);
     }
 
-    let now = new Date();
+    let now = eastCoastNow();
     $: routes = Array.from((new Set(stopInfo.route_directions.map(([r, _]) => r))).values()).sort() as string[];
     $: predictionsMapped = predictions.prd ? predictions.prd.map(p => {
         const seconds = Math.floor((parseDate(p.prdtm).getTime() - now.getTime()) / 1000);
