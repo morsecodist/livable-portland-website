@@ -22,7 +22,7 @@ function readFile(path: fs.PathLike): Promise<Buffer> {
 
 
 export async function get() {
-    const files = await listDir(join(resolve(), "content/newsletter"));
+    const files = (await listDir(join(resolve(), "content/newsletter"))).reverse();
     const posts = await Promise.all(files.map(async filename => {
         const fileData = await readFile(join(resolve(), "content/newsletter/", filename));
         const obj = matter(fileData).data;

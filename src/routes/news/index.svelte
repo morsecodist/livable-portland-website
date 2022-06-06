@@ -6,7 +6,7 @@
         if (res.ok) {
             return {
                 props: {
-                    posts: (await res.json()).sort((a: any, b: any) => a.date > b.date),
+                    posts: await res.json(),
                 },
             };
         }
