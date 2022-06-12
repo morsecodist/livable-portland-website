@@ -200,9 +200,8 @@
     {/each}
 {/if}
 <div class="text-start">
-    <p class="text-primary text-bold mb-2">{$stringStore[1]["Resources"]}</p>
+    <p class="text-primary mb-1">{$stringStore[1]["Download the UMO App"]}: <a href="https://play.google.com/store/apps/details?id=com.cubic.ctp.app">Android</a> | <a href="https://apps.apple.com/us/app/umo-mobility/id1540611257">iPhone</a></p>
     <p class="text-primary mb-1"><a href="https://gpmetro.org/ImageRepository/Document?documentId=964">{$stringStore[1]["Full System Map"]}</a></p>
-    <p class="text-primary mb-1"><a href="https://umomobility.com/transit-agencies/umo-app/">{$stringStore[1]["Download the UMO App"]}</a></p>
     <p class="text-primary mb-1"><a href="http://adopt-a-stop.org/How_It_Works.html">{$stringStore[1]["Adopt this stop"]}</a></p>
 </div>
 <p class="text-primary fst-italic fs-sm">{$stringStore[1]["Brought to you by Livable Portland"]}</p>
