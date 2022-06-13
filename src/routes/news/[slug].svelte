@@ -4,7 +4,6 @@
 
         if (res.ok) {
             const obj = await res.json();
-            console.log(obj.data)
             return {
                 props: {
                     content: obj.content,
