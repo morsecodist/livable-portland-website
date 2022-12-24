@@ -19,8 +19,8 @@
         title: "News",
         path: "/news",
     }, {
-        title: "Calendar",
-        path: "/calendar",
+        title: "Upcoming Events",
+        path: "/upcoming-events",
     }].map(obj => ({
         ...obj,
         classNames: `${$page.url.pathname === obj.path ? 'active' : ''}`,
