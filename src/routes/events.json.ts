@@ -1,4 +1,5 @@
 import { google } from 'googleapis';
+import matter from "gray-matter";
 
 async function listEvents() {
     const credentials = JSON.parse(Buffer.from(process.env.GOOGLE_CALENDAR_KEY, 'base64').toString('utf-8'));
@@ -13,7 +14,9 @@ async function listEvents() {
         showDeleted: false,
         orderBy: 'startTime',
     });
-    return res.data.items || []
+    const items = res.data.items || []
+    items.forEach(v => {if (v.description) v.description = matter(v.description).content})
+    return items
 }
   
 
