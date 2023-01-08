@@ -44,6 +44,7 @@
 
 <script lang="ts">
     import { slide } from 'svelte/transition'
+    import { marked } from "marked";
 
     export let days: any;
 
@@ -109,7 +110,7 @@
                     })} {calendarEvent.summary}</p>
                     {#if openEvents[calendarEvent.id]}
                         <div transition:slide>
-                            <p style="margin:0">{calendarEvent.description}</p>
+                            { @html calendarEvent.description.replaceAll("\n", "<br/>") }
                         </div>
                     {/if}
                 </div>

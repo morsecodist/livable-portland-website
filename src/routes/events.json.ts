@@ -14,9 +14,7 @@ async function listEvents() {
         showDeleted: false,
         orderBy: 'startTime',
     });
-    const items = res.data.items || []
-    items.forEach(v => {if (v.description) v.description = matter(v.description).content})
-    return items
+    return res.data.items || []
 }
   
 
