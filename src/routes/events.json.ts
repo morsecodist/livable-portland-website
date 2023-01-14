@@ -1,11 +1,12 @@
-import { google } from 'googleapis';
-import matter from "gray-matter";
+import { google } from 'googleapis'
+import { OAuth2Client } from 'google-auth-library'
 
 async function listEvents() {
     const credentials = JSON.parse(Buffer.from(process.env.GOOGLE_CALENDAR_KEY, 'base64').toString('utf-8'));
-    credentials.type = 'authorized_user';
-    const auth = google.auth.fromJSON(credentials);
-    const calendar = google.calendar({version: 'v3', auth});
+    const client = new OAuth2Client()
+    client.setCredentials(credentials)
+    client.forceRefreshOnFailure = true
+    const calendar = google.calendar({ version: 'v3', auth: client });
     const res = await calendar.events.list({
         calendarId: process.env.CALENDAR_ID,
         timeMin: new Date().toISOString(),
