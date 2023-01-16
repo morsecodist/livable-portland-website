@@ -100,9 +100,12 @@
             <p>No events</p>
         {:else}
             {#each day.events as calendarEvent}
+                <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
                 <div
                     class="eventbox"
                     on:click={() => openEvents[calendarEvent.id] = !openEvents[calendarEvent.id]}
+                    on:keypress={() => openEvents[calendarEvent.id] = !openEvents[calendarEvent.id]}
+                    tabindex="0"
                 >
                     <p>{new Date(calendarEvent.start.dateTime).toLocaleTimeString('en-us', {
                         hour: 'numeric',
@@ -110,7 +113,7 @@
                     })} {calendarEvent.summary}</p>
                     {#if openEvents[calendarEvent.id]}
                         <div transition:slide>
-                            { @html calendarEvent.description.replaceAll("\n", "<br/>") }
+                            { @html calendarEvent.description.replaceAll("\n", "\n<br/>").replace(/(https?:\/\/[^\s]+)/g, '<a target="_blank" onclick="event.stopPropagation()" href="$1">$1</a>') }
                         </div>
                     {/if}
                 </div>
