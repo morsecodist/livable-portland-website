@@ -1,6 +1,15 @@
 <script lang="ts" context="module">
     export async function load({ fetch }) {
         const res = await fetch("/events.json");
+        if (!res.ok) {
+            return {
+                props: {
+                    days: [],
+                    error: true,
+                },
+            };
+        }
+
         const events = await res.json();
         
         let currentEvent = events.shift();
@@ -27,17 +36,10 @@
             }
         }
 
-        if (res.ok) {
-            return {
-                props: {
-                    days,
-                },
-            };
-        }
-
         return {
-            status: res.status,
-            error: new Error(`Could not load events.json`),
+            props: {
+                days,
+            },
         };
     }
 </script>
@@ -47,6 +49,7 @@
     import { marked } from "marked";
 
     export let days: any;
+    export let error = false;
 
     const openEvents = {};
 
@@ -87,6 +90,9 @@
     <a class="btn btn-secondary" href="/calendar">View Calendar</a>
     <a class="btn btn-secondary" href="https://calendar.google.com/calendar/u/0?cid=MXFpaWRqbW5ycmw4ZDdmOGh0c2FjdmxvbTBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ" target="about:blank">Add to Google Calendar</a>
 </div>
+{#if error}
+    <p>We're sorry, we are currently having a problem and can't display events right now.</p>
+{/if}
 {#each days as day}
     <div class="daybox">
         <p class="datelabel">{day.date.toLocaleDateString('en-US', {
@@ -113,7 +119,7 @@
                     })} {calendarEvent.summary}</p>
                     {#if openEvents[calendarEvent.id]}
                         <div transition:slide>
-                            { @html calendarEvent.description.replaceAll("\n", "\n<br/>").replace(/(https?:\/\/[^\s]+)/g, '<a target="_blank" onclick="event.stopPropagation()" rel="noreferrer" href="$1">$1</a>') }
+                            { @html calendarEvent.description.replace(/<a href="[^\s]+">/g, '<a target="_blank" onclick="event.stopPropagation()" rel="noreferrer" href="$1">') }
                         </div>
                     {/if}
                 </div>
