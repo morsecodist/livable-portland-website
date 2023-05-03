@@ -119,7 +119,7 @@
                     })} {calendarEvent.summary}</p>
                     {#if openEvents[calendarEvent.id]}
                         <div transition:slide>
-                            { @html calendarEvent.description.replace(/<a href="[^\s]+">/g, '<a target="_blank" onclick="event.stopPropagation()" rel="noreferrer" href="$1">') }
+                            { @html calendarEvent.description.replace(/<a href="([^\s]+)">/g, '<a target="_blank" onclick="event.stopPropagation()" rel="noreferrer" class="meeting-link" href="$1">') }
                         </div>
                     {/if}
                 </div>

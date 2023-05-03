@@ -25,6 +25,10 @@ $theme-colors: (
     visibility: hidden;
 }
 
+a.meeting-link {
+    color: white;
+}
+
 @include media-breakpoint-down(lg) {
     nav {
         position: fixed !important;
