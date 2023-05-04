@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>Livable Portland - Calendar</title>
+    <title>Urbanist Coalition of Portland - Calendar</title>
 </svelte:head>
 
 <h1 class="text-primary">Events</h1>

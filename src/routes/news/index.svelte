@@ -13,7 +13,7 @@
 
         return {
             status: res.status,
-            error: new Error(`Could not load policy.json`),
+            error: new Error(`Could not load news.json`),
         };
     }
 </script>
@@ -24,11 +24,12 @@
 </script>
 
 <svelte:head>
-    <title>Livable Portland - Newsletters</title>
+    <title>Urbanist Coalition of Portland - Newsletters</title>
 </svelte:head>
 
-<h1 class="text-primary">Livable Portland News</h1>
+<h1 class="text-primary">Urbanist Coalition of Portland News</h1>
 
+<p>We have changed our name from "Livable Portland", as well as switched to an email newsletter in a different format. These posts are rather old use the old name but we are keeping them up for now so people can learn more about the group but we may take them down when we add more new information and updates to the site.</p>
 
 <div class="text-start">
     {#each posts as post}

@@ -1,5 +1,5 @@
 {
-  "name": "livable-portland-website",
+  "name": "urbanist-coalition-of-portland-website",
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",

@@ -32,7 +32,7 @@
 </style>
 
 <svelte:head>
-    <title>Livable Portland - {title}</title>
+    <title>Urbanist Coalition of Portland - {title}</title>
 </svelte:head>
 
 <h1 class="text-primary mb-4">{title}</h1>

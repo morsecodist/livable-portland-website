@@ -33,7 +33,7 @@
 </style>
 
 <svelte:head>
-    <title>Livable Portland - {date.toString().substring(0, 10)}</title>
+    <title>Urbanist Coalition of Portland - {date.toString().substring(0, 10)}</title>
 </svelte:head>
 
 <h1 class="text-primary mb-4">{title}</h1>

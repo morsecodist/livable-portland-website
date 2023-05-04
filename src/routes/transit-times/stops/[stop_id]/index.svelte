@@ -204,5 +204,5 @@
     <p class="text-primary mb-1"><a href="https://gpmetro.org/ImageRepository/Document?documentId=964">{$stringStore[1]["Full System Map"]}</a></p>
     <p class="text-primary mb-1"><a href="http://adopt-a-stop.org/How_It_Works.html">{$stringStore[1]["Adopt this stop"]}</a></p>
 </div>
-<p class="text-primary fst-italic fs-sm">{$stringStore[1]["Brought to you by Livable Portland"]}</p>
+<p class="text-primary fst-italic fs-sm">{$stringStore[1]["Brought to you by the Urbanist Coalition of Portland"]}</p>
 <p><a href="/">Learn More</a> or <a href="/get-involved">Get Involved</a></p>

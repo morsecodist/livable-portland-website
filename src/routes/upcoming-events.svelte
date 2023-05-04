@@ -81,12 +81,12 @@
 </style>
 
 <svelte:head>
-    <title>Livable Portland - Upcoming Events</title>
+    <title>Urbanist Coalition of Portland - Upcoming Events</title>
 </svelte:head>
 
 <h1 class="text-primary">Upcoming Events</h1>
 <div class="mb-4">
-    <p>Keep up to date with upcoming local events including city government meetings, Livable Portland Meetings, Portland Bicycle and Pedestrian Advisory Committee meetings and more! Summaries of city government meeting agendas are auto-generated with GPT-3 so you can decide if you are interested and keep up to date. The source code for the automatic summaries is available <a href="https://github.com/morsecodist/portland-city-events-sync" target="_blank" rel="noreferrer">here</a>.</p>
+    <p>Keep up to date with upcoming local events including city government meetings, our meetings, Portland Bicycle and Pedestrian Advisory Committee meetings and more! Summaries of city government meeting agendas are auto-generated with GPT-3 so you can decide if you are interested and keep up to date. The source code for the automatic summaries is available <a href="https://github.com/morsecodist/portland-city-events-sync" target="_blank" rel="noreferrer">here</a>.</p>
     <a class="btn btn-secondary" href="/calendar">View Calendar</a>
     <a class="btn btn-secondary" href="https://calendar.google.com/calendar/u/0?cid=MXFpaWRqbW5ycmw4ZDdmOGh0c2FjdmxvbTBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ" target="about:blank">Add to Google Calendar</a>
 </div>
