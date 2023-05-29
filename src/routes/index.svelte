@@ -31,7 +31,7 @@
 
 <p>Join us on <a href="https://discord.gg/EBF8EUN2RK" target="_blank">Discord</a>!</p>
 
-<p>The Urbanist Coalition of Portland (formerly Livable Portland) is a political group with the goal of making Portland, Maine more livable for everyone. We recently changed our name from "Livable Portland" to avoid confusion with the Maine DSA's campaign of the same name. We believe in improving our city by supporting middle density mixed-use neighborhoods. Our policies and approach are strongly inspired by the YIMBY movement, Strong Towns, and more. If you thing building housing is a good thing and think people shouldn't need to drive everywhere you will fit right in. Our big ideas are:</p>
+<p>The Urbanist Coalition of Portland (formerly Livable Portland) is a political group with the goal of making Portland, Maine more livable for everyone. We recently changed our name from "Livable Portland" to avoid confusion with the Maine DSA's campaign of the same name. We believe in improving our city by supporting middle density mixed-use neighborhoods. Our policies and approach are strongly inspired by the YIMBY movement, Strong Towns, and more. If you think building housing is a good thing and think people shouldn't need to drive everywhere you will fit right in. Our big ideas are:</p>
 
 <div class="row g-4 pb-4">
         {#each posts as post}
