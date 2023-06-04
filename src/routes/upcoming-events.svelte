@@ -81,7 +81,7 @@
 </style>
 
 <svelte:head>
-    <title>Urbanist Coalition of Portland - Upcoming Events</title>
+    <title>UCP - Upcoming Events</title>
 </svelte:head>
 
 <h1 class="text-primary">Upcoming Events</h1>

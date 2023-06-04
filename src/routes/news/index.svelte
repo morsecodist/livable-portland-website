@@ -24,7 +24,7 @@
 </script>
 
 <svelte:head>
-    <title>Urbanist Coalition of Portland - Newsletters</title>
+    <title>UCP - Newsletters</title>
 </svelte:head>
 
 <h1 class="text-primary">Urbanist Coalition of Portland News</h1>

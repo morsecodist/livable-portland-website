@@ -1,12 +1,26 @@
 /* Write your global styles here, in SCSS syntax */
 $theme-colors: (
-  "primary": #065F46,
-  "secondary": #1E40AF,
+  "primary": #1A4D25,
+  "secondary": #0077B6,
   "success": #0f5132,
   "danger": #842029,
 );
 
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Shrikhand-Regular';
+  src: url('/fonts/Shrikhand-Regular.ttf') format('truetype');
+}
+
 @import 'bootstrap/scss/bootstrap.scss';
+
+body {
+    font-family: 'Poppins-Regular', sans-serif;
+}
 
 #map {
     min-width: calc(100% - 300px);

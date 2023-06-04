@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>Urbanist Coalition of Portland - Contact Us</title>
+    <title>UCP - Contact Us</title>
 </svelte:head>
 
 <h1 class="text-primary">Contact Us</h1>

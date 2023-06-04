@@ -29,7 +29,7 @@
 </script>
 
 <svelte:head>
-    <title>Urbanist Coalition of Portland - Get Involved</title>
+    <title>UCP - Get Involved</title>
 </svelte:head>
 
 <h1 class="text-primary">Get Involved</h1>

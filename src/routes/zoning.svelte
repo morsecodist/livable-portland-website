@@ -350,7 +350,7 @@
 
 
 <svelte:head>
-    <title>Urbanist Coalition of Portland - Zoning 101</title>
+    <title>UCP - Zoning 101</title>
 </svelte:head>
 
 <article class="text-start">
