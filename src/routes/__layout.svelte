@@ -7,6 +7,9 @@
         title: "Home",
         path: "/",
     }, {
+        title: "Policy",
+        path: "/policy",
+    }, {
         title: "Zoning 101",
         path: "/zoning",
     }, {
@@ -20,13 +23,14 @@
         path: "/upcoming-events",
     }].map(obj => ({
         ...obj,
-        classNames: `${$page.url.pathname === obj.path ? 'active' : ''}`,
+        classNames: `${($page.url.pathname.startsWith(obj.path) && obj.path !== '/') || ($page.url.pathname === '/' && obj.title === 'Home') ? 'text-secondary' : ''}`,
     }));
 
     function closeMenu() {
         const elem = document.getElementById('collapse-button');
         if (window.getComputedStyle(elem).display !== "none") elem.click();
     }
+
 </script>
 
 <div>
