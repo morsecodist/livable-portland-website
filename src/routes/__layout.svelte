@@ -25,7 +25,7 @@
 
     function closeMenu() {
         const elem = document.getElementById('collapse-button');
-        if (window.getComputedStyle(elem).visibility !== "hidden") elem.click();
+        if (window.getComputedStyle(elem).display !== "none") elem.click();
     }
 </script>
 
