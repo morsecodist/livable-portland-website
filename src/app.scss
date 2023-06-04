@@ -36,7 +36,7 @@ body {
 }
 
 #collapse-button {
-    visibility: hidden;
+    display: none;
 }
 
 div.eventbox {
@@ -57,6 +57,9 @@ div.eventbox {
     }
 }
 
+.mobile {
+    display: none;
+}
 
 @include media-breakpoint-down(lg) {
     nav {
@@ -71,7 +74,15 @@ div.eventbox {
     }
 
     #collapse-button {
-        visibility: visible;
+        display: block;
+    }
+
+    .mobile {
+        display: block;
+    } 
+
+    .desktop {
+        display: none;
     }
 }
 

@@ -72,8 +72,6 @@
 
 
 <style lang="scss">
-    @import 'bootstrap/scss/bootstrap.scss';
-
     .image-container {
         position: relative;
         width: 300px;
@@ -106,21 +104,7 @@
     a {
         text-decoration: none;
         flex-grow: 1;
-        min-width: 400px;
-    }
-
-    img.mobile {
-        display: none;
-    }
-
-    @include media-breakpoint-down(lg) {
-       img.mobile {
-           display: block;
-       } 
-
-       div.desktop {
-        display: none;
-       }
+        max-width: 400px;
     }
 </style>
 
@@ -131,7 +115,7 @@
 <h1 class="text-primary">ReCode Recommendations</h1>
 <div class="d-flex p-4">
     <div class="text-start p-2">
-        <img class="mobile" src="/recode/Rosefoods.JPG" alt="Neighborhood example" style="width: 100%;"/>
+        <img class="mobile mb-2" src="/recode/Rosefoods.JPG" alt="Neighborhood example" style="width: 100%;"/>
         <p>The City of Portland is in the process of rewriting its zoning code. We applaud the ongoing work as well as the work done in Phase One of this ReCode process, which simplified our code, allowed the construction of accessory dwelling units, and took the first step towards transit-oriented development. However, from following the process, we are concerned the proposed changes for ReCode Phase Two will not take full advantage of the rare opportunity we have to improve our city. This is why we have put together our own proposal of code changes.</p>
         <p>The intention of these zoning code changes is to allow for more middle-density, mixed-use neighborhoods that are pleasant to live in and move around. These changes make housing more affordable, encourage equity, protect the environment, make the administration of our city services more resilient and efficient, and bring communities closer together. All of these outcomes are goals laid out in Portland’s Comprehensive Plan. The recommendations in this document will not stop people from building the types of buildings they build today, they will just give people more options of neighborhoods to build and live in. We are currently in a housing affordability crisis with an environmental crisis on the horizon; the least we can do is allow ourselves to build the kind of city that can rise to face these challenges.</p>
     </div>
@@ -146,15 +130,15 @@
 </ul>
 
 <h2 class="text-primary">The Recommendations</h2>
-<div class="d-flex flex-wrap">
+<div class="d-flex flex-wrap" style="justify-content: center;">
     {#each topics as topic}
     <a href="/policy/recode" class="image-container d-inline-block m-2 text-center" >
-        <div class="col d-inline-block" style="width: 350px; height: 100%">
+        <div class="col d-inline-block" style="max-width: 350px; height: 100%">
             <div class="d-flex flex-column" style="height: 100%">
                 <img src="{topic.image}" alt="{topic.title}" class="img-fluid p-2" style="height: 160px" />
                 <p class="text-primary" style="">{topic.title}</p>
             </div>
-            <p class="image-text p-4" style="width: 350px">{topic.description}</p>
+            <p class="image-text p-4" style="max-width: 350px">{topic.description}</p>
         </div>
     </a>
     {/each}

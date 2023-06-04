@@ -31,7 +31,7 @@
 
 <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light px-2">
-        <a class="navbar-brand text-primary" href="/" style="flex-grow: 1; font-family: Shrikhand-Regular">Urbanist Coalition of Portland</a>
+        <a class="navbar-brand text-primary" href="/" style="flex-grow: 1; font-family: Shrikhand-Regular; font-size: 1rem;">Urbanist Coalition of Portland</a>
         <button id="collapse-button" class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false" aria-controls="navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
