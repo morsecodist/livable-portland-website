@@ -44,7 +44,7 @@
 {/if}
 
 <div class="text-start">
-    <p>We are always looking for new people to get involved, no matter how small your involvment may be or what your skills are. If you want to:</p>
+    <p>We are always looking for new people to get involved, no matter how small your involvement may be or what your skills are. If you want to:</p>
     <ul>
         <li>Help plan and provide feedback</li>
         <li>Help with data analysis, or learn more about analyzing public datasets</li>
