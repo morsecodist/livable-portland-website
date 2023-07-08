@@ -54,7 +54,7 @@
     </ul>
 </div>
 
-<p>Please add your name and email. We promise we won't spam you. Our organization is just starting out so we don't have much in the way of structure yet, but hopefully if there's interest we can schedule regular meetings.</p>
+<p>Please add your name and email if you want to get updates. We send about one email a month and you can unsubscribe at any time. If you want to keep up with us more often you can see updates on our <a href="https://www.instagram.com/urbanistportland.me/" target="_blank" rel="noreferrer">Instagram</a> and <a href="https://discord.gg/EBF8EUN2RK" target="_blank" rel="noreferrer">Discord</a>.</p>
 
 <form class="text-start" on:submit|preventDefault={handleOnSubmit} id="get-involved">
     <div class="mb-3">
