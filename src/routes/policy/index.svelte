@@ -21,7 +21,7 @@
 		<ArticleCard
 			src="/recode/11_simplify_zones.png"
 			title="ReCode Recommendations"
-			description="Portland is in the process of changing it's zoning code. These are our recommendations for how we can make the most out of this opportunity to improve our neighborhoods."
+			description="Portland is in the process of changing its zoning code. These are our recommendations for how we can make the most out of this opportunity to improve our neighborhoods."
 			href="/policy/recode"
 		/>
 	</div>
@@ -29,9 +29,8 @@
 		<ArticleCard
 			src="/recode/3_allow_gentle_density.png"
 			title="Comply with the Spirit of LD2003"
-			description="Portland must update our land use code by January 1st 2024 to comply with the state law, LD2003. This law intends to expand housing opportunities but Portland's implementation adds additional restrictions that undermine this goal. We must ammend this proposal to ensure it complies with the spirit of the law."
+			description="Portland must update our land use code by January 1st 2024 to comply with the state law, LD2003. This law intends to expand housing opportunities but Portland's implementation adds additional restrictions that undermine this goal. We must amend this proposal to ensure it complies with the spirit of the law."
 			href="/policy/portland_ld2003"
 		/>
 	</div>
 </div>
-
