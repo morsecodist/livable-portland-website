@@ -1,9 +1,12 @@
 <script lang="ts">
+	import { horizontalSlide } from '../lib/horizontal-slide';
+
 	export let title = 'asdasd';
 	export let bulletActive = false;
 	export let lineActive = false;
 	export let backgroundColor = 'red';
 	export let icon: string;
+	export let iconOnly = false;
 
 	let color = 'black';
 
@@ -22,17 +25,19 @@
 </script>
 
 <div class={'component ' + componentClass} on:click on:keydown style={wrapperStyles}>
-	<div class="bulletContainer bulletContainerWithChild">
+	<div class="bulletContainer bulletContainerWithChild" on:click on:keydown>
 		<img src={icon} alt="Timeline item" />
 	</div>
-	<div class="container">
-		{#if title}
-			<h6 class="text-bold">{title}</h6>
-		{/if}
-		<div class="content">
-			<slot />
+	{#if !iconOnly}
+		<div class="container" transition:horizontalSlide={{}}>
+			{#if title}
+				<h6 class="text-bold">{title}</h6>
+			{/if}
+			<div class="content">
+				<slot />
+			</div>
 		</div>
-	</div>
+	{/if}
 </div>
 
 <style>
@@ -45,6 +50,9 @@
 		padding-left: 20px; /* Default for theme.space.xlPX.value if left aligned */
 		cursor: pointer;
 		padding: 4px;
+		min-width: 40px;
+		margin-left: 20px;
+		min-height: 100px;
 	}
 
 	.component:not(:last-of-type)::before {
