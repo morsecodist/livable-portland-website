@@ -4,6 +4,9 @@
 		let events = await res.json();
 		events = events.map((event: any) => {
 			event.dateTime = new Date(event.dateTime);
+			event.dateTime = new Date(
+				event.dateTime.getTime() - event.dateTime.getTimezoneOffset() * 60 * 1000
+			);
 			return event;
 		});
 
