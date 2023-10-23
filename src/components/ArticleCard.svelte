@@ -5,7 +5,7 @@
 	export let href: string | undefined = undefined;
 </script>
 
-<div class="card d-inline-flex" style="width: 30rem; height: 100%;">
+<div class="card d-inline-flex flex-shrink-1" style="width: 30rem; height: 100%;">
 	<img {src} class="card-img-top" alt={title} />
 	<div class="card-body">
 		<h5 class="card-title">{title}</h5>

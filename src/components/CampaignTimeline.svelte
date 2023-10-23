@@ -15,7 +15,6 @@
 		};
 	}
 
-	export let title: string;
 	export let events = [] as Event[];
 	$: sortedEvents = events.sort((a, b) => a.dateTime.getTime() - b.dateTime.getTime());
 	$: nextEventIdx = sortedEvents.findIndex((event) => event.dateTime > new Date());
@@ -66,28 +65,29 @@
 <svelte:window bind:innerWidth bind:innerHeight />
 
 <div class="d-flex justify-content-center">
-	<div class="pt-3 flex-shrink-0">
-		{#each sortedEvents as event, index}
-			<TimelineItem
-				title={event.name}
-				icon={nextEventIdx > index ? iconMapComplete[event.kind] : iconMap[event.kind]}
-				on:click={() => {
-					if (!smallScreen || !showDetailsPanel) {
-						selectedIdx = index;
-					}
-					if (smallScreen) {
-						showDetailsPanel = !showDetailsPanel;
-					}
-				}}
-				iconOnly={smallScreen && showDetailsPanel}
-				backgroundColor={selectedIdx === index ? '#B3D1B2' : 'inherit'}
-				lineActive={nextEventIdx > index}
-				bulletActive={nextEventIdx > index}
-			>
-				<p>{event.dateTime.toLocaleDateString()} {event.dateTime.toLocaleTimeString()}</p>
-			</TimelineItem>
-		{/each}
-	</div>
+	{#if !smallScreen || !showDetailsPanel}
+		<div class="pt-3" style="min-width: 20%">
+			{#each sortedEvents as event, index}
+				<TimelineItem
+					title={event.name}
+					icon={nextEventIdx > index ? iconMapComplete[event.kind] : iconMap[event.kind]}
+					on:click={() => {
+						if (!smallScreen || !showDetailsPanel) {
+							selectedIdx = index;
+						}
+						if (smallScreen) {
+							showDetailsPanel = !showDetailsPanel;
+						}
+					}}
+					backgroundColor={selectedIdx === index ? '#B3D1B2' : 'inherit'}
+					lineActive={nextEventIdx > index}
+					bulletActive={nextEventIdx > index}
+				>
+					<p>{event.dateTime.toLocaleDateString()} {event.dateTime.toLocaleTimeString()}</p>
+				</TimelineItem>
+			{/each}
+		</div>
+	{/if}
 
 	{#if showDetailsPanel}
 		<div
@@ -95,6 +95,11 @@
 			style="background-color: #B3D1B2; border-top-right-radius: 10px; border-bottom-right-radius: 10px;"
 			transition:horizontalSlide={{}}
 		>
+			{#if smallScreen}
+				<button class="btn btn-secondary mb-3" on:click={() => (showDetailsPanel = false)}
+					>Back to Timeline</button
+				>
+			{/if}
 			<h3>{selectedEvent.name}</h3>
 			<div>{@html marked(selectedEvent.description)}</div>
 			{#if selectedEvent.email}

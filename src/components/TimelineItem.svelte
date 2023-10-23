@@ -6,7 +6,6 @@
 	export let lineActive = false;
 	export let backgroundColor = 'red';
 	export let icon: string;
-	export let iconOnly = false;
 
 	let color = 'black';
 
@@ -28,16 +27,14 @@
 	<div class="bulletContainer bulletContainerWithChild" on:click on:keydown>
 		<img src={icon} alt="Timeline item" />
 	</div>
-	{#if !iconOnly}
-		<div class="container" transition:horizontalSlide={{}}>
-			{#if title}
-				<h6 class="text-bold">{title}</h6>
-			{/if}
-			<div class="content">
-				<slot />
-			</div>
+	<div class="container" transition:horizontalSlide={{}}>
+		{#if title}
+			<h6 class="text-bold">{title}</h6>
+		{/if}
+		<div class="content">
+			<slot />
 		</div>
-	{/if}
+	</div>
 </div>
 
 <style>
@@ -52,7 +49,6 @@
 		padding: 4px;
 		min-width: 40px;
 		margin-left: 20px;
-		min-height: 100px;
 	}
 
 	.component:not(:last-of-type)::before {

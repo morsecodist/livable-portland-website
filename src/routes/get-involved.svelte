@@ -65,23 +65,24 @@
 	<h2 class="text-secondary">Make Real Change with LD2003</h2>
 	<p>
 		LD2003 is a state law that was intended to make cities update their zoning codes to allow for
-		more housing. Gowth areas are supposed to generally allow up to four units of housing. Cities
+		more housing. Growth areas are supposed to generally allow up to four units of housing. Cities
 		and towns in Maine have until January to make the changes. Unfortunately, the changes proposed
-		by Portland's planning staff add additional limits alongside the allowances that means in
-		practice just half a percent of our city's land will ever be allowed the full four units, down
-		from around a quarter that would be elligable without these limits. While this follows the
-		letter of the law it undermines its intent and won't make real change in Portland.
+		by Portland's planning staff add additional limits alongside the allowances. In practice, this
+		means that just half a percent of our city's land will ever be allowed the full four units,
+		reduced from around a quarter that would be eligible without these limits. While this follows
+		the letter of the law, it undermines its intent, further complicates our land use code, and
+		won't result in real change in Portland.
 	</p>
 	<p>
 		Though we have little time, it is not too late to act. We have put together a few <a
-			href="/policy/portland_ld2003">ammendments</a
+			href="/policy/portland_ld2003">amendments</a
 		> to their proposed changes that remove some of these new limits being added alongside the changes
-		for LD2003. To pass them we need your help. Below is a timeline of the stages that the proposed changes
-		need to go through to to pass. We must let the planning board and city council know that we want
-		real change by showing up to meetings and sending emails to make public comment. Together, we can
-		pass changes that will actually make a dent in our housing crisis!
+		for LD2003. To pass them, we need your help. Below is a timeline of the procedural steps required
+		to pass the proposed changes. We must let the Planning Board and City Council know that we want real
+		change by showing up to meetings and sending emails to make public comment. Together, we can pass
+		changes that will actually make a dent in our housing crisis!
 	</p>
-	<CampaignTimeline {events} title="Make Real Change with LD2003" />
+	<CampaignTimeline {events} />
 </div>
 
 <h2 class="text-secondary text-start">Sign Up for Our Mailing List</h2>
