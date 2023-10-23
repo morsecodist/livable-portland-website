@@ -7,15 +7,15 @@
     Unfortunately, the planning board appeared to be leaning towards recommending planning staff's changes to the city council, as written. You
     can read more about the meeting [here](https://thetownsman.org/awastedopportunity/). After this meeting we worked quickly to create amendments to the proposed
     changes so they could be passed before the January deadline.
-  dateTime: "2023-10-10T16:30:00"
+  dateTime: "2023-10-10T16:30:00-04:00"
   
 - name: "Email: Planning Board Before Vote to Recommend"
   kind: "email"
   description: |
     Before zoning changes are voted on by the council, they are usually reviewed by the planning board. The planning board consists of members of the public
     appointed by the city council. Though the city council does not need to follow their recommendations, these recommendations are taken very seriously.
-    The planning board will vote on what to recommend at a meeting on [Tuesday, October 24th](https://portlandme.portal.civicclerk.com/event/6403/overview). Email public comments on this meeting must be sent by noon the previous day.
-  dateTime: "2023-10-23T12:00:00"
+    The planning board will vote on what to recommend at a meeting on [Tuesday, October 24th](https://portlandme.portal.civicclerk.com/event/6403/overview). Email public comments on this meeting must be sent by noon the previous day. Here is a general template email, feel free to write your own thoughts:
+  dateTime: "2023-10-23T12:00:00-04:00"
   email:
     to: "planningboard@portlandmaine.gov"
     subject: "Make Real Change with LD2003"
@@ -62,7 +62,7 @@
 
 
     [Add to Calendar](https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=N2U3ZGhpZ24xNGQ4MWFtMGV1Zzl0OWRsamMgMXFpaWRqbW5ycmw4ZDdmOGh0c2FjdmxvbTBAZw&tmsrc=1qiidjmnrrl8d7f8htsacvlom0%40group.calendar.google.com)
-  dateTime: "2023-10-24T16:30:00"
+  dateTime: "2023-10-24T16:30:00-04:00"
 
 - name: "City Council First Reading"
   kind: "reading"
@@ -70,7 +70,7 @@
     Before the council can vote on something it has to be read at a previous city council meeting. This makes sure everyone is informed there is time to consider each vote.
     No public comment is taken for these first readings, but it can be interesting to listen to.
     [Monday, November 13th](https://portlandme.portal.civicclerk.com/event/6482/files) is the next city council meeting after the planning board vote, however the schedule is not set yet so this may happen at a later meeting. 
-  dateTime: "2023-11-13T17:00:00"
+  dateTime: "2023-11-13T17:00:00-5:00"
 
 - name: "Email: City Council Before Final Vote"
   kind: "email"
@@ -78,7 +78,7 @@
     This is the actual, final vote by the City Council. The planning board and planning staff are just advisory, ultimately our City Council has the final say here.
     [Monday, November 20th](https://portlandme.portal.civicclerk.com/event/6494/files) is the second meeting after the Planning Board vote, however, the reading, or the vote may be scheduled at a later date. Check back
     to keep up to date.
-  dateTime: "2023-11-19T12:00:00"
+  dateTime: "2023-11-19T12:00:00-5:00"
   email:
     to: "publiccomment@portlandmaine.gov"
     subject: "Make Real Change with LD2003"
@@ -101,5 +101,5 @@
     This is the actual, final vote by the City Council. The planning board and planning staff are just advisory, ultimately our City Council has the final say here.
     [Monday, November 20th](https://portlandme.portal.civicclerk.com/event/6494/files) is the second meeting after the Planning Board vote, however, the reading, or the vote may be scheduled at a later date. Check back
     to keep up to date. Though you can listen on zoom, public comment is only accepted in person, so show up and make your voice heard!
-  dateTime: "2023-11-20T17:00:00"
+  dateTime: "2023-11-20T17:00:00-05:00"
 
