@@ -7,6 +7,7 @@
 		kind: 'email' | 'public-comment' | 'reading';
 		description: string;
 		dateTime: Date;
+		dateString: string;
 		link: string;
 		email?: {
 			to: string;
@@ -83,7 +84,7 @@
 					lineActive={nextEventIdx > index}
 					bulletActive={nextEventIdx > index}
 				>
-					<p>{event.dateTime.toLocaleDateString()} {event.dateTime.toLocaleTimeString()}</p>
+					<p>{event.dateString}</p>
 				</TimelineItem>
 			{/each}
 		</div>
