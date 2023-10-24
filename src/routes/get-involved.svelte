@@ -88,12 +88,12 @@
 	<p>
 		10/23/2024 Update: 🥳 Thanks to public feedback Planning Staff has added amendment 2 and some
 		elements of amendment 3 into their proposal. This is an important step in the right direction
-		and we are happy to have these changes were made. This demonstrates that these changes make
-		sense and advocating for them can bring about real change. However, there is still more work to
-		be done. The vast majority of lots still will never qualify for the full four units, our zoning
-		code will get new and complicated rules to achieve this, and without some of the excemptions we
-		currently give to ADUs to allow them to be built in our residential zones it may be difficult to
-		actually get these units built.
+		and we are happy these changes were made. This demonstrates that these changes make sense and
+		advocating for them can bring about real change. However, there is still more work to be done.
+		The vast majority of lots still will never qualify for the full four units, our zoning code will
+		get new and complicated rules to achieve this. Without some of the exemptions we currently give
+		to ADUs to allow them to be built in our residential zones it may be difficult to actually get
+		these units built.
 	</p>
 	<CampaignTimeline {events} />
 </div>
