@@ -4,21 +4,35 @@
 
 <h1 class="text-primary">Comply with the Spirit of LD2003</h1>
 
-<p>
-	Portland must update our land use code by January 1st 2024 to comply with the state law, LD2003.
-	This law intends to expand housing opportunities but Portland's implementation adds additional
-	restrictions that undermine this goal. We must amend this proposal to ensure it complies with the
-	spirit of the law. You can learn more about LD2003 and the Portland Planning Staff's proposal to
-	comply with it in this <a href="https://thetownsman.org/awastedopportunity/" target="_blank"
-		>article in the Portland Townsman</a
-	>.
-</p>
-<p />
-<p>
-	LD2003 is intended to generally allow up to four units in all residential areas. This map below
-	shows the the small number of lots that will ever qualify for the full four units under Portland
-	Planning Staff's current proposal:
-</p>
+<div class="text-start">
+	<p>
+		Portland must update our land use code by January 1st 2024 to comply with the state law, LD2003.
+		This law intends to expand housing opportunities but Portland's implementation adds additional
+		restrictions that undermine this goal. We must amend this proposal to ensure it complies with
+		the spirit of the law. You can learn more about LD2003 and the Portland Planning Staff's
+		proposal to comply with it in this <a
+			href="https://thetownsman.org/awastedopportunity/"
+			target="_blank">article in the Portland Townsman</a
+		>.
+	</p>
+	<p>
+		10/23/2024 Update: 🥳 Thanks to public feedback Planning Staff has added amendment 2 and some
+		elements of amendment 3 into their proposal. This is an important step in the right direction
+		and we are happy to have these changes were made. This demonstrates that these changes make
+		sense and advocating for them can bring about real change. However, there is still more work to
+		be done. The vast majority of lots still will never qualify for the full four units, our zoning
+		code will get new and complicated rules to achieve this, and without some of the excemptions we
+		currently give to ADUs to allow them to be built in our residential zones it may be difficult to
+		actually get these units built.
+	</p>
+
+	<p />
+	<p>
+		LD2003 is intended to generally allow up to four units in all residential areas. This map below
+		shows the the small number of lots that will ever qualify for the full four units under Portland
+		Planning Staff's current proposal:
+	</p>
+</div>
 
 <iframe
 	loading="lazy"
@@ -86,10 +100,11 @@
 		</li>
 	</ul>
 
-	<h3>
-		Amendment 2: Do not add the limit on building ADUs if you have built the units allowed by LD2003
+	<h3 class="text-primary">
+		✅ (Adopted by Planning Staff) Amendment 2: Do not add the limit on building ADUs if you have
+		built the units allowed by LD2003
 	</h3>
-	<p>
+	<p class="text-primary">
 		The current planning staff proposal adds a restriction that prevents lots from qualifying to add
 		accessory dwelling units (ADUs) if they have added any of the units that LD2003 entitles them
 		to. This removes a lot of potential housing that could have been allowed by LD2003 because
@@ -98,7 +113,7 @@
 		if you meet them there is no reason you should be prevented from building an ADU.
 	</p>
 
-	<p>Changes:</p>
+	<p class="text-primary">Changes:</p>
 	<p />
 	<ul>
 		<li>
@@ -106,13 +121,21 @@
 		</li>
 	</ul>
 
-	<h3>Amendment 3: Do not add additional restrictions to lots that currently have one home</h3>
+	<h3>
+		🟨 (Some Elements Adopted by Planning Staff) Amendment 3: Do not add additional restrictions to
+		lots that currently have one home
+	</h3>
 	<p>
 		The current planning staff proposal allows four units of housing in the same structure for
 		vacant lots but only an additional two units, in different structures on lots that have a home
 		on them. While this is the minimum required by LD2003 there is nothing forcing us to add those
 		restrictions to lots that have a structure on them. By allowing units to be built in the same
 		structure they can be built more affordably and sustainably.
+	</p>
+
+	<p>
+		10/23/2023 Update: Planning staff has opted to remove the limit on the additional two units
+		being in the same structure.
 	</p>
 
 	<p>Changes:</p>
