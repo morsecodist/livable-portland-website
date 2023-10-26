@@ -121,8 +121,8 @@
 	<p class="text-primary">Amendment Changes:</p>
 	<p>
 		This document reflects the changes before they were adopted, so in this document our changes are
-		in blue and they are compared with the original Planning Staff Proposal instead of the version
-		recommended to the City Council.
+		in <b style="color: #0721f5">blue</b> and they are compared with the original Planning Staff Proposal
+		instead of the version recommended to the City Council.
 	</p>
 	<ul>
 		<li>
