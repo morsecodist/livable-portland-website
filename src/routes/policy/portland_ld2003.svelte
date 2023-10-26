@@ -58,10 +58,15 @@
 		affordable, more sustainable, and where we need them.
 	</p>
 	<p>
-		Portland Planning Staff's proposal is in the form of red changes to our current land use code.
-		Our proposed adjustments to their changes are in blue.
+		Portland Planning Staff's proposal is in the form of <b style="color: #871723">red</b> and
+		<b style="color: #006ebf">blue</b> changes to our current land use code. The
+		<b style="color: #871723">red</b>
+		changes reflect their original proposal, the <b style="color: #006ebf">blue</b> changes reflect
+		the updates they made based on our public comment. Our latest proposed amendments to their
+		changes are in
+		<b style="color: #338000">green</b>.
 	</p>
-	<p>Combined Changes:</p>
+	<p>Combined Amendments:</p>
 	<p />
 	<ul>
 		<li>
@@ -92,7 +97,7 @@
 		but housing in the places we need it. It should not be added to our land use code.
 	</p>
 
-	<p>Changes:</p>
+	<p>Amendment Changes:</p>
 	<p />
 	<ul>
 		<li>
@@ -113,8 +118,12 @@
 		if you meet them there is no reason you should be prevented from building an ADU.
 	</p>
 
-	<p class="text-primary">Changes:</p>
-	<p />
+	<p class="text-primary">Amendment Changes:</p>
+	<p>
+		This document reflects the changes before they were adopted, so in this document our changes are
+		in blue and they are compared with the original Planning Staff Proposal instead of the version
+		recommended to the City Council.
+	</p>
 	<ul>
 		<li>
 			<a href="/ld2003/2/amendment_2_use.pdf" target="_blank">Amendment 2: 6 - Use Standards</a>
@@ -138,7 +147,7 @@
 		being in the same structure.
 	</p>
 
-	<p>Changes:</p>
+	<p>Amendment Changes:</p>
 	<p />
 	<ul>
 		<li>
@@ -157,7 +166,7 @@
 		there is no reason we can’t apply them to these new units as well.
 	</p>
 
-	<p>Changes:</p>
+	<p>Amendment Changes:</p>
 	<p />
 	<ul>
 		<li>
