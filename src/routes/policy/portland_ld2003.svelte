@@ -5,6 +5,7 @@
 <h1 class="text-primary">Comply with the Spirit of LD2003</h1>
 
 <div class="text-start">
+	<p>Want to help make this happen? Head on over to <a href="/get-involved">Get Involved</a>.</p>
 	<p>
 		Portland must update our land use code by January 1st 2024 to comply with the state law, LD2003.
 		This law intends to expand housing opportunities but Portland's implementation adds additional

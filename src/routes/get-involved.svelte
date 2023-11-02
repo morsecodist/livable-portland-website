@@ -32,16 +32,18 @@
 	let name = '';
 	let email = '';
 	let state = 'none';
+	let ld2003State = 'none';
 
 	export let events: any;
 
-	async function handleOnSubmit() {
+	async function handleOnSubmit(ld2003: boolean = false) {
 		const formData = new FormData(document.getElementById('get-involved') as HTMLFormElement);
 		const obj = {};
 		obj['name'] = name;
 		obj['email'] = email;
 		name = '';
 		email = '';
+		if (ld2003) obj['ld2003'] = true;
 		formData.forEach((v, k) => {
 			obj[k] = v;
 		});
@@ -52,9 +54,23 @@
 			},
 			body: JSON.stringify(obj)
 		});
-		if (resp.status < 400) state = 'success';
-		else state = 'failure';
-		setTimeout(() => (state = 'none'), 2000);
+		if (ld2003) {
+			if (resp.status < 400) ld2003State = 'success';
+			else ld2003State = 'failure';
+			setTimeout(() => (ld2003State = 'none'), 2000);
+		} else {
+			if (resp.status < 400) state = 'success';
+			else state = 'failure';
+			setTimeout(() => (state = 'none'), 2000);
+		}
+	}
+
+	async function handleOnSubmitEmailList() {
+		handleOnSubmit(false);
+	}
+
+	async function handleOnSubmitLD2003() {
+		handleOnSubmit(true);
 	}
 </script>
 
@@ -85,16 +101,45 @@
 		change by showing up to meetings and sending emails to make public comment. Together, we can pass
 		changes that will actually make a dent in our housing crisis!
 	</p>
+	<h4 class="text-primary text-start">Get Email Alerts</h4>
 	<p>
-		10/23/2024 Update: 🥳 Thanks to public feedback Planning Staff has added amendment 2 and some
-		elements of amendment 3 into their proposal. This is an important step in the right direction
-		and we are happy these changes were made. This demonstrates that these changes make sense and
-		advocating for them can bring about real change. However, there is still more work to be done.
-		The vast majority of lots still will never qualify for the full four units, our zoning code will
-		get new and complicated rules to achieve this. Without some of the exemptions we currently give
-		to ADUs to allow them to be built in our residential zones it may be difficult to actually get
-		these units built.
+		Keep up to date with this news so you know when to act. Signing up here won't put you on our
+		general mailing list.
 	</p>
+	{#if ld2003State === 'success'}
+		<div class="alert alert-success" role="alert" transition:fade>Thank you!</div>
+	{:else if ld2003State === 'failure'}
+		<div class="alert alert-danger" role="alert" transition:fade>Something went wrong</div>
+	{/if}
+
+	<form class="text-start" on:submit|preventDefault={handleOnSubmitLD2003} id="get-involved">
+		<div class="mb-3">
+			<label for="inputNameLD2003" class="form-label">Name</label>
+			<input
+				name="name"
+				class="form-control"
+				id="inputNameLD2003"
+				aria-describedby="nameHelp"
+				bind:value={name}
+			/>
+			<div id="nameHelp" class="form-text">Please enter your preferred full name.</div>
+		</div>
+		<div class="mb-3">
+			<label for="exampleInputEmailLD2003" class="form-label">Email address</label>
+			<input
+				name="email"
+				type="email"
+				class="form-control"
+				id="exampleInputEmailLD2003"
+				aria-describedby="emailHelp"
+				bind:value={email}
+			/>
+			<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+		</div>
+		<div class="text-end">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+	</form>
 	<CampaignTimeline {events} />
 </div>
 
@@ -129,7 +174,7 @@
 	and <a href="https://discord.gg/EBF8EUN2RK" target="_blank" rel="noreferrer">Discord</a>.
 </p>
 
-<form class="text-start" on:submit|preventDefault={handleOnSubmit} id="get-involved">
+<form class="text-start" on:submit|preventDefault={handleOnSubmitEmailList} id="get-involved">
 	<div class="mb-3">
 		<label for="inputName" class="form-label">Name</label>
 		<input
@@ -153,5 +198,7 @@
 		/>
 		<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 	</div>
-	<button type="submit" class="btn btn-primary">Submit</button>
+	<div class="text-end">
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</div>
 </form>
