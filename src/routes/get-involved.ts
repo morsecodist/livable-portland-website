@@ -5,7 +5,7 @@ import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 
 export async function post({ request }: RequestEvent) {
     const obj = await request.json()    
-    if (Object.keys(obj).length !== 2) return { status: 400 };
+    if (Object.keys(obj).length <= 3) return { status: 400 };
     if (!obj["email"] || !obj["name"]) return { status: 400 };
 
     const prefix = obj["ld2003"] ? 'ld2003-alerts' : 'form-submissions';
