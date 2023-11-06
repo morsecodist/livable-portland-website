@@ -84,184 +84,186 @@
 </div>
 
 <h2 class="text-primary">Mayor</h2>
-<table class="table">
-	<thead>
-		<tr>
-			<th scope="col" />
-			<th scope="col">Pious Ali*</th>
-			<th scope="col"
-				><a
-					href="https://docs.google.com/document/d/1lIFbxd6ulq_-UOlfU6P9NDIC59nJddhe5dtOIaW3k8c"
-					rel="noreferrer"
-					target="_blank">Justin Costa</a
-				></th
-			>
-			<th scope="col"
-				><a
-					href="https://docs.google.com/document/d/1ThCCqOR7ubFEK5fdNUA5HX_Fj8I0wjGwYBLnAj4FnMc"
-					rel="noreferrer"
-					target="_blank">Mark Dion</a
-				></th
-			>
-			<th scope="col"
-				><a
-					href="https://docs.google.com/document/d/1R8uxMonlxRThkRdeRWh1x2TIfl49qTZ7lgSbkk3Ga0c"
-					rel="noreferrer"
-					target="_blank">Dylan Pugh</a
-				></th
-			>
-			<th scope="col">George Reault</th>
-			<th scope="col"
-				><a
-					href="https://docs.google.com/document/d/13oUzx-4bz295YrBR8sUvJeboMx-17vThz2eysWm9RQw"
-					rel="noreferrer"
-					target="_blank">Andrew Zarro</a
-				></th
-			>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td
-				>1. Do you endorse our ReCode recommendations to allow for gentle density? This includes
-				allowing multi-unit housing everywhere housing can be built and limiting density based on
-				the sizes of buildings instead of land area. (Recommendations 2 and 3)</td
-			>
-			<td>❔</td>
-			<td>❌</td>
-			<td>❌</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-		<tr>
-			<td
-				>2. Do you endorse our ReCode recommendations to relax limits to allow the construction of
-				more types of buildings? This includes allowing for small height increases, building on
-				smaller lots, and building on a bigger portion of each lot. (Recommendations 4, 5, 6, 10,
-				12, 16, and 17)</td
-			>
-			<td>❔</td>
-			<td>❌</td>
-			<td>❌</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-		<tr>
-			<td
-				>3. Do you endorse our ReCode recommendation to combine some zones to simplify our zoning
-				code and allow for more housing? This includes merging various residential and industrial
-				zones into more permissive ones.</td
-			>
-			<td>❔</td>
-			<td>❌</td>
-			<td>❌</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-		<tr>
-			<td
-				>4. Do you support returning the Amtrak Station to the former site of Union Station (St John
-				St) with new housing nearby instead of the proposed new parking structure?</td
-			>
-			<td>❔</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-		<tr>
-			<td
-				>5. Would you prioritize increasing the funding of GPMetro to provide higher quality bus
-				service, particularly more frequent buses?</td
-			>
-			<td>❔</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-		<tr>
-			<td
-				>6. Do you support prioritizing constructing protected cycling lanes? Even if this means
-				losing some on-street parking?</td
-			>
-			<td>❔</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-		<tr>
-			<td
-				>7. Do you support prioritizing pedestrians with infrastructure such as crossing priority at
-				intersections and well maintained sidewalks and crosswalks?</td
-			>
-			<td>❔</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-		<tr>
-			<td
-				>8. Do you support increasing revenue from parking meters and city-owned garages by bringing
-				pricing more in line with the value of these spaces, metering more spaces, and extending
-				enforcement to more hours of the week?</td
-			>
-			<td>❔</td>
-			<td>✅</td>
-			<td>❌</td>
-			<td>❌</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-		<tr>
-			<td
-				>9. Do you support the placement and ongoing maintenance of street trees to create and
-				preserve green corridors?</td
-			>
-			<td>❔</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-		<tr>
-			<td
-				>10. Do you support pedestrianizing streets (closing them to motor traffic), such as Dana St
-				and lower Exchange St, even if it involves the loss of on-street parking?</td
-			>
-			<td>❔</td>
-			<td>✅</td>
-			<td>❌</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-		<tr>
-			<td
-				>11. The Federal Government has grant programs to reconnect communities split by urban
-				renewal projects such as Franklin Street. Will you champion the City pursuing such
-				opportunities including budgeting matching grant funds if necessary? If so, how would you
-				use your position to ensure the City pursues these opportunities?</td
-			>
-			<td>❔</td>
-			<td>🟨</td>
-			<td>❌</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-	</tbody>
-</table>
+<div class="tablewrapper">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col" />
+				<th scope="col">Pious Ali*</th>
+				<th scope="col"
+					><a
+						href="https://docs.google.com/document/d/1lIFbxd6ulq_-UOlfU6P9NDIC59nJddhe5dtOIaW3k8c"
+						rel="noreferrer"
+						target="_blank">Justin Costa</a
+					></th
+				>
+				<th scope="col"
+					><a
+						href="https://docs.google.com/document/d/1ThCCqOR7ubFEK5fdNUA5HX_Fj8I0wjGwYBLnAj4FnMc"
+						rel="noreferrer"
+						target="_blank">Mark Dion</a
+					></th
+				>
+				<th scope="col"
+					><a
+						href="https://docs.google.com/document/d/1R8uxMonlxRThkRdeRWh1x2TIfl49qTZ7lgSbkk3Ga0c"
+						rel="noreferrer"
+						target="_blank">Dylan Pugh</a
+					></th
+				>
+				<th scope="col">George Reault</th>
+				<th scope="col"
+					><a
+						href="https://docs.google.com/document/d/13oUzx-4bz295YrBR8sUvJeboMx-17vThz2eysWm9RQw"
+						rel="noreferrer"
+						target="_blank">Andrew Zarro</a
+					></th
+				>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td
+					>1. Do you endorse our ReCode recommendations to allow for gentle density? This includes
+					allowing multi-unit housing everywhere housing can be built and limiting density based on
+					the sizes of buildings instead of land area. (Recommendations 2 and 3)</td
+				>
+				<td>❔</td>
+				<td>❌</td>
+				<td>❌</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+			<tr>
+				<td
+					>2. Do you endorse our ReCode recommendations to relax limits to allow the construction of
+					more types of buildings? This includes allowing for small height increases, building on
+					smaller lots, and building on a bigger portion of each lot. (Recommendations 4, 5, 6, 10,
+					12, 16, and 17)</td
+				>
+				<td>❔</td>
+				<td>❌</td>
+				<td>❌</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+			<tr>
+				<td
+					>3. Do you endorse our ReCode recommendation to combine some zones to simplify our zoning
+					code and allow for more housing? This includes merging various residential and industrial
+					zones into more permissive ones.</td
+				>
+				<td>❔</td>
+				<td>❌</td>
+				<td>❌</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+			<tr>
+				<td
+					>4. Do you support returning the Amtrak Station to the former site of Union Station (St
+					John St) with new housing nearby instead of the proposed new parking structure?</td
+				>
+				<td>❔</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+			<tr>
+				<td
+					>5. Would you prioritize increasing the funding of GPMetro to provide higher quality bus
+					service, particularly more frequent buses?</td
+				>
+				<td>❔</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+			<tr>
+				<td
+					>6. Do you support prioritizing constructing protected cycling lanes? Even if this means
+					losing some on-street parking?</td
+				>
+				<td>❔</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+			<tr>
+				<td
+					>7. Do you support prioritizing pedestrians with infrastructure such as crossing priority
+					at intersections and well maintained sidewalks and crosswalks?</td
+				>
+				<td>❔</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+			<tr>
+				<td
+					>8. Do you support increasing revenue from parking meters and city-owned garages by
+					bringing pricing more in line with the value of these spaces, metering more spaces, and
+					extending enforcement to more hours of the week?</td
+				>
+				<td>❔</td>
+				<td>✅</td>
+				<td>❌</td>
+				<td>❌</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+			<tr>
+				<td
+					>9. Do you support the placement and ongoing maintenance of street trees to create and
+					preserve green corridors?</td
+				>
+				<td>❔</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+			<tr>
+				<td
+					>10. Do you support pedestrianizing streets (closing them to motor traffic), such as Dana
+					St and lower Exchange St, even if it involves the loss of on-street parking?</td
+				>
+				<td>❔</td>
+				<td>✅</td>
+				<td>❌</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+			<tr>
+				<td
+					>11. The Federal Government has grant programs to reconnect communities split by urban
+					renewal projects such as Franklin Street. Will you champion the City pursuing such
+					opportunities including budgeting matching grant funds if necessary? If so, how would you
+					use your position to ensure the City pursues these opportunities?</td
+				>
+				<td>❔</td>
+				<td>🟨</td>
+				<td>❌</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 <p class="text-start">
 	* Pious Ali commented: "I have decided not to take a position on your questions because city staff
 	are still working on the recode process. I will wait to see the final result of their process and
@@ -272,201 +274,203 @@
 
 <h2 class="text-primary" style="margin-top: 60px">City Council</h2>
 <div id="districtsMap" />
-<table class="table council">
-	<thead>
-		<tr>
-			<th scope="col" />
-			<th colspan="2">At Large</th>
-			<th colspan="2">District 4</th>
-			<th colspan="2">District 5</th>
-		</tr>
-		<tr>
-			<th scope="col" />
-			<th scope="col"
-				><a
-					href="https://docs.google.com/document/d/1CfYpHYYwWspEhCT8-6v9-g-z-Ur-UCkF1zXUg2oulEs"
-					rel="noreferrer"
-					target="_blank">April Fournier</a
-				></th
-			>
-			<th scope="col"
-				><a
-					href="https://docs.google.com/document/d/110tgIHhW5w2SrdJWkJqrDsP8pBYATtISeF987QeTxZs"
-					rel="noreferrer"
-					target="_blank">William Linnell</a
-				></th
-			>
-			<th scope="col"
-				><a
-					href="https://docs.google.com/document/d/1nasI-bjFbrxDW-nqdRO4obxtQAcN410lsoSf56k8NWQ"
-					rel="noreferrer"
-					target="_blank">Anna Bullett</a
-				></th
-			>
-			<th scope="col"
-				><a
-					href="https://docs.google.com/document/d/1aHM53GCFx6LJZTP6uIDDoSxdILIPSaIM1W17_ATzsJg"
-					rel="noreferrer"
-					target="_blank">Robert Cady*</a
-				></th
-			>
-			<th scope="col"
-				><a
-					href="https://docs.google.com/document/d/1f8VcS46nW4YEtmgOb4oeq8ffJ7Qp3qeRAEjQNVa8YtI"
-					rel="noreferrer"
-					target="_blank">Kathryn Sykes</a
-				></th
-			>
-			<th scope="col"
-				><a
-					href="https://docs.google.com/document/d/11hSF_r7eHFWZmP4WeYYqAnmSuFgfR-W2CIomgqbk5X0"
-					rel="noreferrer"
-					target="_blank">Matthew Buonopane</a
-				></th
-			>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td
-				>1. Do you endorse our ReCode recommendations to allow for gentle density? This includes
-				allowing multi-unit housing everywhere housing can be built and limiting density based on
-				the sizes of buildings instead of land area. (Recommendations 2 and 3)</td
-			>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>❔</td>
-			<td>🟨</td>
-			<td>❌</td>
-		</tr>
-		<tr>
-			<td
-				>2. Do you endorse our ReCode recommendations to relax limits to allow the construction of
-				more types of buildings? This includes allowing for small height increases, building on
-				smaller lots, and building on a bigger portion of each lot. (Recommendations 4, 5, 6, 10,
-				12, 16, and 17)</td
-			>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>❔</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-		<tr>
-			<td
-				>3. Do you endorse our ReCode recommendation to combine some zones to simplify our zoning
-				code and allow for more housing? This includes merging various residential and industrial
-				zones into more permissive ones.</td
-			>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>❔</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-		<tr>
-			<td
-				>4. Do you support returning the Amtrak Station to the former site of Union Station (St John
-				St) with new housing nearby instead of the proposed new parking structure?</td
-			>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>❔</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-		<tr>
-			<td
-				>5. Would you prioritize increasing the funding of GPMetro to provide higher quality bus
-				service, particularly more frequent buses?</td
-			>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>❔</td>
-			<td>✅</td>
-			<td>❌</td>
-		</tr>
-		<tr>
-			<td
-				>6. Do you support prioritizing constructing protected cycling lanes? Even if this means
-				losing some on-street parking?</td
-			>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>❔</td>
-			<td>✅</td>
-			<td>❔</td>
-		</tr>
-		<tr>
-			<td
-				>7. Do you support prioritizing pedestrians with infrastructure such as crossing priority at
-				intersections and well maintained sidewalks and crosswalks?</td
-			>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>❔</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-		<tr>
-			<td
-				>8. Do you support increasing revenue from parking meters and city-owned garages by bringing
-				pricing more in line with the value of these spaces, metering more spaces, and extending
-				enforcement to more hours of the week?</td
-			>
-			<td>✅</td>
-			<td>🟨</td>
-			<td>✅</td>
-			<td>❔</td>
-			<td>✅</td>
-			<td>❌</td>
-		</tr>
-		<tr>
-			<td
-				>9. Do you support the placement and ongoing maintenance of street trees to create and
-				preserve green corridors?</td
-			>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>❔</td>
-			<td>✅</td>
-			<td>✅</td>
-		</tr>
-		<tr>
-			<td
-				>10. Do you support pedestrianizing streets (closing them to motor traffic), such as Dana St
-				and lower Exchange St, even if it involves the loss of on-street parking?</td
-			>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>❔</td>
-			<td>✅</td>
-			<td>🟨</td>
-		</tr>
-		<tr>
-			<td
-				>11. Will you champion the City pursuing Federal Government grant programs to reconnect
-				communities split by urban renewal projects such as Franklin Street, including budgeting
-				matching grant funds if necessary?</td
-			>
-			<td>✅</td>
-			<td>✅</td>
-			<td>✅</td>
-			<td>❔</td>
-			<td>✅</td>
-			<td>🟨</td>
-		</tr>
-	</tbody>
-</table>
+<div class="tablewrapper">
+	<table class="table council">
+		<thead>
+			<tr>
+				<th scope="col" />
+				<th colspan="2">At Large</th>
+				<th colspan="2">District 4</th>
+				<th colspan="2">District 5</th>
+			</tr>
+			<tr>
+				<th scope="col" />
+				<th scope="col"
+					><a
+						href="https://docs.google.com/document/d/1CfYpHYYwWspEhCT8-6v9-g-z-Ur-UCkF1zXUg2oulEs"
+						rel="noreferrer"
+						target="_blank">April Fournier</a
+					></th
+				>
+				<th scope="col"
+					><a
+						href="https://docs.google.com/document/d/110tgIHhW5w2SrdJWkJqrDsP8pBYATtISeF987QeTxZs"
+						rel="noreferrer"
+						target="_blank">William Linnell</a
+					></th
+				>
+				<th scope="col"
+					><a
+						href="https://docs.google.com/document/d/1nasI-bjFbrxDW-nqdRO4obxtQAcN410lsoSf56k8NWQ"
+						rel="noreferrer"
+						target="_blank">Anna Bullett</a
+					></th
+				>
+				<th scope="col"
+					><a
+						href="https://docs.google.com/document/d/1aHM53GCFx6LJZTP6uIDDoSxdILIPSaIM1W17_ATzsJg"
+						rel="noreferrer"
+						target="_blank">Robert Cady*</a
+					></th
+				>
+				<th scope="col"
+					><a
+						href="https://docs.google.com/document/d/1f8VcS46nW4YEtmgOb4oeq8ffJ7Qp3qeRAEjQNVa8YtI"
+						rel="noreferrer"
+						target="_blank">Kathryn Sykes</a
+					></th
+				>
+				<th scope="col"
+					><a
+						href="https://docs.google.com/document/d/11hSF_r7eHFWZmP4WeYYqAnmSuFgfR-W2CIomgqbk5X0"
+						rel="noreferrer"
+						target="_blank">Matthew Buonopane</a
+					></th
+				>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td
+					>1. Do you endorse our ReCode recommendations to allow for gentle density? This includes
+					allowing multi-unit housing everywhere housing can be built and limiting density based on
+					the sizes of buildings instead of land area. (Recommendations 2 and 3)</td
+				>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>❔</td>
+				<td>🟨</td>
+				<td>❌</td>
+			</tr>
+			<tr>
+				<td
+					>2. Do you endorse our ReCode recommendations to relax limits to allow the construction of
+					more types of buildings? This includes allowing for small height increases, building on
+					smaller lots, and building on a bigger portion of each lot. (Recommendations 4, 5, 6, 10,
+					12, 16, and 17)</td
+				>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>❔</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+			<tr>
+				<td
+					>3. Do you endorse our ReCode recommendation to combine some zones to simplify our zoning
+					code and allow for more housing? This includes merging various residential and industrial
+					zones into more permissive ones.</td
+				>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>❔</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+			<tr>
+				<td
+					>4. Do you support returning the Amtrak Station to the former site of Union Station (St
+					John St) with new housing nearby instead of the proposed new parking structure?</td
+				>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>❔</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+			<tr>
+				<td
+					>5. Would you prioritize increasing the funding of GPMetro to provide higher quality bus
+					service, particularly more frequent buses?</td
+				>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>❔</td>
+				<td>✅</td>
+				<td>❌</td>
+			</tr>
+			<tr>
+				<td
+					>6. Do you support prioritizing constructing protected cycling lanes? Even if this means
+					losing some on-street parking?</td
+				>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>❔</td>
+				<td>✅</td>
+				<td>❔</td>
+			</tr>
+			<tr>
+				<td
+					>7. Do you support prioritizing pedestrians with infrastructure such as crossing priority
+					at intersections and well maintained sidewalks and crosswalks?</td
+				>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>❔</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+			<tr>
+				<td
+					>8. Do you support increasing revenue from parking meters and city-owned garages by
+					bringing pricing more in line with the value of these spaces, metering more spaces, and
+					extending enforcement to more hours of the week?</td
+				>
+				<td>✅</td>
+				<td>🟨</td>
+				<td>✅</td>
+				<td>❔</td>
+				<td>✅</td>
+				<td>❌</td>
+			</tr>
+			<tr>
+				<td
+					>9. Do you support the placement and ongoing maintenance of street trees to create and
+					preserve green corridors?</td
+				>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>❔</td>
+				<td>✅</td>
+				<td>✅</td>
+			</tr>
+			<tr>
+				<td
+					>10. Do you support pedestrianizing streets (closing them to motor traffic), such as Dana
+					St and lower Exchange St, even if it involves the loss of on-street parking?</td
+				>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>❔</td>
+				<td>✅</td>
+				<td>🟨</td>
+			</tr>
+			<tr>
+				<td
+					>11. Will you champion the City pursuing Federal Government grant programs to reconnect
+					communities split by urban renewal projects such as Franklin Street, including budgeting
+					matching grant funds if necessary?</td
+				>
+				<td>✅</td>
+				<td>✅</td>
+				<td>✅</td>
+				<td>❔</td>
+				<td>✅</td>
+				<td>🟨</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 <p class="text-start">
 	* Robert Cady replied with a statement instead of answering individual questions, a highlight from
 	the statement: "What I can say is that I’m in favor of allowing increased gentle density in
@@ -477,6 +481,11 @@
 </p>
 
 <style>
+	.tablewrapper {
+		overflow-y: hidden;
+		overflow-x: scroll;
+	}
+
 	table > tbody > tr > td:first-child {
 		text-align: left;
 	}
