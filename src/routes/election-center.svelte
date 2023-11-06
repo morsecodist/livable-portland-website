@@ -111,7 +111,7 @@
 						target="_blank">Dylan Pugh</a
 					></th
 				>
-				<th scope="col">George Reault</th>
+				<th scope="col">George Rheault</th>
 				<th scope="col"
 					><a
 						href="https://docs.google.com/document/d/13oUzx-4bz295YrBR8sUvJeboMx-17vThz2eysWm9RQw"
