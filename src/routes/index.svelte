@@ -28,6 +28,16 @@
 </svelte:head>
 
 <h1 class="text-primary mb-4">Welcome to the Urbanist Coalition of Portland!</h1>
+<div class="p-4">
+	<h2 class="text-secondary">
+		🗳️ Portand's Mayor and City Council Election is on Tuesday, November 7th 🗳️
+	</h2>
+	<h3>
+		Find out how candidates feel about urbanist issues at our <a href="/election-center"
+			>Election Center</a
+		>!
+	</h3>
+</div>
 <div class="d-flex flex-wrap">
 	<div class="pe-4 flex-grow-1 flex-shrink-1" style="min-width: 300px; width: 300px;">
 		<h2 class="text-start text-secondary">Who we are</h2>
@@ -46,25 +56,32 @@
 		<h2 class="text-start text-secondary">Follow Us</h2>
 		<ul class="text-start d-inline-block ps-0">
 			<li>
-				<a href="https://discord.gg/EBF8EUN2RK" target="_blank" rel="noreferrer"
+				<a class="social" href="https://discord.gg/EBF8EUN2RK" target="_blank" rel="noreferrer"
 					><img src="/discord_icon.png" class="icon" /> Join us on Discord</a
 				>
 			</li>
 			<li>
-				<a href="https://www.instagram.com/urbanistportland.me/" target="_blank" rel="noreferrer"
-					><img src="/instagram_icon.png" class="icon" />Follow us on Instagram</a
+				<a
+					class="social"
+					href="https://www.instagram.com/urbanistportland.me/"
+					target="_blank"
+					rel="noreferrer"><img src="/instagram_icon.png" class="icon" />Follow us on Instagram</a
 				>
 			</li>
 			<li>
 				<a
+					class="social"
 					href="https://www.facebook.com/profile.php?id=100093333520448"
 					target="_blank"
 					rel="noreferrer"><img src="/facebook_icon.png" class="icon" />Like us on Facebook</a
 				>
 			</li>
 			<li>
-				<a href="https://twitter.com/urbanistport_me" target="_blank" rel="noreferrer"
-					><img src="/twitter_icon.png" class="icon" />Follow us on Twitter</a
+				<a
+					class="social"
+					href="https://twitter.com/urbanistport_me"
+					target="_blank"
+					rel="noreferrer"><img src="/twitter_icon.png" class="icon" />Follow us on Twitter</a
 				>
 			</li>
 		</ul>
@@ -81,7 +98,7 @@
 </div>
 
 <style lang="scss">
-	a {
+	a.social {
 		text-decoration: none;
 		color: black;
 	}
