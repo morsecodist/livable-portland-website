@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 
-	onMount(() => {
+	function makeMap() {
 		require([
 			'esri/Map',
 			'esri/views/MapView',
@@ -45,6 +45,14 @@
 
 			map.add(featureLayer);
 		});
+	}
+
+	onMount(() => {
+		try {
+			makeMap();
+		} catch (e) {
+			setTimeout(makeMap, 500);
+		}
 	});
 </script>
 
