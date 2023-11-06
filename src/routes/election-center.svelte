@@ -481,11 +481,6 @@
 </p>
 
 <style>
-	.tablewrapper {
-		overflow-y: hidden;
-		overflow-x: scroll;
-	}
-
 	table > tbody > tr > td:first-child {
 		text-align: left;
 	}

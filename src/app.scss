@@ -104,3 +104,19 @@ div.eventbox {
         height: 300px;
     }
 }
+
+
+@include media-breakpoint-down(sm) {
+        .tablewrapper {
+                overflow-x: scroll;
+                max-height: 80vh;
+        }
+
+        .tablewrapper table th {
+                position: sticky;
+                top: 0;
+                background: white;
+                z-index: 10;
+        }
+}
+
