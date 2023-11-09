@@ -28,16 +28,6 @@
 </svelte:head>
 
 <h1 class="text-primary mb-4">Welcome to the Urbanist Coalition of Portland!</h1>
-<div class="p-4">
-	<h2 class="text-secondary">
-		🗳️ Portand's Mayor and City Council Election is on Tuesday, November 7th 🗳️
-	</h2>
-	<h3>
-		Find out how candidates feel about urbanist issues at our <a href="/election-center"
-			>Election Center</a
-		>!
-	</h3>
-</div>
 <div class="d-flex flex-wrap">
 	<div class="pe-4 flex-grow-1 flex-shrink-1" style="min-width: 300px; width: 300px;">
 		<h2 class="text-start text-secondary">Who we are</h2>
