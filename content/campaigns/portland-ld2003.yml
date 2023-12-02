@@ -75,8 +75,8 @@
     Before the council can vote on something it has to be read at a previous city council meeting. This makes sure everyone is informed there is time to consider each vote.
     No public comment is taken for these first readings, but it can be interesting to listen to.
     [Monday, November 13th](https://portlandme.portal.civicclerk.com/event/6482/files). 
-  dateTime: "2023-11-20T17:00:00"
-  dateString: 11/20/2023 at 5 pm
+  dateTime: "2023-12-04T17:00:00"
+  dateString: 12/04/2023 at 5 pm
 
 - name: "Email: City Council Before Final Vote"
   kind: "email"
@@ -84,8 +84,8 @@
     This is the actual, final vote by the City Council. The planning board and planning staff are just advisory, ultimately our City Council has the final say here.
     [Monday, November 20th](https://portlandme.portal.civicclerk.com/event/6494/files) is the second meeting after the Planning Board vote, however, the reading, or the vote may be scheduled at a later date. Check back
     to keep up to date.
-  dateTime: "2023-12-03T12:00:00"
-  dateString: 12/03/2023 at 12 pm
+  dateTime: "2023-12-17T12:00:00"
+  dateString: 12/17/2023 at 12 pm
   email:
     to: "publiccomment@portlandmaine.gov"
     subject: "Make Real Change with LD2003"
@@ -126,6 +126,6 @@
   description: |
     This is the actual, final vote by the City Council. The planning board and planning staff are just advisory, ultimately our City Council has the final say here.
     [Monday, November 20th](https://portlandme.portal.civicclerk.com/event/6494/files). Though you can listen on zoom, public comment is only accepted in person, so show up and make your voice heard!
-  dateTime: "2023-12-04T17:00:00"
-  dateString: 12/04/2023 at 5 pm
+  dateTime: "2023-18-04T17:00:00"
+  dateString: 12/18/2023 at 5 pm
 
