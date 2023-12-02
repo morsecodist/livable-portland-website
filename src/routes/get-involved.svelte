@@ -93,7 +93,7 @@
 		won't result in real change in Portland.
 	</p>
 	<p>
-		Though we have little time, it is not too late to act. We have put together a few <a
+		Though we have little time, it is not too late to act. We have put together four <a
 			href="/policy/portland_ld2003">amendments</a
 		> to their proposed changes that remove some of these new limits being added alongside the changes
 		for LD2003. To pass them, we need your help. Below is a timeline of the procedural steps required
