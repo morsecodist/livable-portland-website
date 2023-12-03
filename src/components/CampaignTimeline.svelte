@@ -1,13 +1,21 @@
 <script lang="ts">
 	import { marked } from 'marked';
 	import { horizontalSlide } from '../lib/horizontal-slide';
+	import { onMount } from 'svelte';
+
+	let hasMounted = false;
+
+	onMount(() => {
+		hasMounted = true;
+	});
+
+	const maybeSlide = hasMounted ? horizontalSlide : undefined;
 
 	interface Event {
 		name: string;
 		kind: 'email' | 'public-comment' | 'reading';
 		description: string;
 		dateTime: Date;
-		dateString: string;
 		link: string;
 		email?: {
 			to: string;
@@ -56,11 +64,17 @@
 	let innerHeight = 0;
 
 	$: smallScreen = innerWidth < 1000;
-	$: {
-		console.log(innerWidth);
-	}
-
 	$: showDetailsPanel = !smallScreen;
+
+	// Options for toLocaleString
+	let localeOptions: any = {
+		weekday: 'long', // e.g., Monday, Tuesday, etc.
+		month: 'long', // e.g., June, July, etc.
+		day: 'numeric',
+		hour: 'numeric',
+		minute: 'numeric',
+		hour12: true // Use AM/PM
+	};
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
@@ -84,7 +98,7 @@
 					lineActive={nextEventIdx > index}
 					bulletActive={nextEventIdx > index}
 				>
-					<p>{event.dateString}</p>
+					<p>{event.dateTime.toLocaleString('en-US', localeOptions)}</p>
 				</TimelineItem>
 			{/each}
 		</div>
@@ -94,7 +108,7 @@
 		<div
 			class="d-flex flex-column mt-3 flex-grow-1 text-start p-4"
 			style="background-color: #B3D1B2; border-top-right-radius: 10px; border-bottom-right-radius: 10px;"
-			transition:horizontalSlide={{}}
+			transition:maybeSlide={{}}
 		>
 			{#if smallScreen}
 				<button class="btn btn-secondary mb-3" on:click={() => (showDetailsPanel = false)}
