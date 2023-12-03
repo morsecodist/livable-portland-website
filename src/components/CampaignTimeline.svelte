@@ -81,7 +81,7 @@
 <svelte:window bind:innerWidth bind:innerHeight />
 
 <div class="d-flex justify-content-center">
-	{#if hasMounted && (!smallScreen || !showDetailsPanel)}
+	{#if !smallScreen || !showDetailsPanel}
 		<div class="pt-3" style="min-width: 20%">
 			{#each sortedEvents as event, index}
 				<TimelineItem

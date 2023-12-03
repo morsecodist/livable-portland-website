@@ -4,9 +4,6 @@
 		let events = await res.json();
 		events = events.map((event: any) => {
 			event.dateTime = new Date(event.dateTime);
-			event.dateTime = new Date(
-				event.dateTime.getTime() - event.dateTime.getTimezoneOffset() * 60 * 1000
-			);
 			return event;
 		});
 
@@ -28,6 +25,13 @@
 <script lang="ts">
 	import CampaignTimeline from '../components/CampaignTimeline.svelte';
 	import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
+
+	let hasMounted = false;
+
+	onMount(() => {
+		hasMounted = true;
+	});
 
 	let name = '';
 	let email = '';
@@ -140,7 +144,9 @@
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</div>
 	</form>
-	<CampaignTimeline {events} />
+	{#if hasMounted}
+		<CampaignTimeline {events} />
+	{/if}
 </div>
 
 <h2 class="text-secondary text-start">Sign Up for Our Mailing List</h2>
