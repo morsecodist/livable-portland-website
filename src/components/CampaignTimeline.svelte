@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { marked } from 'marked';
 	import { horizontalSlide } from '../lib/horizontal-slide';
+	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
 	let hasMounted = false;
@@ -9,7 +10,7 @@
 		hasMounted = true;
 	});
 
-	const maybeSlide = hasMounted ? horizontalSlide : null;
+	const maybeSlide = hasMounted ? horizontalSlide : fade;
 
 	interface Event {
 		name: string;
@@ -108,7 +109,7 @@
 		<div
 			class="d-flex flex-column mt-3 flex-grow-1 text-start p-4"
 			style="background-color: #B3D1B2; border-top-right-radius: 10px; border-bottom-right-radius: 10px;"
-			transition:maybeSlide={{}}
+			transition:maybeSlide={hasMounted ? {} : { duration: 0, delay: 0 }}
 		>
 			{#if smallScreen}
 				<button class="btn btn-secondary mb-3" on:click={() => (showDetailsPanel = false)}
