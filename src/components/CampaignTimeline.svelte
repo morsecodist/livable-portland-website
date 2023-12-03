@@ -9,7 +9,7 @@
 		hasMounted = true;
 	});
 
-	const maybeSlide = hasMounted ? horizontalSlide : undefined;
+	const maybeSlide = hasMounted ? horizontalSlide : null;
 
 	interface Event {
 		name: string;
@@ -80,7 +80,7 @@
 <svelte:window bind:innerWidth bind:innerHeight />
 
 <div class="d-flex justify-content-center">
-	{#if !smallScreen || !showDetailsPanel}
+	{#if hasMounted && (!smallScreen || !showDetailsPanel)}
 		<div class="pt-3" style="min-width: 20%">
 			{#each sortedEvents as event, index}
 				<TimelineItem
