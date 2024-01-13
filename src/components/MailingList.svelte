@@ -16,6 +16,8 @@
 			},
 			body: JSON.stringify({ name, email, listName })
 		});
+		name = '';
+		email = '';
 		if (resp.status < 400) submitStatus = 'success';
 		else submitStatus = 'failure';
 		setTimeout(() => (submitStatus = ''), 2000);

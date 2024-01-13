@@ -6,7 +6,10 @@
 	export let passed: boolean = false;
 </script>
 
-<div class="card d-inline-flex flex-shrink-1" style="width: 30rem; height: 100%;">
+<div
+	class="card d-inline-flex flex-shrink-1"
+	style="min-width: 200px; max-width: 30rem; height: 100%;"
+>
 	{#if passed}
 		<div class="ribbon ribbon-top-left">
 			<span>Passed</span>

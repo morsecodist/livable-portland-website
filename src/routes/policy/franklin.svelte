@@ -9,7 +9,7 @@
 <h1 class="text-primary">Reclaim Franklin Street</h1>
 <p>A Vision for Affordable Housing Along Franklin Street</p>
 
-<div class="text-start">
+<div class="text-start pb-4">
 	<p>
 		We’re in a housing crisis, and part of the solution could be right under our feet: Franklin
 		Street. Franklin has long been thought of as a traffic planning problem that needs a traffic
