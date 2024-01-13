@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>UCP - Newsletters</title>
+	<title>UCP - Policy</title>
 </svelte:head>
 
 <h1 class="text-primary">Urbanist Coalition of Portland Policy</h1>
@@ -39,6 +39,7 @@
 			title="Comply with the Spirit of LD2003"
 			description="Portland must update our land use code by January 1st 2024 to comply with the state law, LD2003. This law intends to expand housing opportunities but Portland's implementation adds additional restrictions that undermine this goal. We must amend this proposal to ensure it complies with the spirit of the law."
 			href="/policy/portland_ld2003"
+			passed
 		/>
 	</div>
 </div>

@@ -1,3 +1,7 @@
+<script>
+	import MailingList from '../../components/MailingList.svelte';
+</script>
+
 <svelte:head>
 	<title>UCP - Reclaim Franklin Street</title>
 </svelte:head>
@@ -87,11 +91,12 @@
 		>
 	</p>
 
-	<!--<h2 class="text-primary">Sign Up for the Franklin Street Mailing List</h2>--->
-	<!--<p>
+	<h2 class="text-primary">Sign Up for the Franklin Street Mailing List</h2>
+	<p>
 		The Franklin Reclamation Authority operates their own mailing list independent of UCP. If you
 		would like to receive updates specific to Franklin Street, please sign up below.
-	</p>-->
+	</p>
+	<MailingList listName="reclaim-franklin" />
 </div>
 
 <style>
