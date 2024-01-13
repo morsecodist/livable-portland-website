@@ -19,6 +19,14 @@
 <div class="mt-4 text-center row g-4 pb-4">
 	<div class="col">
 		<ArticleCard
+			src="/franklin/Render_Housing_Labeled.jpg"
+			title="Reclaim Franklin Street for Housing"
+			description="Franklin Street is oversized for the traffic it serves, divides historic neighborhoods, and occupies valuable land in the heart of our city. UCP presents the Franklin Reclamation Authority volunteer working group's analysis of the exciting affordable housing development opportunities along a redesigned Franklin corridor."
+			href="/policy/franklin"
+		/>
+	</div>
+	<div class="col">
+		<ArticleCard
 			src="/recode/11_simplify_zones.png"
 			title="ReCode Recommendations"
 			description="Portland is in the process of changing its zoning code. These are our recommendations for how we can make the most out of this opportunity to improve our neighborhoods."
