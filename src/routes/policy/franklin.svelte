@@ -24,7 +24,7 @@
 	/>
 	<img src="/franklin/Render_Park_Labeled.jpg" alt="Franklin Street Park Render" />
 
-	<table class="styled-table">
+	<table class="styled-table desktop">
 		<tbody>
 			<tr>
 				<td class="description" colspan="2"
@@ -40,6 +40,27 @@
 				<td class="description" colspan="2">17,000 SF<br />restored to Lincoln Park</td>
 				<td class="value">Improved traffic flow on Franklin Street.</td>
 			</tr>
+		</tbody>
+	</table>
+
+	<table class="styled-table mobile">
+		<tbody>
+			<tr>
+				<td class="description" colspan="2"
+					>994 new homes<br />on the peninsula (under current zoning)</td
+				>
+			</tr>
+			<tr>
+				<td class="value">$15.7M<br />estimated land sale value</td>
+			</tr>
+			<tr>
+				<td class="description" colspan="2">5.9 acres<br />of city-owned land reclaimed</td>
+			</tr>
+			<tr><td class="value">$3.4M<br />estimated annual property tax revenue</td></tr>
+			<tr>
+				<td class="description" colspan="2">17,000 SF<br />restored to Lincoln Park</td>
+			</tr>
+			<tr><td class="value">Improved traffic flow on Franklin Street.</td></tr>
 		</tbody>
 	</table>
 
@@ -104,7 +125,7 @@
 		max-width: 100%;
 	}
 
-	.styled-table {
+	table.styled-table {
 		border-collapse: collapse;
 		margin: 25px 0;
 		font-size: 0.9em;
@@ -118,6 +139,9 @@
 	}
 	.styled-table td {
 		border-bottom: 1px solid #dddddd;
+	}
+	.styled-table.mobile td {
+		width: 100vw;
 	}
 	.styled-table tr:last-of-type {
 		border-bottom: 2px solid var(--bs-primary);
