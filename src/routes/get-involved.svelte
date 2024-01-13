@@ -1,29 +1,4 @@
-<script lang="ts" context="module">
-	export async function load({ url, fetch }) {
-		const res = await fetch('campaigns/portland-ld2003.json');
-		let events = await res.json();
-		events = events.map((event: any) => {
-			event.dateTime = new Date(event.dateTime);
-			return event;
-		});
-
-		if (res.ok) {
-			return {
-				props: {
-					events
-				}
-			};
-		}
-
-		return {
-			status: res.status,
-			error: new Error(`Could not load ${url.pathname}`)
-		};
-	}
-</script>
-
 <script lang="ts">
-	import CampaignTimeline from '../components/CampaignTimeline.svelte';
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
@@ -36,18 +11,14 @@
 	let name = '';
 	let email = '';
 	let state = 'none';
-	let ld2003State = 'none';
 
-	export let events: any;
-
-	async function handleOnSubmit(ld2003: boolean = false) {
+	async function handleOnSubmit() {
 		const formData = new FormData(document.getElementById('get-involved') as HTMLFormElement);
 		const obj = {};
 		obj['name'] = name;
 		obj['email'] = email;
 		name = '';
 		email = '';
-		if (ld2003) obj['ld2003'] = true;
 		formData.forEach((v, k) => {
 			obj[k] = v;
 		});
@@ -58,23 +29,13 @@
 			},
 			body: JSON.stringify(obj)
 		});
-		if (ld2003) {
-			if (resp.status < 400) ld2003State = 'success';
-			else ld2003State = 'failure';
-			setTimeout(() => (ld2003State = 'none'), 2000);
-		} else {
-			if (resp.status < 400) state = 'success';
-			else state = 'failure';
-			setTimeout(() => (state = 'none'), 2000);
-		}
+		if (resp.status < 400) state = 'success';
+		else state = 'failure';
+		setTimeout(() => (state = 'none'), 2000);
 	}
 
 	async function handleOnSubmitEmailList() {
-		handleOnSubmit(false);
-	}
-
-	async function handleOnSubmitLD2003() {
-		handleOnSubmit(true);
+		handleOnSubmit();
 	}
 </script>
 
@@ -84,72 +45,6 @@
 
 <h1 class="text-primary">Get Involved</h1>
 
-<div class="pt-4 pb-4 text-start">
-	<h2 class="text-secondary">Make Real Change with LD2003</h2>
-	<p>
-		LD2003 is a state law that was intended to make cities update their zoning codes to allow for
-		more housing. Growth areas are supposed to generally allow up to four units of housing. Cities
-		and towns in Maine have until January to make the changes. Unfortunately, the changes proposed
-		by Portland's planning staff add additional limits alongside the allowances. In practice, this
-		means that just half a percent of our city's land will ever be allowed the full four units,
-		reduced from around a quarter that would be eligible without these limits. While this follows
-		the letter of the law, it undermines its intent, further complicates our land use code, and
-		won't result in real change in Portland.
-	</p>
-	<p>
-		Though we have little time, it is not too late to act. We have put together four <a
-			href="/policy/portland_ld2003">amendments</a
-		> to their proposed changes that remove some of these new limits being added alongside the changes
-		for LD2003. To pass them, we need your help. Below is a timeline of the procedural steps required
-		to pass the proposed changes. We must let the Planning Board and City Council know that we want real
-		change by showing up to meetings and sending emails to make public comment. Together, we can pass
-		changes that will actually make a dent in our housing crisis!
-	</p>
-	<h4 class="text-primary text-start">Get Email Alerts</h4>
-	<p>
-		Keep up to date with this news so you know when to act. Signing up here won't put you on our
-		general mailing list.
-	</p>
-	{#if ld2003State === 'success'}
-		<div class="alert alert-success" role="alert" transition:fade>Thank you!</div>
-	{:else if ld2003State === 'failure'}
-		<div class="alert alert-danger" role="alert" transition:fade>Something went wrong</div>
-	{/if}
-
-	<form class="text-start" on:submit|preventDefault={handleOnSubmitLD2003} id="get-involved">
-		<div class="mb-3">
-			<label for="inputNameLD2003" class="form-label">Name</label>
-			<input
-				name="name"
-				class="form-control"
-				id="inputNameLD2003"
-				aria-describedby="nameHelp"
-				bind:value={name}
-			/>
-			<div id="nameHelp" class="form-text">Please enter your preferred full name.</div>
-		</div>
-		<div class="mb-3">
-			<label for="exampleInputEmailLD2003" class="form-label">Email address</label>
-			<input
-				name="email"
-				type="email"
-				class="form-control"
-				id="exampleInputEmailLD2003"
-				aria-describedby="emailHelp"
-				bind:value={email}
-			/>
-			<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-		</div>
-		<div class="text-end">
-			<button type="submit" class="btn btn-primary">Submit</button>
-		</div>
-	</form>
-	{#if hasMounted}
-		<CampaignTimeline {events} />
-	{/if}
-</div>
-
-<h2 class="text-secondary text-start">Sign Up for Our Mailing List</h2>
 {#if state === 'success'}
 	<div class="alert alert-success" role="alert" transition:fade>Thank you!</div>
 {:else if state === 'failure'}
