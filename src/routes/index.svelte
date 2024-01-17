@@ -20,6 +20,7 @@
 
 <script lang="ts">
 	import ArticleCard from '../components/ArticleCard.svelte';
+	import SocialMediaCard from '../components/SocialMediaCard.svelte';
 	export let posts: Post[];
 </script>
 
@@ -43,38 +44,12 @@
 		</p>
 	</div>
 	<div class="flex-shrink-0 flex-grow-2 text-start ">
-		<h2 class="text-start text-secondary">Follow Us</h2>
-		<ul class="text-start d-inline-block ps-0">
-			<li>
-				<a class="social" href="https://discord.gg/EBF8EUN2RK" target="_blank" rel="noreferrer"
-					><img src="/discord_icon.png" class="icon" /> Join us on Discord</a
-				>
-			</li>
-			<li>
-				<a
-					class="social"
-					href="https://www.instagram.com/urbanistportland.me/"
-					target="_blank"
-					rel="noreferrer"><img src="/instagram_icon.png" class="icon" />Follow us on Instagram</a
-				>
-			</li>
-			<li>
-				<a
-					class="social"
-					href="https://www.facebook.com/profile.php?id=100093333520448"
-					target="_blank"
-					rel="noreferrer"><img src="/facebook_icon.png" class="icon" />Like us on Facebook</a
-				>
-			</li>
-			<li>
-				<a
-					class="social"
-					href="https://twitter.com/urbanistport_me"
-					target="_blank"
-					rel="noreferrer"><img src="/twitter_icon.png" class="icon" />Follow us on Twitter</a
-				>
-			</li>
-		</ul>
+		<SocialMediaCard
+			discordLink="https://discord.gg/EBF8EUN2RK"
+			instagramLink="https://www.instagram.com/urbanistportland.me/"
+			facebookLink="https://www.facebook.com/profile.php?id=100093333520448"
+			twitterLink="https://twitter.com/urbanistport_me"
+		/>
 	</div>
 </div>
 
@@ -86,25 +61,3 @@
 		</div>
 	{/each}
 </div>
-
-<style lang="scss">
-	a.social {
-		text-decoration: none;
-		color: black;
-	}
-
-	img.icon {
-		width: 2em;
-		height: 2em;
-		margin-right: 0.5em;
-	}
-
-	ul {
-		text-align: left;
-	}
-
-	/* remove bullet from li */
-	ul li {
-		list-style-type: none;
-	}
-</style>

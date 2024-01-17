@@ -1,4 +1,5 @@
 <script>
+	import SocialMediaCard from '../../components/SocialMediaCard.svelte';
 	import MailingList from '../../components/MailingList.svelte';
 </script>
 
@@ -10,19 +11,37 @@
 <p>A Vision for Affordable Housing Along Franklin Street</p>
 
 <div class="text-start pb-4">
-	<p>
-		We’re in a housing crisis, and part of the solution could be right under our feet: Franklin
-		Street. Franklin has long been thought of as a traffic planning problem that needs a traffic
-		planning solution. Instead, we could and should be thinking about it differently: Franklin is a
-		land-use problem that can be turned into a housing solution.
-	</p>
-	<p>Rebuilding Franklin Street is an investment in the sustainability of our city.</p>
+	<div class="d-flex">
+		<div class="me-4">
+			<p>
+				Narrowing Franklin Street is a land-use opportunity to unlock new parcels for affordable
+				housing development, create new usable green space, and make Franklin street more friendly
+				for pedestrians, cyclists, and drivers. Rebuilding Franklin Street is an investment in the
+				sustainability of our city.
+			</p>
+			<p>Rebuilding Franklin Street is an investment in the sustainability of our city.</p>
+		</div>
+
+		<div class="flex-shrink-0 flex-grow-2 text-start ms-1">
+			<SocialMediaCard
+				title="Follow and share this work"
+				instagramLink="https://www.instagram.com/rebuild_franklin_street_now/ "
+				facebookLink="https://www.facebook.com/FranklinReclamationAuthority/ "
+			/>
+		</div>
+	</div>
 	<img
 		class="mb-4"
 		src="/franklin/Render_Housing_Labeled.jpg"
 		alt="Franklin Street Housing Render"
 	/>
 	<img src="/franklin/Render_Park_Labeled.jpg" alt="Franklin Street Park Render" />
+
+	<p>
+		Our Affordable Housing and Economic Development study shows that redevelopment of reclaimed land
+		reclaimed by Portland's 2015 Franklin Street master plan can produce the following benefits for
+		Portland:
+	</p>
 
 	<table class="styled-table desktop">
 		<tbody>
@@ -67,17 +86,21 @@
 	<ul>
 		<li>
 			Franklin Street is already slated for a future sewer/stormwater separation project, which will
-			tear up the street and rebuild it using federal money.
+			tear up the street and rebuild it.
 		</li>
 		<li>
 			Federal grants are available under DOT’s Reconnecting Communities initiative for urban street
 			redesigns just like Franklin Street.
 		</li>
 		<li>
-			Unlocking city-owned land for housing development creates immediate sale value and long-term
-			tax value for the city.
+			Unlocking city-owned land for housing development creates immediate land sale value and
+			long-term tax value for the city.
 		</li>
-		<li>Portland has been sitting on a plan since 2015 that can accomplish much of this.</li>
+		<li>
+			Portland's 2015 Franklin Street Master Plan can accomplish much of this. With what we know
+			today, this plan can be further improved to create opportunities for more housing and a safer
+			street.
+		</li>
 	</ul>
 
 	<p>
