@@ -105,11 +105,11 @@
 
 	<p>
 		The Franklin Reclamation Authority’s volunteer working group has assembled a vision plan to show
-		the potential of the Franklin Street right-of-way to be redeveloped into housing in the heart of
-		the Portland peninsula. This working group includes local architects and affordable housing
-		experts invested in the future of Franklin Street and Portland as a whole. This is not a
-		specific plan or proposal, but a conceptual analysis of housing development opportunities in the
-		Franklin Street corridor.
+		the potential of the Franklin Street right-of-way to be redeveloped into affordable housing in
+		the heart of the Portland peninsula. This working group includes local architects and affordable
+		housing experts invested in the future of Franklin Street and Portland as a whole. This is not a
+		specific plan or proposal, but a conceptual analysis of affordable housing development
+		opportunities in the Franklin Street corridor.
 	</p>
 
 	<h2 class="text-primary">Learn More</h2>
