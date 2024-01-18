@@ -1,5 +1,4 @@
 <script>
-	import SocialMediaCard from '../../components/SocialMediaCard.svelte';
 	import MailingList from '../../components/MailingList.svelte';
 </script>
 
@@ -11,33 +10,47 @@
 <p>A Vision for Affordable Housing Along Franklin Street</p>
 
 <div class="text-start pb-4">
-	<div class="d-flex">
-		<div class="me-4">
-			<p>
-				Narrowing Franklin Street is a land-use opportunity to unlock new parcels for affordable
-				housing development, create new usable green space, and make Franklin street more friendly
-				for pedestrians, cyclists, and drivers. Rebuilding Franklin Street is an investment in the
-				sustainability of our city.
-			</p>
-			<p>Rebuilding Franklin Street is an investment in the sustainability of our city.</p>
-		</div>
-
-		<div class="flex-shrink-0 flex-grow-2 text-start ms-1">
-			<SocialMediaCard
-				title="Follow and share this work"
-				instagramLink="https://www.instagram.com/rebuild_franklin_street_now/ "
-				facebookLink="https://www.facebook.com/FranklinReclamationAuthority/ "
-			/>
-		</div>
+	<div>
+		<p>
+			We’re in a housing crisis, and part of the solution could be right under our feet: Franklin
+			Street. Since the historic neighborhood was gutted in the 1960s to make way for an overly wide
+			and spatially inefficient divided thoroughfare, Franklin has been thought of as a traffic
+			planning problem that needs a traffic planning solution.
+		</p>
+		<p>
+			Instead, narrowing Franklin Street is a land-use opportunity to unlock new parcels for
+			affordable housing development, create new usable green space, and make Franklin street more
+			friendly for pedestrians, cyclists, and drivers. Rebuilding Franklin Street is an investment
+			in the sustainability of our city.
+		</p>
+		<p>Rebuilding Franklin Street is an investment in the sustainability of our city.</p>
 	</div>
-	<img
-		class="mb-4"
-		src="/franklin/Render_Housing_Labeled.jpg"
-		alt="Franklin Street Housing Render"
-	/>
-	<img src="/franklin/Render_Park_Labeled.jpg" alt="Franklin Street Park Render" />
-
 	<p>
+		You can follow this work on social media; please join and share with others on
+		<a
+			class="social"
+			href="https://www.instagram.com/rebuild_franklin_street_now/ "
+			target="_blank"
+			rel="noreferrer"
+			><img src="/instagram_icon.png" class="icon" alt="Instagram Icon" />Instagram</a
+		>
+		and
+		<a
+			class="social"
+			href="https://www.facebook.com/FranklinReclamationAuthority/"
+			target="_blank"
+			rel="noreferrer"><img src="/facebook_icon.png" class="icon" alt="Facebook Icon" />Facebook</a
+		>
+	</p>
+	<p>
+		<img
+			class="mb-4"
+			src="/franklin/Render_Housing_Labeled.jpg"
+			alt="Franklin Street Housing Render"
+		/>
+		<img src="/franklin/Render_Park_Labeled.jpg" alt="Franklin Street Park Render" />
+	</p>
+	<p class="lead pt-2">
 		Our Affordable Housing and Economic Development study shows that redevelopment of reclaimed land
 		reclaimed by Portland's 2015 Franklin Street master plan can produce the following benefits for
 		Portland:
@@ -176,5 +189,14 @@
 	.value {
 		font-weight: bold;
 		color: var(--bs-primary);
+	}
+
+	a.social {
+		color: --var(--bs-primary);
+		text-decoration: none;
+	}
+	img.icon {
+		width: 1.2em;
+		height: 1.2em;
 	}
 </style>
