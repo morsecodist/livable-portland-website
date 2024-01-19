@@ -14,13 +14,7 @@ function readFile(path: fs.PathLike): Promise<Buffer> {
 export async function get({ params }) {
     const { slug } = params;
     const file = join(resolve(), `content/campaigns/${slug}.yml`);
-    const obj = YAML.parse((await readFile(file)).toString());
-
-    // remap dateTime in each object to a Date object
-    let body = obj.map((event: any) => {
-      event.dateTime = new Date(event.dateTime);
-      return event;
-    });
+    const body = YAML.parse((await readFile(file)).toString());
 
     return {
         body,
