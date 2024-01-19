@@ -16,9 +16,6 @@
         title: "Contact Us",
         path: "/contact",
     }, {
-        title: "News",
-        path: "/news",
-    }, {
         title: "Upcoming Events",
         path: "/upcoming-events",
     }].map(obj => ({
