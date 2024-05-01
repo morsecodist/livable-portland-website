@@ -8,6 +8,10 @@
 
 <h1 class="text-primary">Portland Leviathan</h1>
 <p>Conference on the Past, Present, & Future of Interstate 295</p>
+<p>Thursday June 20th, 2024</p>
+<p>5:30-8:30 (reception to follow)</p>
+<p>Jewish Community Alliance of Southern Maine</p>
+<p>1342 Congress Street, Portland Maine, 04102</p>
 
 <img src="/leviathan.png" alt="295 Leviathan" />
 
