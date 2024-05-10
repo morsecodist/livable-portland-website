@@ -71,18 +71,24 @@
 		</li>
 		<li class="list-group-item border-0">
 			<div class="fw-bold">Community Representatives</div>
-			<span class="fst-italic">Eyewitnesses to history</span>
+			<span class="fst-italic"
+				>Eyewitnesses to history - Moderated by Richard Barringer, Emeritus Professor at Muskie
+				School of Public Service at the University of Southern Maine</span
+			>
 		</li>
 		<li class="list-group-item border-0">
 			<div class="fw-bold">Dayea Shim (AICP) Program Coordinator, GrowSmart Maine</div>
 			<span class="fst-italic">On highway removal throughout the world</span>
 		</li>
 		<li class="list-group-item border-0">
-			<div class="fw-bold">Ryan Johnson, Associate Urban Planner, Code Studio, Austin TX</div>
+			<div class="fw-bold">Ryan Johnson, Associate Urban Planner, Austin TX</div>
 			<span class="fst-italic">A new vision of the 295 corridor</span>
 		</li>
 		<li class="list-group-item border-0">
 			<div class="fw-bold">Beth Osborne, Transportation for America</div>
+			<span class="fst-italic"
+				>On the national movement to make smarter transportation policies</span
+			>
 		</li>
 		<li class="list-group-item border-0">
 			<div class="fw-bold">Myles Smith, Mainers for Smarter Transportation</div>
@@ -119,13 +125,13 @@
 		and Kyrgyzstan.
 	</p>
 	<p>
-		<b>Julie Ann Larry</b>is the former Director of Advocacy at Greater Portland Landmarks. An
-		architectural historian, Julie has researched and presented on the historic development of
-		several of Portland's neighborhoods, including those impacted by I-295 construction and urban
-		renewal projects. Prior to joining Landmarks, Julie was a partner for eighteen years at
-		ttl-architects where she oversaw the restoration of the Portland Observatory, the
-		Castle-in-the-Park at Deering Oaks, and numerous other preservation projects in New England. She
-		is currently the Senior Architectural Historian at Black Diamond Consultants.
+		<b>Julie Ann Larry</b> is the former Director of Advocacy at Greater Portland Landmarks. An architectural
+		historian, Julie has researched and presented on the historic development of several of Portland's
+		neighborhoods, including those impacted by I-295 construction and urban renewal projects. Prior to
+		joining Landmarks, Julie was a partner for eighteen years at ttl-architects where she oversaw the
+		restoration of the Portland Observatory, the Castle-in-the-Park at Deering Oaks, and numerous other
+		preservation projects in New England. She is currently the Senior Architectural Historian at Black
+		Diamond Consultants.
 	</p>
 
 	<h2 class="text-primary">Partner Organizations</h2>
@@ -136,7 +142,20 @@
 		<li>Franklin Reclamation Authority</li>
 		<li>Portland Trails</li>
 		<li>Urbanist Coalition of Portland</li>
+		<li>Better Biddiford</li>
+		<li>Portland Bicycle Pedestrian Advisory Committee</li>
+		<li>Franklin Reclamation Authority</li>
 		<li>and more</li>
+	</ul>
+
+	<h2 class="text-primary">Sponsors</h2>
+
+	<ul>
+		<li>Grow Smart Maine</li>
+		<li>Maine Health Caring Communities Grant</li>
+		<li>Factory 3</li>
+		<li>Merchant & Co.</li>
+		<li>Portland Trails</li>
 	</ul>
 
 	<h2 class="text-primary">Sign Up to Hear More!</h2>

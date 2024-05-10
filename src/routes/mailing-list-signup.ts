@@ -8,7 +8,7 @@ export async function post({ request }: RequestEvent) {
     if (Object.keys(obj).length !== 3) return { status: 400 };
     if (!obj["email"] || !obj["name"] || !obj["listName"]) return { status: 400 };
 
-    const approvedLists = ["ucp-general", "reclaim-franklin"];
+    const approvedLists = ["ucp-general", "reclaim-franklin", "portland-leviathan"];
     if (!approvedLists.includes(obj["listName"])) return { status: 400 };
 
     const prefix = `mailing-list-signups/${obj["listName"]}`;
