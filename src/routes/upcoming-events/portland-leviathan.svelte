@@ -137,25 +137,26 @@
 	<h2 class="text-primary">Partner Organizations</h2>
 
 	<ul>
+		<li>Better Biddeford</li>
+		<li>Franklin Reclamation Authority</li>
+		<li>Franklin Reclamation Authority</li>
 		<li>Grow Smart Maine</li>
 		<li>Libbytown Neighborhood Association</li>
-		<li>Franklin Reclamation Authority</li>
+		<li>Portland Bicycle Pedestrian Advisory Committee</li>
 		<li>Portland Trails</li>
 		<li>Urbanist Coalition of Portland</li>
-		<li>Better Biddiford</li>
-		<li>Portland Bicycle Pedestrian Advisory Committee</li>
-		<li>Franklin Reclamation Authority</li>
 		<li>and more</li>
 	</ul>
 
 	<h2 class="text-primary">Sponsors</h2>
 
 	<ul>
+		<li>Factory 3</li>
 		<li>Grow Smart Maine</li>
 		<li>Maine Health Caring Communities Grant</li>
-		<li>Factory 3</li>
 		<li>Merchant & Co.</li>
 		<li>Portland Trails</li>
+		<li>Redfern</li>
 	</ul>
 
 	<h2 class="text-primary">Sign Up to Hear More!</h2>
