@@ -7,10 +7,28 @@
 		window.scrollTo(0, document.body.scrollHeight);
 		document.querySelector('input').focus();
 	}
+
+	let title = 'UCP - Make Real Change with ReCode';
+	let description =
+		'Urbanist Coalition of Portland: Make real change with our amendments to ReCode';
+	let imageUrl = 'https://urbanistcoalition.org/LUC_cover_blue_logo.jpg';
 </script>
 
 <svelte:head>
-	<title>UCP - Recode</title>
+	<title>{title}</title>
+	<meta name="description" content={description} />
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={imageUrl} />
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+	<meta name="twitter:image" content={imageUrl} />
 </svelte:head>
 
 <h1 class="text-primary">Make Real Change with ReCode</h1>
@@ -33,7 +51,7 @@
 			neighborhoods that are pleasant to live in and move around. These changes make housing more
 			affordable, encourage equity, protect the environment, make the administration of our city
 			services more resilient and efficient, and bring communities closer together. All of these
-			outcomes are goals laid out in Portland’s Comprehensive Plan and our One Climate Future Plan.
+			outcomes are goals laid out in Portland’s Comprehensive Plan and One Climate Future Plan.
 			These amendments will not stop people from building the types of buildings they build today,
 			they will just give people more options of neighborhoods to build and live in. We are
 			currently in a housing affordability crisis with an environmental crisis on the horizon; the
@@ -118,9 +136,9 @@
 				other amenities and services - within a walkable, bikeable distance"</strong
 			> we need to allow for neighborhood-scale mixture of uses within residential areas. Building these
 			sorts of neighborhoods is a direct quote from Portland's Comprehensive Plan and it is also a part
-			of our One Climate Future Plan and a goal of ReCode. Unfortunately, the city staff's current ReCode
-			proposal does very little to expand neighborhood mixed use. The currently proposed changes will
-			only effect a small handful of properties the majority of which are mixed-use already.
+			of Portland's One Climate Future Plan and a goal of ReCode. Unfortunately, the city staff's current
+			ReCode proposal does very little to expand neighborhood mixed use. The currently proposed changes
+			will only effect a small handful of properties the majority of which are mixed-use already.
 		</p>
 		<p>
 			<strong class="text-secondary"
@@ -138,7 +156,7 @@
 		<p>
 			To build more housing we need to ensure that our city's approval process can keep up. Under
 			city staff's current ReCode proposal only buildings with four units or fewer can go through
-			the <strong class="text-secondary">faster, minor site plan review</strong> process. All other building
+			the <strong class="text-secondary">faster, minor site plan review</strong> process. All other buildings
 			will be considered a major site plan whether it is 5 units or 500 units. We can also make it easier
 			to determine if a project is allowed by zoning by making our zoning code simpler. Even with the
 			currently proposed changes Portland has seven residential zones. Combining zones could simplify
