@@ -11,7 +11,7 @@
 	let title = 'UCP - Make Real Change with ReCode';
 	let description =
 		'Urbanist Coalition of Portland: Make real change with our amendments to ReCode';
-	let imageUrl = 'https://urbanistcoalition.org/LUC_cover_blue_logo.jpg';
+	let imageUrl = 'https://urbanistportland.me/LUC_cover_blue_logo.jpg';
 </script>
 
 <svelte:head>
