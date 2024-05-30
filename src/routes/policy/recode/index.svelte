@@ -135,10 +135,11 @@
 				>high quality and affordable housing, schools and other civic functions, food, open space,
 				other amenities and services - within a walkable, bikeable distance"</strong
 			> we need to allow for neighborhood-scale mixture of uses within residential areas. Building these
-			sorts of neighborhoods is a direct quote from Portland's Comprehensive Plan and it is also a part
-			of Portland's One Climate Future Plan and a goal of ReCode. Unfortunately, the city staff's current
-			ReCode proposal does very little to expand neighborhood mixed use. The currently proposed changes
-			will only effect a small handful of properties the majority of which are mixed-use already.
+			sorts of neighborhoods is a goal of Portland's Comprehensive Plan, which is quoted above. It is
+			also a part of Portland's One Climate Future Plan and a goal of ReCode. Unfortunately, the city
+			staff's current ReCode proposal does very little to expand neighborhood mixed use. The currently
+			proposed changes will only effect a small handful of properties the majority of which are mixed-use
+			already.
 		</p>
 		<p>
 			<strong class="text-secondary"
