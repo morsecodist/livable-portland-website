@@ -4,15 +4,15 @@ import { v4 as uuidv4 } from 'uuid';
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 
 export async function post({ request }: RequestEvent) {
-    const obj = await request.json()    
+    const obj = await request.json()
     if (Object.keys(obj).length !== 3) return { status: 400 };
     if (!obj["email"] || !obj["name"] || !obj["listName"]) return { status: 400 };
 
-    const approvedLists = ["ucp-general", "reclaim-franklin", "portland-leviathan"];
+    const approvedLists = ["ucp-general", "reclaim-franklin", "portland-leviathan", "recode"];
     if (!approvedLists.includes(obj["listName"])) return { status: 400 };
 
     const prefix = `mailing-list-signups/${obj["listName"]}`;
-    
+
     const email_blocklist = process.env.EMAIL_BLOCKLIST ? process.env.EMAIL_BLOCKLIST.split(",") : [];
     const email_domain_blocklist = process.env.EMAIL_DOMAIN_BLOCKLIST ? process.env.EMAIL_DOMAIN_BLOCKLIST.split(",") : [];
 
