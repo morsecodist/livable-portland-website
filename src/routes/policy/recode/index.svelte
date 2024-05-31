@@ -85,7 +85,7 @@
 		<p>
 			<strong class="text-secondary"
 				>We are advocating for applying the new Transit Oriented Development Zone category to all of
-				the corridors that we have already identified in Portland's Comprehensive Plan.</strong
+				the corridors that the City has already identified in Portland's Comprehensive Plan.</strong
 			>
 		</p>
 	</ReCodeSection>
@@ -157,7 +157,7 @@
 		<p>
 			To build more housing we need to ensure that our city's approval process can keep up. Under
 			city staff's current ReCode proposal only buildings with four units or fewer can go through
-			the <strong class="text-secondary">faster, minor site plan review</strong> process. All other buildings
+			the <strong class="text-secondary">faster, minor site plan review</strong> process. Any other building
 			will be considered a major site plan whether it is 5 units or 500 units. We can also make it easier
 			to determine if a project is allowed by zoning by making our zoning code simpler. Even with the
 			currently proposed changes Portland has seven residential zones. Combining zones could simplify
