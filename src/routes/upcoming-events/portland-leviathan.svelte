@@ -92,7 +92,7 @@
 		</li>
 		<li class="list-group-item border-0">
 			<div class="fw-bold">Myles Smith, Mainers for Smarter Transportation</div>
-			<span class="fst-italic">On the proposed highway expansion of 295</span>
+			<span class="fst-italic">On the proposed highway expansion</span>
 		</li>
 	</ul>
 
