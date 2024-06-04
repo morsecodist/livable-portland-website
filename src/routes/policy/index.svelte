@@ -27,7 +27,7 @@
 	</div>
 	<div class="col">
 		<ArticleCard
-			src="/recode/11_simplify_zones.png"
+			src="/LUC_cover_blue _cropped.jpg"
 			title="ReCode Recommendations"
 			description="Portland is in the process of changing its zoning code. These are our recommendations for how we can make the most out of this opportunity to improve our neighborhoods."
 			href="/policy/recode"
