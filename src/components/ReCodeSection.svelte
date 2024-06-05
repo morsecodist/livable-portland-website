@@ -3,9 +3,13 @@
 	export let imageSrc: string;
 	export let imageAlt: string;
 	export let i: number;
+
+	function kebabCase(str: string) {
+		return str.toLowerCase().replace(/\s/g, '-');
+	}
 </script>
 
-<div class="row section">
+<div id={kebabCase(title)} class="row section">
 	<div class="col-md-6 order-md-{i % 2 === 0 ? 1 : 2} m-0 p-0">
 		<img src={imageSrc} alt={imageAlt} class="img-fluid" />
 	</div>
