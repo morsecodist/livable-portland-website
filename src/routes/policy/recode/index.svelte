@@ -59,7 +59,9 @@
 			challenges.
 		</p>
 		<ul>
-			<li><a href="/2024.06.03_ReCode_Memo.pdf" target="_blank">Read our memorandum</a></li>
+			<li>
+				<a href="/2024.06.03_ReCode_UCP_Memorandum.pdf" target="_blank">Read our memorandum</a>
+			</li>
 			<li><a href="/2024.06.03_ReCode_One_Pager.pdf" target="_blank">Read our one-pager</a></li>
 		</ul>
 		<button class="btn btn-primary" on:click={getInvolved}>Get Involved</button>
