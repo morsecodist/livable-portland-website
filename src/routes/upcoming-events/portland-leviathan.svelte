@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>UCP - Portland Leviathant</title>
+	<title>UCP - Portland Leviathan</title>
 </svelte:head>
 
 <h1 class="text-primary">Portland Leviathan</h1>
@@ -138,7 +138,6 @@
 
 	<ul>
 		<li>Better Biddeford</li>
-		<li>Franklin Reclamation Authority</li>
 		<li>Franklin Reclamation Authority</li>
 		<li>Grow Smart Maine</li>
 		<li>Libbytown Neighborhood Association</li>
