@@ -53,9 +53,9 @@
 		<b class="text-uppercase">PORTLAND LEVIATHAN 2024</b> will feature talks and discussions considering
 		the broad context of urban highways in America, I-295 in particular, the effects on neighborhoods
 		and communities, an overview of Street Light and other data collection methods, current projects,
-		and plans for the future. There will also be a day time tour of the highway from bridge to bridge,
-		and reception to follow. The conference will take place on Thursday, June 2024, at the Jewish Community
-		Alliance, 1342 Congress Street, Portland Maine, 04102.
+		and plans for the future. There will also a reception following the event. The conference will take
+		place on Thursday, June 2024, at the Jewish Community Alliance, 1342 Congress Street, Portland Maine,
+		04102.
 	</p>
 
 	<h2 class="text-primary">Presenters</h2>
