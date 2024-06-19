@@ -165,3 +165,9 @@
 	</p>
 	<MailingList listName="portland-leviathan" />
 </div>
+
+<style>
+	img {
+		max-width: 100%;
+	}
+</style>
