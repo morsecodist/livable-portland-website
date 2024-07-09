@@ -163,4 +163,10 @@
 		width: 100%;
 		height: 600px;
 	}
+
+	@media (max-width: 768px) {
+		embed {
+			height: 300px;
+		}
+	}
 </style>
