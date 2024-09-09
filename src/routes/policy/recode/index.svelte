@@ -58,12 +58,23 @@
 			least we can do is allow ourselves to build the kind of city that can rise to face these
 			challenges.
 		</p>
-		<ul>
-			<li>
-				<a href="/2024.06.03_ReCode_UCP_Memorandum.pdf" target="_blank">Read our memorandum</a>
-			</li>
-			<li><a href="/2024.06.03_ReCode_One_Pager.pdf" target="_blank">Read our one-pager</a></li>
-		</ul>
+		<h3 class="text-secondary">September 2024 Update!</h3>
+		<p>
+			Portland's planning staff have incorporated feedback and have created a "Final Draft" of the
+			ReCode proposal. It is not too late to make changes. This proposal will go before a planning
+			board workshop on <strong class="text-secondary">Tuesday, September 17th</strong> and a final
+			planning board vote on
+			<strong class="text-secondary">Tuesday, September 24th</strong>. The planning board has the
+			option of amending this draft. After planning board approval, ReCode will go before the City
+			Council for at least two meetings in October or November.
+		</p>
+		<p>
+			Overall, we feel this draft is an improvement but we still feel like this version should do
+			much more to meet the goals of housing, transit, complete neighborhoods, and simplicity. <a
+				href="/policy/recode/staff-final-draft"
+				class="fw-bf">Read our analysis of and recommendations for this latest draft!</a
+			>
+		</p>
 		<button class="btn btn-primary" on:click={getInvolved}>Get Involved</button>
 	</div>
 	<div class="text-start desktop">
