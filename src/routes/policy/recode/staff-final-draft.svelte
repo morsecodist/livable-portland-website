@@ -7,10 +7,10 @@
 			>The Urbanist Coalition of Portland (UCP) supports efforts to modernize Portland&#39;s land
 			use code (ReCode). We have voiced criticism to Planning Staff and the Planning Board that the
 			current proposal is insufficient to address the needs of our city today and into the future.
-			We are encouraged that Planning Staff and the Planning Board have heard feedback from us and
-			other groups taken positive steps towards addressing these concerns in the latest
-			(&ldquo;final&rdquo;) draft of the ReCode changes. However, we still feel that the current
-			proposal should be doing much more to meet the goals of housing, transit, complete
+			We are encouraged that the Planning Staff and the Planning Board have heard feedback from us
+			and other groups. They have taken positive steps towards addressing these concerns in the
+			latest (&ldquo;final&rdquo;) draft of the ReCode changes. However, we still feel that the
+			current proposal should be doing more to meet the goals of housing, transit, complete
 			neighborhoods, and simplicity.</span
 		>
 	</p>
