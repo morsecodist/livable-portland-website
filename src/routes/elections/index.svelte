@@ -108,14 +108,16 @@
 			We wanted to hear from city council candidates about whether they support our main policy
 			priorities, how they plan to accomplish those goals on the council, and what new ideas they’re
 			bringing to the table. We asked a lot of questions, and the candidates had a lot to say. You
-			can find the complete responses of each candidate below, filterable by candidate or council race.
+			can find the complete responses of each candidate below, filterable by candidate or council
+			race.
 		</p>
 		<p>
 			You can read our condensed summary of the responses given by At-Large and D2 candidates and a
 			table of how UCP graded their responses in the October 2024 issue of the West End News (link
 			when available, ~October 3rd). Our organization’s founder and president, Robert Todd Morse, is
-			a candidate in the D1 council race. The responses of both D1 candidates are presented on the
-			UCP website only, without grading or commentary.
+			a candidate in the D1 council race. He was not involved with the drafting of this
+			questionnaire. The responses of both D1 candidates are presented on the UCP website only,
+			without grading or commentary.
 		</p>
 	</article>
 	<div class="filter-items">
