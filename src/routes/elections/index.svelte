@@ -115,9 +115,9 @@
 			You can read our condensed summary of the responses given by At-Large and D2 candidates and a
 			table of how UCP graded their responses in the October 2024 issue of the West End News (link
 			when available, ~October 3rd). Our organization’s founder and president, Robert Todd Morse, is
-			a candidate in the D1 council race. He was not involved with the drafting of this
-			questionnaire. The responses of both D1 candidates are presented on the UCP website only,
-			without grading or commentary.
+			a candidate in the D1 council race. The responses of both D1 candidates are presented on the
+			UCP website only, without grading or commentary, and Morse was not involved in the collecting
+			and grading of any candidate responses.
 		</p>
 	</article>
 	<div class="filter-items">
