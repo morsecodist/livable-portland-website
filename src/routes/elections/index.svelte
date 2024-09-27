@@ -17,9 +17,9 @@
 	}
 
 	onMount(async () => {
-		questions = await fetchData('../../static/election/2024_questions.json');
-		answers = await fetchData('../../static/election/2024_answers.json');
-		candidates = await fetchData('../../static/election/2024_candidates.json');
+		questions = await fetchData('/election/2024_questions.json');
+		answers = await fetchData('/election/2024_answers.json');
+		candidates = await fetchData('/election/2024_candidates.json');
 		updateFilteredCandidatesAndAnswers();
 	});
 
