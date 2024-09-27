@@ -1,0 +1,62 @@
+[
+    {
+        "questionId": 1,
+        "category": "ReCode and Land Use",
+        "question": "What do you like/dislike about the latest ReCode draft prepared by the Planning Department? How do you feel it aligns with Portland’s Plan 2030?"
+    },
+    {
+        "questionId": 2,
+        "category": "ReCode and Land Use",
+        "question": "How should Portland (and/or your district) use zoning ordinances to address the housing crisis?"
+    },
+    {
+        "questionId": 3,
+        "category": "Housing",
+        "question": "Portland’s Plan 2030 states that we will “[p]ursue policies to enable people who work in Portland to have the option to live in Portland.” The state’s recent Housing Needs Assessment reports that 78.1% of the people who work in Portland do not live in Portland (2021 data). Should more people live in Portland? If so, what specific actions would you take as City Councilor to achieve this?"
+    },
+    {
+        "questionId": 4,
+        "category": "Housing",
+        "question": "How will you increase the housing supply in Portland as City Councilor? Do you have a goal of how many units of housing we should be adding? How will you measure success on this issue during your term as a City Councilor?"
+    },
+    {
+        "questionId": 5,
+        "category": "Transit and Transportation",
+        "question": "Do you ever take the bus in Portland? If not, why not? What do you like/dislike about the experience? What improvements will you advocate for as a City Councilor?"
+    },
+    {
+        "questionId": 6,
+        "category": "Transit and Transportation",
+        "question": "There is a constant demand for parking in Portland, yet car parking is one of the lowest value uses for urban land and generates the least amount of property taxes. Would you support increasing parking rates and/or extending enforcement to bring pricing in line with value?"
+    },
+    {
+        "questionId": 7,
+        "category": "Pedestrians and Cycling",
+        "question": "Do you ever bicycle in Portland? If not, why not? What do you like/dislike about the experience? What improvements will you advocate for as a City Councilor?"
+    },
+    {
+        "questionId": 8,
+        "category": "Pedestrians and Cycling",
+        "question": "Vision Zero is a campaign whose goal is eliminating traffic fatalities and severe injuries among all road users — while increasing safe, healthy, equitable mobility. GPCOG has made a VZ pledge, the City of Portland has not. How will you move Portland closer to eliminating traffic fatalities as a City Councilor?"
+    },
+    {
+        "questionId": 9,
+        "category": "Pedestrians and Cycling",
+        "question": "Do you support increasing climate-friendly transit options (constructed bike lanes, bus lanes, etc.) at the expense of reduced on-street parking?"
+    },
+    {
+        "questionId": 10,
+        "category": "Pedestrians and Cycling",
+        "question": "Are there any other actions you would take to improve bike and pedestrian travel around the city?"
+    },
+    {
+        "questionId": 11,
+        "category": "Franklin Street",
+        "question": "The Franklin Reclamation Authority has shown that a redesign of Franklin Street has the potential to create a tree-lined urban street that works better for people walking, biking, and driving while freeing up to 6 acres of land for potential housing and economic development. When considering bids for the Franklin RFP and the design options that will result from it, will you support reclaiming these 6 acres for housing development? What specific features do you envision as part of the Franklin Street redesign and how will you advocate for them? How will you advance the plan as City Councilor?"
+    },
+    {
+        "questionId": 12,
+        "category": "Franklin Street",
+        "question": "Mayor Dion has shown interest in simplifying/streamlining city permitting processes. What opportunities do you see for improving existing city permitting processes?"
+    }
+]
