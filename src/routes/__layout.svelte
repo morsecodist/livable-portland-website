@@ -23,10 +23,6 @@
 		{
 			title: 'Events',
 			path: '/events'
-		},
-		{
-			title: 'What the candidates say',
-			path: '/elections'
 		}
 	].map((obj) => ({
 		...obj,
