@@ -120,6 +120,7 @@
 			and grading of any candidate responses.
 		</p>
 	</article>
+	<img src="/election/candidate_table.svg" alt="Candidate scoring table"/>
 	<div class="filter-items">
 		{#each districts as district, index}
 			<button
